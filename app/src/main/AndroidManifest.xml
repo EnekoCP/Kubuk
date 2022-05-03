@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.Kubuk">
         <activity
+            android:name=".AddRecetaActivity"
+            android:exported="false" />
+        <activity
+            android:name=".EditRecetaActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
