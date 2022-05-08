@@ -1,3 +1,11 @@
 <resources>
     <string name="app_name">Kubuk</string>
+    <string name="emailVacio">El email no puede estar vacío.</string>
+    <string name="emailNoValido">El email introducido no es correcto.</string>
+    <string name="emailYaExiste">El email introducido ya está registrado.</string>
+    <string name="contraseñaIncorrecta">Contraseña incorrecta, inténtelo de nuevo.</string>
+    <string name="passwdVacia">La contraseña no puede estar vacía.</string>
+    <string name="passwdLarga">La contraseña debe tener entre 8 y 15 caracteres</string>
+    <string name="passwdNoCoincide">Las contraseñas no coinciden.</string>
+    <string name="errorServidor">No se ha podido establecer la conexion con el servidor. Prueba de nuevo más tarde</string>
 </resources>
