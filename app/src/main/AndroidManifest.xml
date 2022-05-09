@@ -16,6 +16,9 @@
             android:name=".login.LoginActivity"
             android:exported="false" />
         <activity
+            android:name=".AddRecetaActivity2"
+            android:exported="false" />
+        <activity
             android:name=".AddRecetaActivity"
             android:exported="false" />
         <activity
