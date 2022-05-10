@@ -1,36 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="400dp"
-    android:layout_height="200dp"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
     app:cardCornerRadius="10dp"
     app:cardElevation="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        >
+        android:layout_width="411dp"
+        android:layout_height="100dp">
 
         <TextView
             android:id="@+id/titulo"
-            android:layout_width="400dp"
-            android:layout_height="100dp"
-            tools:layout_editor_absoluteX="5dp"
-            tools:layout_editor_absoluteY="9dp"
-            tools:ignore="MissingConstraints" />
+            android:layout_width="323dp"
+            android:layout_height="22dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="22dp"
+            android:layout_marginBottom="44dp"
+            app:layout_constraintBottom_toTopOf="@+id/rating"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.666"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
         <RatingBar
             android:id="@+id/rating"
-            android:layout_width="245dp"
-            android:layout_height="50dp"
-            android:layout_weight="1065353216.000000"
+            android:layout_width="244dp"
+            android:layout_height="40dp"
+            android:layout_marginStart="66dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginEnd="100dp"
             android:isIndicator="true"
             android:numStars="5"
-            android:stepSize="1065353216.000000"
-            tools:layout_editor_absoluteX="69dp"
-            tools:layout_editor_absoluteY="109dp"
-            tools:ignore="MissingConstraints" />
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="1.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/titulo" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.cardview.widget.CardView>

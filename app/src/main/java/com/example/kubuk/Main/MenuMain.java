@@ -4,10 +4,13 @@ import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.Toast;
+
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -29,6 +32,17 @@ public class MenuMain extends AppCompatActivity implements Response.Listener<Str
    ArrayList rclista = new ArrayList();
    RequestQueue request;
 
+   protected void onCreate(Bundle var1) {
+      super.onCreate(var1);
+      this.setContentView(R.layout.activity_recetas_comunidad);
+      Log.i("ha entrado","en la clase mainmenu");
+      Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
+      setSupportActionBar(myToolbar);
+      myToolbar.setSubtitleTextColor(0);
+
+      request = Volley.newRequestQueue(this.getApplicationContext());
+      cargarWebService();
+   }
    private void cargarWebService() {
       StringRequest var1 = new StringRequest(Request.Method.GET, "http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/everhorst001/WEB/Kubuk/conseguirRecetas.php".replace(" ", "%20"), this, this);
       request.add(var1);
@@ -48,22 +62,15 @@ public class MenuMain extends AppCompatActivity implements Response.Listener<Str
       return var3;
    }
 
-   protected void onCreate(Bundle var1) {
-      super.onCreate(var1);
-      this.setContentView(R.layout.activity_recetas_comunidad);
-      Log.i("ha entrado","en la clase mainmenu");
-      request = Volley.newRequestQueue(this.getApplicationContext());
-      cargarWebService();
-   }
 
-   public boolean onCreateOptionsMenu(Menu var1) {
-      this.getMenuInflater().inflate(R.menu.menu, var1);
+
+   @Override
+   public boolean onCreateOptionsMenu(Menu menu) {
+      MenuInflater inflater = getMenuInflater();
+      inflater.inflate(R.menu.menu, menu);
       return true;
    }
 
-   public void onErrorResponse(VolleyError var1) {
-      Log.i("el error", var1.toString());
-   }
 
    public boolean onOptionsItemSelected(MenuItem var1) {
       switch (var1.getItemId()) {
@@ -81,6 +88,9 @@ public class MenuMain extends AppCompatActivity implements Response.Listener<Str
       }
    }
 
+   public void onErrorResponse(VolleyError var1) {
+      Log.i("el error", var1.toString());
+   }
 
    @SuppressLint("ResourceType")
    @Override
@@ -88,7 +98,6 @@ public class MenuMain extends AppCompatActivity implements Response.Listener<Str
       Log.d("Respuesta", response.trim());
       String var3 = response.trim();
       if (!var3.equals("false")) {
-         Log.i("titulo", var3);
 
          label31: {
             JSONException var10000;
@@ -113,17 +122,16 @@ public class MenuMain extends AppCompatActivity implements Response.Listener<Str
 
                      String var6 = var14.getJSONObject(var2).getString("titulo");
                      String var5 = var14.getJSONObject(var2).getString("ingredientes");
-                     response = var14.getJSONObject(var2).getString("preparacion");
+                     String prep = var14.getJSONObject(var2).getString("preparacion");
                      String var4 = var14.getJSONObject(var2).getString("puntuacion");
                      String var7 = var14.getJSONObject(var2).getString("usuario");
                      StringBuilder var8 = new StringBuilder();
                      Log.i("receta", var8.append(var6).append(var5).append(response).append(var7).toString());
-                     RecetasComunidad var15 = new RecetasComunidad(var6, new String[]{var5}, response, var7);
+                     RecetasComunidad var15 = new RecetasComunidad(var6, new String[]{var5}, prep, var7);
                      var15.setPuntuacion(Integer.parseInt(var4));
                      this.rclista.add(var15);
                   } catch (JSONException var9) {
                      var10000 = var9;
-                     var10001 = false;
                      break;
                   }
 
