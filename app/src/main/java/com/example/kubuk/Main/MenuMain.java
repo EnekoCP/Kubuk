@@ -1,5 +1,6 @@
 package com.example.kubuk.Main;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -12,12 +13,14 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.kubuk.R;
+
 import java.util.ArrayList;
 import java.util.List;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-public class MenuMain extends AppCompatActivity implements Response.Listener, Response.ErrorListener {
+public class MenuMain extends AppCompatActivity implements Response.Listener<String>, Response.ErrorListener {
    List itemList;
    AdapterListView listViewDataAdapter;
    ListView listViewWithCheckbox;
@@ -45,13 +48,13 @@ public class MenuMain extends AppCompatActivity implements Response.Listener, Re
 
    protected void onCreate(Bundle var1) {
       super.onCreate(var1);
-      this.setContentView(R.i);
+      this.setContentView(R.layout.activity_recetas_comunidad);
       this.request = Volley.newRequestQueue(this.getApplicationContext());
       this.cargarWebService();
    }
 
    public boolean onCreateOptionsMenu(Menu var1) {
-      this.getMenuInflater().inflate(2131492868, var1);
+      this.getMenuInflater().inflate(R.menu.menu, var1);
       return true;
    }
 
@@ -61,22 +64,24 @@ public class MenuMain extends AppCompatActivity implements Response.Listener, Re
 
    public boolean onOptionsItemSelected(MenuItem var1) {
       switch (var1.getItemId()) {
-         case 2131231029:
-            Toast.makeText(this, "deberia entrar en la comunidad", 0).show();
+         case R.id.recetascomunidad:
+            Toast.makeText(this, "deberia entrar en la comunidad", Toast.LENGTH_LONG).show();
             return true;
-         case 2131231030:
-            Toast.makeText(this, "debería entrar en la lista de mis recetas", 0).show();
+         case R.id.misrecetas:
+            Toast.makeText(this, "debería entrar en la lista de mis recetas", Toast.LENGTH_LONG).show();
             return true;
-         case 2131231031:
-            Toast.makeText(this, "deberia entrar en la lista de la compra", 0).show();
+         case R.id.listacompra:
+            Toast.makeText(this, "deberia entrar en la lista de la compra", Toast.LENGTH_LONG).show();
             return true;
          default:
             return super.onOptionsItemSelected(var1);
       }
    }
 
+
+   @SuppressLint("ResourceType")
    @Override
-   public void onResponse(String response){
+   public void onResponse(String response) {
       Log.d("Respuesta", response.trim());
       String var3 = response.trim();
       if (!var3.equals("false")) {
@@ -128,7 +133,7 @@ public class MenuMain extends AppCompatActivity implements Response.Listener, Re
          }
 
          this.display(this.rclista);
-         this.listViewWithCheckbox = (ListView)this.findViewById(2131231220);
+         this.listViewWithCheckbox = (ListView)this.findViewById(R.layout.activity_list_item_receta);
          List var12 = this.display(this.rclista);
          this.itemList = var12;
          Log.i("ha hecho bienel display", var12.toString());
@@ -137,7 +142,5 @@ public class MenuMain extends AppCompatActivity implements Response.Listener, Re
          var13.notifyDataSetChanged();
          this.listViewWithCheckbox.setAdapter(this.listViewDataAdapter);
       }
-
    }
-
-   }
+}
