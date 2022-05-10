@@ -35,7 +35,7 @@ public class RegisterActivity extends AppCompatActivity implements Response.List
 
         request = Volley.newRequestQueue(getApplicationContext());
 
-        registerBoton = findViewById(R.id.buttonRegistro);
+        registerBoton = findViewById(R.id.buttonAcceder);
 
         registerBoton.setOnClickListener(view -> {
             if (validarRegistro()){ //En caso de que todos los datos sean correctos:
@@ -44,8 +44,6 @@ public class RegisterActivity extends AppCompatActivity implements Response.List
         });
 
     }
-
-
 
     /** Método utilizado para validar el inicio de sesión con los datos que existen en la BBDD remota */
     private void cargarWebService() {

@@ -22,7 +22,7 @@ import java.util.regex.Pattern;
 public class LoginActivity extends AppCompatActivity implements Response.Listener<String>, Response.ErrorListener {
 
     EditText textEmail, textPasswd;
-    Button loginBoton;
+    Button loginBoton, registerBoton;
     RequestQueue request;
 
     @Override
@@ -36,12 +36,18 @@ public class LoginActivity extends AppCompatActivity implements Response.Listene
 
         request = Volley.newRequestQueue(getApplicationContext());
 
-        loginBoton = findViewById(R.id.buttonRegistro);
+        loginBoton = findViewById(R.id.buttonAcceder);
 
         loginBoton.setOnClickListener(view -> {
             if (validarDatos()){ //En caso de que todos los datos sean correctos:
                 cargarWebService();
             }
+        });
+
+        registerBoton = findViewById(R.id.buttonRegistrarse);
+
+        registerBoton.setOnClickListener(view -> {
+            registrarse();
         });
 
     }
