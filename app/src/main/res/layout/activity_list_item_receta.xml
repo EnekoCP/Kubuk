@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="1"
+    android:layout_width="-1"
+    android:layout_height="-2"
+    android:layout_margin="dimension(2049)"
+    app:cardCornerRadius="dimension(513)"
+    app:cardElevation="dimension(1537)">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:orientation="1"
+        android:padding="dimension(3073)"
+        android:layout_width="-1"
+        android:layout_height="dimension(32001)">
+
+        <TextView
+            android:textSize="dimension(5122)"
+            android:textStyle="0x1"
+            android:gravity="0x11"
+            android:id="@ref/0x7f0801f8"
+            android:layout_width="dimension(91905)"
+            android:layout_height="dimension(14081)"
+            android:layout_marginBottom="dimension(1537)"
+            android:layout_weight="1065353216.000000"
+            app:layout_constraintBottom_toTopOf="@ref/0x7f0801f5"
+            app:layout_constraintEnd_toEndOf="0"
+            app:layout_constraintStart_toStartOf="0"
+            app:layout_constraintTop_toTopOf="0" />
+
+        <RatingBar
+            android:id="@ref/0x7f0801f5"
+            android:layout_width="dimension(60417)"
+            android:layout_height="dimension(13825)"
+            android:layout_marginBottom="dimension(1537)"
+            android:numStars="5"
+            android:stepSize="1065353216.000000"
+            android:isIndicator="true"
+            android:layout_weight="1065353216.000000"
+            android:layout_marginStart="dimension(17153)"
+            android:layout_marginEnd="dimension(20481)"
+            app:layout_constraintBottom_toBottomOf="0"
+            app:layout_constraintEnd_toEndOf="0"
+            app:layout_constraintStart_toStartOf="0"
+            app:layout_constraintTop_toBottomOf="@ref/0x7f0801f8"
+            app:layout_constraintVertical_bias="1053844032.000000" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</androidx.cardview.widget.CardView>
