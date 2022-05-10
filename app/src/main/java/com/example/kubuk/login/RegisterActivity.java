@@ -35,7 +35,7 @@ public class RegisterActivity extends AppCompatActivity implements Response.List
 
         request = Volley.newRequestQueue(getApplicationContext());
 
-        registerBoton = findViewById(R.id.buttonAcceder);
+        registerBoton = findViewById(R.id.accederButton);
 
         registerBoton.setOnClickListener(view -> {
             if (validarRegistro()){ //En caso de que todos los datos sean correctos:

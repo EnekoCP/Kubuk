@@ -36,7 +36,7 @@ public class LoginActivity extends AppCompatActivity implements Response.Listene
 
         request = Volley.newRequestQueue(getApplicationContext());
 
-        loginBoton = findViewById(R.id.buttonAcceder);
+        loginBoton = findViewById(R.id.accederButton);
 
         loginBoton.setOnClickListener(view -> {
             if (validarDatos()){ //En caso de que todos los datos sean correctos:
@@ -88,8 +88,7 @@ public class LoginActivity extends AppCompatActivity implements Response.Listene
 
     /** Método utilizado para validar el inicio de sesión con los datos que existen en la BBDD remota */
     private void cargarWebService() {
-        
-        //TODO: Modificar el php con la BBDD remota a usar
+
         String url = "http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/lgonzalez184/WEB/inicioSesionKubuk.php?email="
                 +textEmail.getText().toString() + "&passwd=" +textPasswd.getText().toString();
 
