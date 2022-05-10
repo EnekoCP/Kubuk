@@ -31,12 +31,12 @@ public class LoginActivity extends AppCompatActivity implements Response.Listene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        textEmail = findViewById(R.id.textEmailLogin);
-        textPasswd = findViewById(R.id.textPasswordLogin);
+        textEmail = findViewById(R.id.textEmailReg);
+        textPasswd = findViewById(R.id.textPasswordReg1);
 
         request = Volley.newRequestQueue(getApplicationContext());
 
-        loginBoton = findViewById(R.id.buttonLogin);
+        loginBoton = findViewById(R.id.buttonRegistro);
 
         loginBoton.setOnClickListener(view -> {
             if (validarDatos()){ //En caso de que todos los datos sean correctos:
@@ -84,7 +84,7 @@ public class LoginActivity extends AppCompatActivity implements Response.Listene
     private void cargarWebService() {
         
         //TODO: Modificar el php con la BBDD remota a usar
-        String url = "http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/lgonzalez184/WEB/inicioSesion.php?email="
+        String url = "http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/lgonzalez184/WEB/inicioSesionKubuk.php?email="
                 +textEmail.getText().toString() + "&passwd=" +textPasswd.getText().toString();
 
         url = url.replace(" ", "%20");
@@ -110,6 +110,5 @@ public class LoginActivity extends AppCompatActivity implements Response.Listene
         finish();
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
-
     }
 }

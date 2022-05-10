@@ -114,7 +114,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/captura_de_pantalla_de_2022_05_09_19_12_18" />
+        app:srcCompat="@drawable/logo_grande" />
 
     <Button
         android:id="@+id/button3"
