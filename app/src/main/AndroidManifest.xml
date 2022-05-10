@@ -16,13 +16,13 @@
             android:name=".login.LoginActivity"
             android:exported="false" />
         <activity
-            android:name=".AddRecetaActivity2"
+            android:name=".AddEditRecetas.AddRecetaActivity2"
             android:exported="false" />
         <activity
-            android:name=".AddRecetaActivity"
+            android:name=".AddEditRecetas.AddRecetaActivity"
             android:exported="false" />
         <activity
-            android:name=".EditRecetaActivity"
+            android:name=".AddEditRecetas.EditRecetaActivity"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

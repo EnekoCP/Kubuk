@@ -1,8 +1,10 @@
-package com.example.kubuk;
+package com.example.kubuk.AddEditRecetas;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.example.kubuk.R;
 
 public class AddRecetaActivity2 extends AppCompatActivity {
 
