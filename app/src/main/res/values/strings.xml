@@ -8,4 +8,6 @@
     <string name="passwdLarga">La contraseña debe tener entre 8 y 15 caracteres</string>
     <string name="passwdNoCoincide">Las contraseñas no coinciden.</string>
     <string name="errorServidor">No se ha podido establecer la conexion con el servidor. Prueba de nuevo más tarde</string>
+    <string name="nombreVacio">El nombre no puede estar vacío.</string>
+    <string name="nombreLargo">El nombre no puede tener más de 10 caracteres.</string>
 </resources>

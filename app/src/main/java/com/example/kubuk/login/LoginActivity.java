@@ -22,7 +22,7 @@ import java.util.regex.Pattern;
 public class LoginActivity extends AppCompatActivity implements Response.Listener<String>, Response.ErrorListener {
 
     EditText textEmail, textPasswd;
-    Button loginBoton;
+    Button loginBoton, registerBoton;
     RequestQueue request;
 
     @Override
@@ -31,17 +31,23 @@ public class LoginActivity extends AppCompatActivity implements Response.Listene
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        textEmail = findViewById(R.id.textEmailLogin);
-        textPasswd = findViewById(R.id.textPasswordLogin);
+        textEmail = findViewById(R.id.textEmailReg);
+        textPasswd = findViewById(R.id.textPasswordReg1);
 
         request = Volley.newRequestQueue(getApplicationContext());
 
-        loginBoton = findViewById(R.id.buttonLogin);
+        loginBoton = findViewById(R.id.accederButton);
 
         loginBoton.setOnClickListener(view -> {
             if (validarDatos()){ //En caso de que todos los datos sean correctos:
                 cargarWebService();
             }
+        });
+
+        registerBoton = findViewById(R.id.buttonRegistrarse);
+
+        registerBoton.setOnClickListener(view -> {
+            registrarse();
         });
 
     }
@@ -82,9 +88,8 @@ public class LoginActivity extends AppCompatActivity implements Response.Listene
 
     /** Método utilizado para validar el inicio de sesión con los datos que existen en la BBDD remota */
     private void cargarWebService() {
-        
-        //TODO: Modificar el php con la BBDD remota a usar
-        String url = "http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/lgonzalez184/WEB/inicioSesion.php?email="
+
+        String url = "http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/lgonzalez184/WEB/inicioSesionKubuk.php?email="
                 +textEmail.getText().toString() + "&passwd=" +textPasswd.getText().toString();
 
         url = url.replace(" ", "%20");
@@ -110,6 +115,5 @@ public class LoginActivity extends AppCompatActivity implements Response.Listene
         finish();
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
-
     }
 }
