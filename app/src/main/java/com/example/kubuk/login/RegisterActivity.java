@@ -1,6 +1,8 @@
 package com.example.kubuk.login;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Button;
@@ -13,6 +15,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.kubuk.Main.MenuMain;
 import com.example.kubuk.R;
 
 import java.util.regex.Pattern;
@@ -67,6 +70,8 @@ public class RegisterActivity extends AppCompatActivity implements Response.List
 
     @Override
     public void onResponse(String response) {
+        Intent i= new Intent(RegisterActivity.this, MenuMain.class);
+        startActivity(i);
         //TODO
     }
 

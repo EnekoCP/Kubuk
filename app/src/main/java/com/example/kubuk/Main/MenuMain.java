@@ -8,6 +8,8 @@ import android.view.MenuItem;
 import android.widget.ListView;
 import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
 import com.android.volley.VolleyError;
@@ -21,19 +23,19 @@ import org.json.JSONArray;
 import org.json.JSONException;
 
 public class MenuMain extends AppCompatActivity implements Response.Listener<String>, Response.ErrorListener {
-   List itemList;
+   List<RecetasComunidad> itemList;
    AdapterListView listViewDataAdapter;
    ListView listViewWithCheckbox;
    ArrayList rclista = new ArrayList();
    RequestQueue request;
 
    private void cargarWebService() {
-      StringRequest var1 = new StringRequest(0, "http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/everhorst001/WEB/Kubuk/conseguirRecetas.php".replace(" ", "%20"), this, this);
-      this.request.add(var1);
+      StringRequest var1 = new StringRequest(Request.Method.GET, "http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/everhorst001/WEB/Kubuk/conseguirRecetas.php".replace(" ", "%20"), this, this);
+      request.add(var1);
    }
 
-   private List display(ArrayList var1) {
-      ArrayList var3 = new ArrayList();
+   private List<RecetasComunidad> display(ArrayList var1) {
+      ArrayList<RecetasComunidad> var3 = new ArrayList();
 
       for(int var2 = 0; var2 < var1.size(); ++var2) {
          Log.i("recetakop", " " + var1.size());
@@ -49,8 +51,9 @@ public class MenuMain extends AppCompatActivity implements Response.Listener<Str
    protected void onCreate(Bundle var1) {
       super.onCreate(var1);
       this.setContentView(R.layout.activity_recetas_comunidad);
-      this.request = Volley.newRequestQueue(this.getApplicationContext());
-      this.cargarWebService();
+      Log.i("ha entrado","en la clase mainmenu");
+      request = Volley.newRequestQueue(this.getApplicationContext());
+      cargarWebService();
    }
 
    public boolean onCreateOptionsMenu(Menu var1) {
@@ -132,15 +135,13 @@ public class MenuMain extends AppCompatActivity implements Response.Listener<Str
             var11.printStackTrace();
          }
 
-         this.display(this.rclista);
-         this.listViewWithCheckbox = (ListView)this.findViewById(R.layout.activity_list_item_receta);
-         List var12 = this.display(this.rclista);
-         this.itemList = var12;
-         Log.i("ha hecho bienel display", var12.toString());
-         AdapterListView var13 = new AdapterListView(this.getApplicationContext(), this.itemList);
-         this.listViewDataAdapter = var13;
+         listViewWithCheckbox = (ListView)findViewById(R.id.listview);
+         itemList = display(rclista);
+         Log.i("ha hecho bienel display", itemList.toString());
+         AdapterListView var13 = new AdapterListView(getApplicationContext(),itemList);
+         listViewDataAdapter = var13;
          var13.notifyDataSetChanged();
-         this.listViewWithCheckbox.setAdapter(this.listViewDataAdapter);
+         listViewWithCheckbox.setAdapter(listViewDataAdapter);
       }
    }
 }

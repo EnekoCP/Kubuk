@@ -15,6 +15,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.kubuk.Main.MenuMain;
 import com.example.kubuk.R;
 
 import java.util.regex.Pattern;
@@ -41,6 +42,8 @@ public class LoginActivity extends AppCompatActivity implements Response.Listene
         loginBoton.setOnClickListener(view -> {
             if (validarDatos()){ //En caso de que todos los datos sean correctos:
                 cargarWebService();
+                Intent i= new Intent(LoginActivity.this, MenuMain.class);
+                startActivity(i);
             }
         });
 

@@ -6,6 +6,9 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.RatingBar;
 import android.widget.TextView;
+
+import com.example.kubuk.R;
+
 import java.util.List;
 
 public class AdapterListView extends BaseAdapter {
@@ -46,9 +49,9 @@ public class AdapterListView extends BaseAdapter {
       if (var2 != null) {
          var6 = (ListViewItemViewHolder)var2.getTag();
       } else {
-         var2 = View.inflate(this.ctx, 2131427450, (ViewGroup)null);
-         RatingBar var4 = (RatingBar)var2.findViewById(2131231221);
-         TextView var5 = (TextView)var2.findViewById(2131231224);
+         var2 = View.inflate(this.ctx, R.layout.activity_list_item_receta, (ViewGroup)null);
+         RatingBar var4 = (RatingBar)var2.findViewById(R.id.rating);
+         TextView var5 = (TextView)var2.findViewById(R.id.titulo);
          var6 = new ListViewItemViewHolder(var2);
          var6.setItemRate(var4);
          var6.setItemTextView(var5);

@@ -32,6 +32,9 @@
             android:name=".AddEditRecetas.EditRecetaActivity"
             android:exported="false" />
         <activity
+            android:name=".Main.MenuMain"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
