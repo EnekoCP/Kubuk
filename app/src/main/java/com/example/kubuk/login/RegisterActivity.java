@@ -43,6 +43,8 @@ public class RegisterActivity extends AppCompatActivity implements Response.List
         registerBoton.setOnClickListener(view -> {
             if (validarRegistro()){ //En caso de que todos los datos sean correctos:
                 cargarWebService();
+                Intent i= new Intent(this, LoginActivity.class);
+                startActivity(i);
             }
         });
 
