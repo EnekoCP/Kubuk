@@ -6,6 +6,10 @@
         <entry key="..\:/Users/leire/Desktop/Kubuk/app/src/main/res/layout/activity_login.xml" value="0.22447916666666667" />
         <entry key="..\:/Users/leire/Desktop/Kubuk/app/src/main/res/layout/activity_main.xml" value="0.15760869565217392" />
         <entry key="..\:/Users/leire/Desktop/Kubuk/app/src/main/res/layout/activity_register.xml" value="0.22" />
+        <entry key="..\:/Users/maiar/AndroidStudioProjects/Kubuk/app/src/main/res/layout-land/activity_login.xml" value="0.21516754850088182" />
+        <entry key="..\:/Users/maiar/AndroidStudioProjects/Kubuk/app/src/main/res/layout-land/activity_register.xml" value="0.21516754850088182" />
+        <entry key="..\:/Users/maiar/AndroidStudioProjects/Kubuk/app/src/main/res/layout/activity_login.xml" value="0.22780797101449277" />
+        <entry key="..\:/Users/maiar/AndroidStudioProjects/Kubuk/app/src/main/res/layout/activity_register.xml" value="0.176" />
         <entry key="app/src/main/res/layout/activity_add_receta.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_add_receta2.xml" value="0.34193840579710144" />
         <entry key="app/src/main/res/layout/activity_edit_receta.xml" value="0.34193840579710144" />
@@ -19,7 +23,7 @@
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="1.8" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
