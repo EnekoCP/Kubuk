@@ -104,7 +104,7 @@
         app:srcCompat="@drawable/logo_grande" />
 
     <Button
-        android:id="@+id/button2"
+        android:id="@+id/añadirReceta"
         android:layout_width="159dp"
         android:layout_height="45dp"
         android:layout_marginStart="124dp"

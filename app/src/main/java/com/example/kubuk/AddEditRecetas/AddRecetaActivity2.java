@@ -24,6 +24,7 @@ import android.util.Base64;
 import android.util.Size;
 import android.view.OrientationEventListener;
 import android.view.Surface;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
@@ -56,7 +57,7 @@ public class AddRecetaActivity2 extends AppCompatActivity {
 
 
     ImageView imagen1, imagen2, imagen3;
-    Button capturar;
+    Button capturar,añadir;
     EditText observaciones;
 
     int cont;
@@ -74,6 +75,8 @@ public class AddRecetaActivity2 extends AppCompatActivity {
         observaciones = findViewById(R.id.observaciones);
 
         mPreviewView = findViewById(R.id.camera);
+
+        añadir = findViewById(R.id.añadirReceta);
 
         cont=0;
 
@@ -209,8 +212,6 @@ public class AddRecetaActivity2 extends AppCompatActivity {
                             byte[] fototransformada = stream.toByteArray();
                             String fotoen64 = Base64.encodeToString(fototransformada, Base64.DEFAULT);
 
-                            //realizarGuardado(fotoen64);
-
 
                             Bitmap finalRecortado = imagenBitmap;
 
@@ -235,11 +236,18 @@ public class AddRecetaActivity2 extends AppCompatActivity {
                         }
                     });
         });
+
+        añadir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                realizarGuardado(foto1, foto2, foto3);
+            }
+        });
     }
 
-    private void realizarGuardado(final String foto) {
+    private void realizarGuardado(final String foto1, final String foto2, final String foto3) {
         StringRequest stringRequest = new StringRequest(Request.Method.POST,
-                "http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/ecalvo023/WEB/imagenes.php",
+                "http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/ecalvo023/WEB/add2.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -255,8 +263,13 @@ public class AddRecetaActivity2 extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> parametros = new Hashtable<String, String>();
-                parametros.put("imagen", foto);
-                //parametros.put("user",User.getUsuario());
+                parametros.put("imagen1", foto);
+                parametros.put("imagen2", foto);
+                parametros.put("imagen3", foto);
+                parametros.put("observaciones", observaciones.getText().toString());
+                parametros.put("name", foto);
+
+
 
                 return parametros;
             }
