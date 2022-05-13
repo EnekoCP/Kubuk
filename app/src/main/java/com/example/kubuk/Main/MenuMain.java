@@ -1,6 +1,7 @@
 package com.example.kubuk.Main;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -19,6 +20,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.kubuk.R;
+import com.example.kubuk.myRecipes.MyRecipes;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -79,6 +81,8 @@ public class MenuMain extends AppCompatActivity implements Response.Listener<Str
             return true;
          case R.id.misrecetas:
             Toast.makeText(this, "debería entrar en la lista de mis recetas", Toast.LENGTH_LONG).show();
+            Intent i= new Intent(MenuMain.this, MyRecipes.class);
+            startActivity(i);
             return true;
          case R.id.listacompra:
             Toast.makeText(this, "deberia entrar en la lista de la compra", Toast.LENGTH_LONG).show();
@@ -89,7 +93,7 @@ public class MenuMain extends AppCompatActivity implements Response.Listener<Str
    }
 
    public void onErrorResponse(VolleyError var1) {
-      Log.i("el error", var1.toString());
+      var1.printStackTrace();
    }
 
    @SuppressLint("ResourceType")

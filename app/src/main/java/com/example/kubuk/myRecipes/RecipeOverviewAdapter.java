@@ -1,6 +1,9 @@
 package com.example.kubuk.myRecipes;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
+import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +15,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.kubuk.AddEditRecetas.EditRecetaActivity;
 import com.example.kubuk.R;
 
 import java.util.List;
@@ -46,29 +50,29 @@ public class RecipeOverviewAdapter extends RecyclerView.Adapter<RecipeOverviewAd
         holder.btnEditar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*
-                Intent miIntent = new Intent(context, IntroducirDatosActivity.class);
+                Intent miIntent = new Intent(context, EditRecetaActivity.class);
                 Bundle bundle = new Bundle();
                 bundle.putSerializable("nota", miReceta);
                 miIntent.putExtras(bundle);
 
                 context.startActivity(miIntent);
                 ((Activity) context).finish();
-                */
+
+
                 Toast.makeText(context, "Abrir pantalla editar con datos de " + miReceta.getTitulo(), Toast.LENGTH_LONG).show();
             }
         });
         holder.btnPublicar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                /*
-                miNota.rotateColor();
-                registrarNota(miNota);
+               // miNota.rotateColor();
+                //registrarNota(miNota);
                 //Intent miIntent = new Intent(context, MainActivity.class);
                 //miIntent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
                 ((Activity) context).recreate();
                 //context.startActivity(miIntent);
-                */
+
+
                 Toast.makeText(context, "Receta de " + miReceta.getTitulo() + " publicada", Toast.LENGTH_LONG).show();
             }
         });

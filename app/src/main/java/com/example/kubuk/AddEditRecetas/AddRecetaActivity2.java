@@ -1,3 +1,4 @@
+/*
 package com.example.kubuk.AddEditRecetas;
 
 import androidx.annotation.NonNull;
@@ -288,4 +289,4 @@ public class AddRecetaActivity2 extends AppCompatActivity {
         return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
     }
 
-}
+}*/

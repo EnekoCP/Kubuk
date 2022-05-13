@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -13,6 +14,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.kubuk.AddEditRecetas.EditRecetaActivity;
+import com.example.kubuk.MainActivity;
 import com.example.kubuk.R;
 
 import java.util.ArrayList;
@@ -28,7 +31,7 @@ public class MyRecipes extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.my_recipes);
 
         construirRecycler();
         recipeRecycler.setAdapter(recipeOverview);
@@ -80,11 +83,11 @@ public class MyRecipes extends AppCompatActivity {
     }
 
     public void onClick(View view) {
-        /*
-        Intent miIntent = new Intent(MainActivity.this, IntroducirDatosActivity.class);
+        Intent miIntent = new Intent(MyRecipes.this, EditRecetaActivity.class);
         startActivity(miIntent);
         finish();
-        */
+
+
         Toast.makeText(this.getApplicationContext(), "Abrir pantalla editar vacía", Toast.LENGTH_LONG).show();
 
     }

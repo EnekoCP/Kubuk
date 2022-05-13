@@ -66,8 +66,8 @@ public class EditRecetaActivity extends AppCompatActivity implements Response.Li
 
         Toast.makeText(this,"Actualizacion correcta", Toast.LENGTH_SHORT).show();
 
-        Intent inicioApp = new Intent(this,AddRecetaActivity.class);
-        startActivity(inicioApp);
+        //Intent inicioApp = new Intent(this,AddRecetaActivity.class);
+       // startActivity(inicioApp);
     }
 
     @Override
