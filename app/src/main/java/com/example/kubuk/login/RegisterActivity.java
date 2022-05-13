@@ -1,6 +1,7 @@
 package com.example.kubuk.login;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -73,6 +74,19 @@ public class RegisterActivity extends AppCompatActivity implements Response.List
         Intent i= new Intent(RegisterActivity.this, MenuMain.class);
         startActivity(i);
         //TODO
+        if (response.equals("Registro_done")){
+            //subirImgFirebase();
+            DialogFragment registraseAlert = new RegistrarseDialogFragment();
+            registraseAlert.show(getSupportFragmentManager(),"registrarse_dialog");
+            Log.i("REGISTRO", "Registrado");
+        }else if (response.equals("Registro_emailexiste")){
+            Toast.makeText(getApplicationContext(), getString(R.string.emailYaExiste), Toast.LENGTH_SHORT).show();
+            Log.i("REGISTRO", "Email Existe");
+        }
+        else {
+            Toast.makeText(getApplicationContext(),  getString(R.string.errorRegistro), Toast.LENGTH_SHORT).show();
+            Log.i("REGISTRO", "Error registro");
+        }
     }
 
     /** Método utilizado para validar los datos del formulario de registro */
