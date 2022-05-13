@@ -3,6 +3,7 @@ package com.example.kubuk.Main;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Parcelable;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -160,6 +161,9 @@ public class MenuMain extends AppCompatActivity implements Response.Listener<Str
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                Intent intdet= new Intent(MenuMain.this,DetallesRecetaComunidad.class);
+               RecetasComunidad re=itemList.get(i);
+               String[] receta= {re.getTitulo(), String.valueOf(re.getIngredientes()),re.getPreparacion()};
+               intdet.putExtra("receta", receta);
                startActivity(intdet);
             }
          });

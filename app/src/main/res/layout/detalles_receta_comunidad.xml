@@ -6,7 +6,7 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/textView9"
+        android:id="@+id/titulo"
         android:layout_width="252dp"
         android:layout_height="30dp"
         android:layout_marginStart="79dp"
@@ -30,6 +30,20 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9" />
+        app:layout_constraintTop_toBottomOf="@+id/titulo" />
+
+    <TextView
+        android:id="@+id/preparacion"
+        android:layout_width="248dp"
+        android:layout_height="295dp"
+        android:layout_marginStart="80dp"
+        android:layout_marginTop="49dp"
+        android:layout_marginEnd="83dp"
+        android:layout_marginBottom="36dp"
+        android:text="TextView"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ingredientes" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
