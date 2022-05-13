@@ -7,6 +7,8 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 import android.widget.Toast;
 
@@ -154,6 +156,13 @@ public class MenuMain extends AppCompatActivity implements Response.Listener<Str
          listViewDataAdapter = var13;
          var13.notifyDataSetChanged();
          listViewWithCheckbox.setAdapter(listViewDataAdapter);
+         listViewWithCheckbox.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+               Intent intdet= new Intent(MenuMain.this,DetallesRecetaComunidad.class);
+               startActivity(intdet);
+            }
+         });
       }
    }
 }
