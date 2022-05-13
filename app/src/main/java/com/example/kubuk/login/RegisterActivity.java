@@ -71,11 +71,7 @@ public class RegisterActivity extends AppCompatActivity implements Response.List
 
     @Override
     public void onResponse(String response) {
-        Intent i= new Intent(RegisterActivity.this, MenuMain.class);
-        startActivity(i);
-        //TODO
         if (response.equals("Registro_done")){
-            //subirImgFirebase();
             DialogFragment registraseAlert = new RegistrarseDialogFragment();
             registraseAlert.show(getSupportFragmentManager(),"registrarse_dialog");
             Log.i("REGISTRO", "Registrado");

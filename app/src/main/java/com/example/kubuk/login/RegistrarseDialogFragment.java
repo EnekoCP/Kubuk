@@ -10,7 +10,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 
-import com.example.kubuk.Main.MenuMain;
 import com.example.kubuk.R;
 
 public class RegistrarseDialogFragment extends DialogFragment {
@@ -18,7 +17,7 @@ public class RegistrarseDialogFragment extends DialogFragment {
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         super.onCreateDialog(savedInstanceState);
-        Intent inicio = new Intent(getActivity(), MenuMain.class);
+        Intent inicio = new Intent(getActivity(), LoginActivity.class);
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(R.string.dialog_registrarse_titulo);
         builder.setMessage(R.string.dialog_registrarse);

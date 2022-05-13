@@ -42,8 +42,6 @@ public class LoginActivity extends AppCompatActivity implements Response.Listene
         loginBoton.setOnClickListener(view -> {
             if (validarDatos()){ //En caso de que todos los datos sean correctos:
                 cargarWebService();
-                Intent i= new Intent(LoginActivity.this, MenuMain.class);
-                startActivity(i);
             }
         });
 
@@ -110,7 +108,25 @@ public class LoginActivity extends AppCompatActivity implements Response.Listene
 
     @Override
     public void onResponse(String response) {
-        //TODO
+        Log.d("Respuesta", response.trim());
+        String respuesta = response.trim();
+        switch (respuesta){
+            case "Login_ok":
+                Intent i= new Intent(LoginActivity.this, MenuMain.class);
+                startActivity(i);
+                finish();
+                Log.i("LOGIN", "Login Ok");
+                break;
+            case "Login_emailnoexiste":
+                Toast.makeText(getApplicationContext(), getString(R.string.usuarioNoexiste), Toast.LENGTH_SHORT).show();
+                Log.i("LOGIN", "Email no existe");
+                break;
+            case "Login_passwdnotvalid":
+                Toast.makeText(getApplicationContext(),  getString(R.string.contraseñaIncorrecta), Toast.LENGTH_SHORT).show();
+                Log.i("LOGIN", "Contraseña incorrecta");
+                break;
+        }
+
     }
 
     /** Called when the user taps the Registrarse button */
