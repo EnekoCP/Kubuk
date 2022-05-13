@@ -17,6 +17,7 @@ import com.android.volley.toolbox.JsonObjectRequest;
 import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.kubuk.R;
+import com.example.kubuk.User;
 
 import org.json.JSONObject;
 
@@ -72,7 +73,7 @@ public class AddRecetaActivity extends AppCompatActivity implements Response.Lis
     private void meterPrimerosDatos(){
         // Instantiate the RequestQueue.
         String url ="http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/ecalvo023/WEB/add1.php?name="+nombre.getText().toString()+"&descripcion="+descripcion.getText().toString()+
-                "&ingredientes="+ingredientes.getText().toString();
+                "&ingredientes="+ingredientes.getText().toString()+"&user="+ User.getUsuario();
 
         JsonRequest jsonRequest = new JsonObjectRequest(Request.Method.GET, url, null,this,this);
 
