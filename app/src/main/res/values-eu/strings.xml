@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="dialog_registrarse_titulo">Erregistroa osatuta</string>
+    <string name="dialog_registrarse">Zorionak! Behar bezala erregistratu zara</string>
+    <string name="errorRegistro">Ezin izan da erabiltzailea une horretan erregistratu. Saiatu berriro geroago</string>
+    <string name="usuarioNoexiste">Ez dago datu horiek dituen erabiltzailerik</string>
+    <string name="dialog_buttonaceptar">Onartu</string>
+
+    <string name="app_name">Kubuk</string>
+    <string name="emailVacio">E-maila ezin da hutsik egon.</string>
+    <string name="emailYaExiste">Sartutako helbide elektronikoa erregistratuta dago jada</string>
+    <string name="emailNoValido">Sartutako helbide elektronikoa ez da zuzena.</string>
+    <string name="contraseñaIncorrecta">Pasahitz okerra, saiatu berriro.</string>
+    <string name="passwdVacia">Pasahitza ezin da hutsik egon.</string>
+    <string name="passwdLarga">Pasahitzak 8 eta 15 karaktere artean izan behar ditu</string>
+    <string name="passwdNoCoincide">Pasahitzak ez datoz bat.</string>
+    <string name="errorServidor">Ezin izan da ezarri zerbitzariarekiko konexioa. Proba berriro geroago</string>
+    <string name="nombreLargo">Izenak ezin ditu 10 karaktere baino gehiago izan.</string>
+    <string name="nombreVacio">Izena ezin da hutsik egon.</string>
+    <string name="messages_header">Mezuak</string>
+    <string name="sync_header">Sync</string>
+    <string name="signature_title">Zure sinadura</string>
+    <string name="reply_title">Akatsen erantzuna</string>
+    <string name="sync_title">" Posta elektroniko sinkronizatu aldizka "</string>
+    <string name="attachment_title">" Deskargatu konexioak "</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails</string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="email">Email</string>
+    <string name="password">Pasahitza</string>
+    <string name="acceder">Sartu</string>
+    <string name="register">Erregistratu</string>
+    <string name="registerQ">" Oraindik ez zara erregistratu? "</string>
+    <string name="name">Izena</string>
+    <string name="passwordConfirm">" Baieztatu zure pasahitza "</string>
+</resources>
