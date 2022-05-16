@@ -1,4 +1,3 @@
-/*
 package com.example.kubuk.AddEditRecetas;
 
 import androidx.annotation.NonNull;
@@ -241,7 +240,7 @@ public class AddRecetaActivity2 extends AppCompatActivity {
         añadir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                realizarGuardado(foto1, foto2, foto3);
+               // realizarGuardado(foto1, foto2, foto3);
             }
         });
     }
@@ -264,12 +263,12 @@ public class AddRecetaActivity2 extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> parametros = new Hashtable<String, String>();
-                parametros.put("imagen1", foto);
+                /*parametros.put("imagen1", foto);
                 parametros.put("imagen2", foto);
                 parametros.put("imagen3", foto);
                 parametros.put("observaciones", observaciones.getText().toString());
                 parametros.put("name", foto);
-
+*/
 
 
                 return parametros;
@@ -289,4 +288,4 @@ public class AddRecetaActivity2 extends AppCompatActivity {
         return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
     }
 
-}*/
+}

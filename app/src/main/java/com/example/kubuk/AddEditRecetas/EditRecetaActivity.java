@@ -30,7 +30,7 @@ public class EditRecetaActivity extends AppCompatActivity implements Response.Li
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_add_receta);
+        setContentView(R.layout.activity_edit_receta);
 
 
         guardar = findViewById(R.id.save);
@@ -73,6 +73,7 @@ public class EditRecetaActivity extends AppCompatActivity implements Response.Li
     @Override
     public void onErrorResponse(VolleyError error) {
         System.out.println("ERRORRR" + error.toString());
+        error.printStackTrace();
         Toast.makeText(this,"Error en el update", Toast.LENGTH_SHORT).show();
 
     }
