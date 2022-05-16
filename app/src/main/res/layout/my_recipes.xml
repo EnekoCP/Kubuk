@@ -8,6 +8,16 @@
     tools:context=".myRecipes.MyRecipes"
     android:background="@color/white">
 
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#92359A11"
+        android:minHeight="?attr/actionBarSize"
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:layout_constraintTop_toTopOf="parent" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

@@ -38,6 +38,9 @@
             android:name=".myRecipes.MyRecipes"
             android:exported="false" />
         <activity
+            android:name=".ListaCompra.ListaCompra"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

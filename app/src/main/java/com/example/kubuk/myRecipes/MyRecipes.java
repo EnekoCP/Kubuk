@@ -3,6 +3,7 @@ package com.example.kubuk.myRecipes;
 import static com.example.kubuk.myRecipes.Utilidades.TABLA_RECETA;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -18,6 +19,7 @@ import android.view.View;
 import android.widget.Toast;
 
 import com.example.kubuk.AddEditRecetas.EditRecetaActivity;
+import com.example.kubuk.ListaCompra.ListaCompra;
 import com.example.kubuk.Main.MenuMain;
 import com.example.kubuk.MainActivity;
 import com.example.kubuk.R;
@@ -36,6 +38,10 @@ public class MyRecipes extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.my_recipes);
+
+        Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
+        setSupportActionBar(myToolbar);
+        myToolbar.setSubtitleTextColor(0);
 
         construirRecycler();
         recipeRecycler.setAdapter(recipeOverview);
@@ -62,6 +68,8 @@ public class MyRecipes extends AppCompatActivity {
                 return true;
             case R.id.listacompra:
                 //Toast.makeText(this, "deberia entrar en la lista de la compra", Toast.LENGTH_LONG).show();
+                Intent ilis = new Intent(MyRecipes.this, ListaCompra.class);
+                startActivity(ilis);
                 return true;
             default:
                 return super.onOptionsItemSelected(var1);
