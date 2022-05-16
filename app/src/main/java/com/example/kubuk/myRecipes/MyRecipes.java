@@ -11,10 +11,14 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
 import com.example.kubuk.AddEditRecetas.EditRecetaActivity;
+import com.example.kubuk.Main.MenuMain;
 import com.example.kubuk.MainActivity;
 import com.example.kubuk.R;
 
@@ -35,6 +39,33 @@ public class MyRecipes extends AppCompatActivity {
 
         construirRecycler();
         recipeRecycler.setAdapter(recipeOverview);
+    }
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.menu, menu);
+        return true;
+    }
+
+
+    public boolean onOptionsItemSelected(MenuItem var1) {
+        switch (var1.getItemId()) {
+            case R.id.recetascomunidad:
+                //Toast.makeText(this, "deberia entrar en la comunidad", Toast.LENGTH_LONG).show();
+                Intent i= new Intent(MyRecipes.this, MenuMain.class);
+                startActivity(i);
+                return true;
+            case R.id.misrecetas:
+                //Toast.makeText(this, "debería entrar en la lista de mis recetas", Toast.LENGTH_LONG).show();
+                //Intent i= new Intent(MenuMain.this, MyRecipes.class);
+                //startActivity(i);
+                return true;
+            case R.id.listacompra:
+                //Toast.makeText(this, "deberia entrar en la lista de la compra", Toast.LENGTH_LONG).show();
+                return true;
+            default:
+                return super.onOptionsItemSelected(var1);
+        }
     }
 
     private void consultarListaRecetas() {

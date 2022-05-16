@@ -135,7 +135,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="153dp"
         android:layout_marginBottom="41dp"
-        android:backgroundTint="#39B33E"
+        android:backgroundTint="#359A11"
         android:text="Guardar"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

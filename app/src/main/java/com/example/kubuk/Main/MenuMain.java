@@ -80,15 +80,15 @@ public class MenuMain extends AppCompatActivity implements Response.Listener<Str
    public boolean onOptionsItemSelected(MenuItem var1) {
       switch (var1.getItemId()) {
          case R.id.recetascomunidad:
-            Toast.makeText(this, "deberia entrar en la comunidad", Toast.LENGTH_LONG).show();
+            //Toast.makeText(this, "deberia entrar en la comunidad", Toast.LENGTH_LONG).show();
             return true;
          case R.id.misrecetas:
-            Toast.makeText(this, "debería entrar en la lista de mis recetas", Toast.LENGTH_LONG).show();
+            //Toast.makeText(this, "debería entrar en la lista de mis recetas", Toast.LENGTH_LONG).show();
             Intent i= new Intent(MenuMain.this, MyRecipes.class);
             startActivity(i);
             return true;
          case R.id.listacompra:
-            Toast.makeText(this, "deberia entrar en la lista de la compra", Toast.LENGTH_LONG).show();
+            //Toast.makeText(this, "deberia entrar en la lista de la compra", Toast.LENGTH_LONG).show();
             return true;
          default:
             return super.onOptionsItemSelected(var1);

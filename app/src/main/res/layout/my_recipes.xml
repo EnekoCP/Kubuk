@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".myRecipes.MyRecipes">
+    tools:context=".myRecipes.MyRecipes"
+    android:background="@color/white">
 
     <TextView
         android:layout_width="match_parent"
@@ -35,12 +36,13 @@
             android:id="@+id/btn_anadir"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Añadir nota"
-            android:textColor="@color/black"
             android:layout_margin="15dp"
+            android:layout_weight="0"
             android:gravity="center"
             android:onClick="onClick"
-            android:layout_weight="0"></Button>
+            android:text="Añadir receta"
+            android:background="#359A11"
+            android:textColor="@color/white"></Button>
 
     </LinearLayout>
 
