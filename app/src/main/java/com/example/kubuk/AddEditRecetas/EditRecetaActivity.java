@@ -39,6 +39,8 @@ public class EditRecetaActivity extends AppCompatActivity implements Response.Li
         descripcion = findViewById(R.id.descripcionEdit);
         ingredientes = findViewById(R.id.ingredientesEdit);
 
+
+
         queue = Volley.newRequestQueue(EditRecetaActivity.this);
 
         inicio();
@@ -81,7 +83,7 @@ public class EditRecetaActivity extends AppCompatActivity implements Response.Li
 
     private void updateDatos(){
         // Instantiate the RequestQueue.
-        String url ="http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/ecalvo023/WEB/update.php?name="+nombre.getText().toString()+"&descripcion="+descripcion.getText().toString()+
+        String url ="http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/everhorst001/WEB/update.php?name="+nombre.getText().toString()+"&descripcion="+descripcion.getText().toString()+
                 "&ingredientes="+ingredientes.getText().toString();
 
         JsonRequest jsonRequest = new JsonObjectRequest(Request.Method.GET, url, null,this,this);
@@ -91,7 +93,7 @@ public class EditRecetaActivity extends AppCompatActivity implements Response.Li
 
     private void deleteDatos(){
         // Instantiate the RequestQueue.
-        String url ="http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/ecalvo023/WEB/delete.php?name="+nombre.getText().toString();
+        String url ="http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/everhorst001/WEB/delete.php?name="+nombre.getText().toString();
 
         JsonRequest jsonRequest = new JsonObjectRequest(Request.Method.GET, url, null,this,this);
 

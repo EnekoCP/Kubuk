@@ -4,18 +4,18 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:backgroundTint="#FFFFFF"
     tools:context=".AddEditRecetas.AddRecetaActivity">
 
     <TextView
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="100dp"
         android:layout_marginTop="20dp"
-        android:layout_marginEnd="259dp"
+        android:layout_marginEnd="234dp"
         android:text="Descripcion "
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ingredientes" />
 
@@ -25,11 +25,10 @@
         android:layout_height="48dp"
         android:layout_marginStart="100dp"
         android:layout_marginTop="17dp"
-        android:layout_marginEnd="101dp"
+        android:layout_marginEnd="106dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -37,12 +36,11 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="100dp"
         android:layout_marginTop="72dp"
-        android:layout_marginEnd="188dp"
+        android:layout_marginEnd="180dp"
         android:text="Nombre de la Receta"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
@@ -50,7 +48,7 @@
         android:id="@+id/nomReceta"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="100dp"
         android:layout_marginTop="21dp"
         android:layout_marginEnd="101dp"
         android:layout_marginBottom="30dp"
@@ -59,7 +57,6 @@
         android:minHeight="48dp"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.923"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
@@ -69,11 +66,10 @@
         android:layout_height="48dp"
         android:layout_marginStart="100dp"
         android:layout_marginTop="12dp"
-        android:layout_marginEnd="101dp"
+        android:layout_marginEnd="106dp"
         android:ems="10"
         android:inputType="textPersonName"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
@@ -81,9 +77,9 @@
         android:id="@+id/textView4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="80dp"
+        android:layout_marginStart="100dp"
         android:layout_marginTop="16dp"
-        android:layout_marginEnd="255dp"
+        android:layout_marginEnd="229dp"
         android:text="Ingredientes "
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -95,11 +91,12 @@
         android:layout_height="65dp"
         android:layout_marginStart="162dp"
         android:layout_marginEnd="163dp"
+        android:layout_marginBottom="82dp"
         android:backgroundTint="#4CAF50"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@android:drawable/ic_media_ff"
-        tools:layout_editor_absoluteY="584dp" />
+        app:srcCompat="@android:drawable/ic_media_ff" />
 
     <TextView
         android:id="@+id/textView"
@@ -127,7 +124,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/logo_grande" />
-
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

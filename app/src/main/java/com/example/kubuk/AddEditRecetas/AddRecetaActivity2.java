@@ -58,9 +58,11 @@ public class AddRecetaActivity2 extends AppCompatActivity {
 
     ImageView imagen1, imagen2, imagen3;
     Button capturar,añadir;
-    EditText observaciones;
+    EditText observaciones,nombre;
 
     int cont;
+
+    String foto1,foto2,foto3;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -70,6 +72,9 @@ public class AddRecetaActivity2 extends AppCompatActivity {
         imagen1 = findViewById(R.id.imageView1);
         imagen2 = findViewById(R.id.imageView2);
         imagen3 = findViewById(R.id.imageView3);
+
+        nombre = findViewById(R.id.nomReceta);
+
 
         capturar = findViewById(R.id.capturar);
         observaciones = findViewById(R.id.observaciones);
@@ -218,14 +223,17 @@ public class AddRecetaActivity2 extends AppCompatActivity {
                             runOnUiThread(() -> {
                                 // TODO Auto-generated method stub
                                 if (cont==0){
+                                    foto1 = fotoen64;
                                     imagen1.setRotation(0); //EN PC SE VE GIRADO PERO EN MOVIL EN VERTICAL
                                     imagen1.setImageBitmap(finalRecortado); //SETEAMOS FOTO TOMADA
                                     cont = cont+1;
                                 }else if(cont==1){
+                                    foto2 = fotoen64;
                                     imagen2.setRotation(0); //EN PC SE VE GIRADO PERO EN MOVIL EN VERTICAL
                                     imagen2.setImageBitmap(finalRecortado); //SETEAMOS FOTO TOMADA
                                     cont = cont+1;
                                 }else{
+                                    foto3 = fotoen64;
                                     imagen3.setRotation(0); //EN PC SE VE GIRADO PERO EN MOVIL EN VERTICAL
                                     imagen3.setImageBitmap(finalRecortado); //SETEAMOS FOTO TOMADA
                                     cont = 0;
@@ -240,7 +248,8 @@ public class AddRecetaActivity2 extends AppCompatActivity {
         añadir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-               // realizarGuardado(foto1, foto2, foto3);
+
+                realizarGuardado(foto1, foto2, foto3);
             }
         });
     }
@@ -263,12 +272,12 @@ public class AddRecetaActivity2 extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> parametros = new Hashtable<String, String>();
-                /*parametros.put("imagen1", foto);
-                parametros.put("imagen2", foto);
-                parametros.put("imagen3", foto);
+                parametros.put("imagen1", foto1);
+                parametros.put("imagen2", foto2);
+                parametros.put("imagen3", foto3);
                 parametros.put("observaciones", observaciones.getText().toString());
-                parametros.put("name", foto);
-*/
+                parametros.put("name",nombre.getText().toString() );
+
 
 
                 return parametros;

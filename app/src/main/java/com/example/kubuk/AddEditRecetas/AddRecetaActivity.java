@@ -18,6 +18,7 @@ import com.android.volley.toolbox.JsonRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.kubuk.R;
 import com.example.kubuk.User;
+import com.example.kubuk.users.LoginActivity;
 
 import org.json.JSONObject;
 
@@ -34,7 +35,7 @@ public class AddRecetaActivity extends AppCompatActivity implements Response.Lis
 
 
     guardar = findViewById(R.id.next);
-    nombre = findViewById(R.id.nomRecetaEdit);
+    nombre = findViewById(R.id.nomReceta);
     descripcion = findViewById(R.id.descripcion);
     ingredientes = findViewById(R.id.ingredientes);
 
@@ -48,7 +49,9 @@ public class AddRecetaActivity extends AppCompatActivity implements Response.Lis
         guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                meterPrimerosDatos();
+                //meterPrimerosDatos();
+                Intent i= new Intent(AddRecetaActivity.this, AddRecetaActivity2.class);
+                startActivity(i);
             }
         });
     }
@@ -72,7 +75,7 @@ public class AddRecetaActivity extends AppCompatActivity implements Response.Lis
 
     private void meterPrimerosDatos(){
         // Instantiate the RequestQueue.
-        String url ="http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/ecalvo023/WEB/add1.php?name="+nombre.getText().toString()+"&descripcion="+descripcion.getText().toString()+
+        String url ="http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/everhorst001/WEB/Kubuk/add1.php?name="+nombre.getText().toString()+"&descripcion="+descripcion.getText().toString()+
                 "&ingredientes="+ingredientes.getText().toString()+"&user="+ User.getUsuario();
 
         JsonRequest jsonRequest = new JsonObjectRequest(Request.Method.GET, url, null,this,this);
