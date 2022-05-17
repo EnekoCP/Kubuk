@@ -147,7 +147,6 @@ public class LoginActivity extends AppCompatActivity implements Response.Listene
                 +textEmail.getText().toString() + "&passwd=" +textPasswd.getText().toString();
 
         url = url.replace(" ", "%20");
-
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, this,this);
         request.add(stringRequest);
 
@@ -166,6 +165,7 @@ public class LoginActivity extends AppCompatActivity implements Response.Listene
         switch (respuesta){
             case "Login_ok":
                 Intent i= new Intent(LoginActivity.this, MenuMain.class);
+                i.putExtra("usuario",textEmail.getText().toString());
                 startActivity(i);
                 finish();
                 Log.i("LOGIN", "Login Ok");

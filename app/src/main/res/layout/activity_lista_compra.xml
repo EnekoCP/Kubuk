@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".myRecipes.MyRecipes"
     android:background="@color/white">
 
     <androidx.appcompat.widget.Toolbar
@@ -12,19 +14,47 @@
         android:layout_height="wrap_content"
         android:background="#92359A11"
         android:minHeight="?attr/actionBarSize"
-        android:theme="?attr/actionBarTheme" />
+        android:theme="@style/ThemeOverlay.AppCompat.ActionBar"
+        app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+        app:layout_constraintTop_toTopOf="parent" />
 
-    <CheckBox
-        android:id="@+id/checkBox"
-        android:layout_width="310dp"
-        android:layout_height="45dp"
-        android:layout_marginTop="37dp"
-        android:layout_marginEnd="101dp"
-        android:layout_marginBottom="593dp"
-        android:text="elemento1"
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textAlignment="center"
+        android:text="Lista de la Compra"
         android:textColor="@color/black"
+        android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/toolbar2" />
-</androidx.constraintlayout.widget.ConstraintLayout>
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:gravity="center_horizontal" />
+
+    <ListView
+        android:id="@+id/listvcompra"
+        android:layout_width="match_parent"
+        android:layout_height="538dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:orientation="vertical"
+        android:layout_weight="1"
+        android:gravity="center|bottom">
+
+        <Button
+            android:id="@+id/anadir_ingr"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="15dp"
+            android:layout_weight="0"
+            android:gravity="center"
+            android:onClick="onClick"
+            android:text="Añadir Elemento a la lista"
+            android:background="#359A11"
+            android:textColor="@color/white"></Button>
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -37,6 +37,7 @@ public class MenuMain extends AppCompatActivity implements Response.Listener<Str
    ListView listViewWithCheckbox;
    ArrayList rclista = new ArrayList();
    RequestQueue request;
+   String email;
 
    protected void onCreate(Bundle var1) {
       super.onCreate(var1);
@@ -45,6 +46,9 @@ public class MenuMain extends AppCompatActivity implements Response.Listener<Str
       Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
       setSupportActionBar(myToolbar);
       myToolbar.setSubtitleTextColor(0);
+
+      Bundle extra= getIntent().getExtras();
+      email=extra.getString("usuario");
 
       request = Volley.newRequestQueue(this.getApplicationContext());
       cargarWebService();
@@ -91,6 +95,7 @@ public class MenuMain extends AppCompatActivity implements Response.Listener<Str
          case R.id.listacompra:
             //Toast.makeText(this, "deberia entrar en la lista de la compra", Toast.LENGTH_LONG).show();
             Intent ilis = new Intent(MenuMain.this, ListaCompra.class);
+            ilis.putExtra("usuario",email);
             startActivity(ilis);
             return true;
          default:
