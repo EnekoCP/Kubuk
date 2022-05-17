@@ -4,10 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
 import android.content.Intent;
+import android.graphics.Bitmap;
+import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -16,9 +21,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.kubuk.Main.MenuMain;
 import com.example.kubuk.R;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
 
+import java.io.IOException;
 import java.util.regex.Pattern;
 
 public class RegisterActivity extends AppCompatActivity implements Response.Listener<String>, Response.ErrorListener {
@@ -26,6 +33,11 @@ public class RegisterActivity extends AppCompatActivity implements Response.List
     EditText textEmailReg, textPasswdReg1, textPasswdReg2, textNombre;
     Button registerBoton;
     RequestQueue request;
+    Uri imagenSeleccionada;
+    String imgUriReg = "";
+    Bitmap bitmapReg;
+
+    static final int REQUEST_PICK_IMAGE_CAPTURE_REG = 1;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +49,19 @@ public class RegisterActivity extends AppCompatActivity implements Response.List
         textPasswdReg2 = findViewById(R.id.textPasswordReg2);
         textNombre = findViewById(R.id.textNombre);
 
+        /** Called when the user taps the Elegir foto button */
+        Button fotoRegistro = findViewById(R.id.registerFotoButton);
+        fotoRegistro.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                obtenerImagen();
+            }
+        });
+
         request = Volley.newRequestQueue(getApplicationContext());
 
+        /** Called when the user taps the Registrarse button */
         registerBoton = findViewById(R.id.accederButton);
-
         registerBoton.setOnClickListener(view -> {
             if (validarRegistro()){ //En caso de que todos los datos sean correctos:
                 cargarWebService();
@@ -72,6 +93,7 @@ public class RegisterActivity extends AppCompatActivity implements Response.List
     @Override
     public void onResponse(String response) {
         if (response.equals("Registro_done")){
+            subirImgFirebase();
             DialogFragment registraseAlert = new RegistrarseDialogFragment();
             registraseAlert.show(getSupportFragmentManager(),"registrarse_dialog");
             Log.i("REGISTRO", "Registrado");
@@ -143,5 +165,44 @@ public class RegisterActivity extends AppCompatActivity implements Response.List
 
     }
 
+    /** Método utilizado para obtener una imagen, en este caso de la galería */
+    public void obtenerImagen(){
+        Intent intentFoto = new Intent(Intent.ACTION_PICK, MediaStore.Images.Media.INTERNAL_CONTENT_URI);
+        startActivityForResult(intentFoto, REQUEST_PICK_IMAGE_CAPTURE_REG);
+    }
+
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if ((requestCode == REQUEST_PICK_IMAGE_CAPTURE_REG) && resultCode == RESULT_OK) {
+            //Obtengo la imagen seleccionada de la galeria
+            imagenSeleccionada = data.getData();
+            try {
+                bitmapReg = MediaStore.Images.Media.getBitmap(getContentResolver(),imagenSeleccionada);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+            ImageView imgPreviewReg = findViewById(R.id.imagenperfilReg);
+            imgPreviewReg.setImageURI(imagenSeleccionada);
+            imgUriReg=imagenSeleccionada.toString();
+        }
+
+    }
+
+
+    /** Método utilizado para subir la imagen del usuario a Firebase */
+    public void subirImgFirebase(){
+
+        //En caso de que el usuario no haya elegido ninguna imagen
+        if (imagenSeleccionada == null) {
+            imagenSeleccionada = Uri.parse("android.resource://" + getPackageName() + "/" + R.drawable.defaultuser);
+        }
+
+        String email = textEmailReg.getText().toString();
+        FirebaseStorage storage = FirebaseStorage.getInstance();
+        StorageReference storageRef = storage.getReference();
+        StorageReference spaceRef = storageRef.child(email +".jpg");
+        spaceRef.putFile(imagenSeleccionada);
+
+    }
 
 }

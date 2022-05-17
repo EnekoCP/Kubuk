@@ -30,8 +30,9 @@
     <string name="password">Password</string>
     <string name="acceder">Log in</string>
     <string name="register">Sign in</string>
-    <string name="registerQ">You have not yet registered?</string>
+    <string name="registerQ">Are you not registered yet?</string>
     <string name="name">Name</string>
     <string name="passwordConfirm">Confirm your password</string>
+    <string name="photo">Choose a photo...</string>
 
 </resources>
