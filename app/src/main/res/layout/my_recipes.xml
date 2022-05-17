@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:text="Mis Recetas"
+        android:textColor="@color/black"
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
