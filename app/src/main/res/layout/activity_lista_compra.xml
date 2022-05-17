@@ -49,10 +49,10 @@
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:layout_weight="0"
+            android:background="#359A11"
             android:gravity="center"
             android:onClick="onClick"
             android:text="Añadir Elemento a la lista"
-            android:background="#359A11"
             android:textColor="@color/white"></Button>
 
     </LinearLayout>
