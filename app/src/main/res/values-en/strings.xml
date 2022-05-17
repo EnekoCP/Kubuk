@@ -34,5 +34,8 @@
     <string name="name">Name</string>
     <string name="passwordConfirm">Confirm your password</string>
     <string name="photo">Choose a photo...</string>
+    <string name="dialog_modificar_titulo">"Modification Completed"</string>
+    <string name="dialog_modificar">Data has been modified correctly!.</string>
+    <string name="dialog_modif_buttonaceptar">Ok</string>
 
 </resources>

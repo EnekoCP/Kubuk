@@ -6,7 +6,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:background="#FFFFFF"
     android:backgroundTint="#FFFFFF"
-    tools:context=".login.LoginActivity">
+    tools:context=".users.LoginActivity">
 
     <TextView
         android:id="@+id/textView2"
@@ -39,6 +39,7 @@
         android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/buttonRegistrarse"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/textEmailReg"
         app:layout_constraintTop_toBottomOf="@+id/buttonRegistrarse" />
 

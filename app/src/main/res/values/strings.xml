@@ -31,8 +31,6 @@
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
 
 
-
-
     <string name="email">Email</string>
     <string name="password">Contraseña</string>
     <string name="acceder">Acceder</string>
@@ -41,4 +39,8 @@
     <string name="name">Nombre</string>
     <string name="passwordConfirm">Confirme su password</string>
     <string name="photo">Elegir foto...</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="dialog_modificar_titulo">"Modificación Completada"</string>
+    <string name="dialog_modificar">¡Datos modificados correctamente!.</string>
+    <string name="dialog_modif_buttonaceptar">Aceptar</string>
 </resources>

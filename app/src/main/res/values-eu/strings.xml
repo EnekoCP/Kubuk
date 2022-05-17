@@ -33,4 +33,7 @@
     <string name="name">Izena</string>
     <string name="passwordConfirm">" Baieztatu zure pasahitza "</string>
     <string name="photo">Argazkia aukeratu...</string>
+    <string name="dialog_modificar_titulo">"Datu aldaketa amaituta"</string>
+    <string name="dialog_modificar">Datuak ongi aldatu dira!.</string>
+    <string name="dialog_modif_buttonaceptar">Onartu</string>
 </resources>

@@ -1,4 +1,4 @@
-package com.example.kubuk.login;
+package com.example.kubuk.users;
 
 import android.app.Dialog;
 import android.content.DialogInterface;
@@ -11,23 +11,32 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.DialogFragment;
 
 import com.example.kubuk.R;
+import com.example.kubuk.Main.MenuMain;
 
-public class RegistrarseDialogFragment extends DialogFragment {
+public class ModificarDialogFragment extends DialogFragment {
+
+    String email="";
+
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         super.onCreateDialog(savedInstanceState);
-        Intent inicio = new Intent(getActivity(), LoginActivity.class);
+
+        Bundle data = getArguments();
+        email = data.getString("usuario");
+
+        Intent menumain = new Intent(getActivity(), MenuMain.class);
+        menumain.putExtra("usuario", email);
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle(R.string.dialog_registrarse_titulo);
-        builder.setMessage(R.string.dialog_registrarse);
-        builder.setPositiveButton(R.string.dialog_buttonaceptar, new DialogInterface.OnClickListener() {
+        builder.setTitle(R.string.dialog_modificar_titulo);
+        builder.setMessage(R.string.dialog_modificar);
+        builder.setPositiveButton(R.string.dialog_modif_buttonaceptar, new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dismiss();
-                startActivity(inicio);
-        }
-    });
+                startActivity(menumain);
+            }
+        });
 
         return builder.create();
     }

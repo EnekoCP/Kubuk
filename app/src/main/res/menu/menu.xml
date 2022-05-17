@@ -7,6 +7,10 @@
             android:title="Recetas de la Comunidad" />
     <item  android:id="@+id/listacompra"
         android:title="Lista de la Compra" />
+    <item  android:id="@+id/modifuser"
+        android:title="Administrar Cuenta" />
+    <item  android:id="@+id/logout"
+        android:title="Cerrar Sesión" />
 
 
 </menu>

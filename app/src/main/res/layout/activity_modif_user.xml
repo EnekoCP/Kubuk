@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    tools:context=".users.ModifUserActivity">
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="213dp"
+        android:layout_height="89dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.051"
+        app:srcCompat="@drawable/logo_pequeno" />
+
+    <Button
+        android:id="@+id/buttonVolver"
+        android:layout_width="208dp"
+        android:layout_height="50dp"
+        android:background="#359A11"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Modificar Datos"
+        android:textColor="#FDFFFFFF"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.837" />
+
+    <Button
+        android:id="@+id/buttonDelete"
+        android:layout_width="208dp"
+        android:layout_height="50dp"
+        android:background="#359A11"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="Eliminar Cuenta"
+        android:textColor="#FDFFFFFF"
+        android:textSize="22sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.933" />
+
+    <Button
+        android:id="@+id/editFoto"
+        android:layout_width="158dp"
+        android:layout_height="54dp"
+        android:background="#359A11"
+        android:fontFamily="sans-serif-smallcaps"
+        android:text="@string/photo"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.782"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.311" />
+
+    <EditText
+        android:id="@+id/textPaswdModif1"
+        android:layout_width="329dp"
+        android:layout_height="60dp"
+        android:ems="10"
+        android:fontFamily="sans-serif-smallcaps"
+        android:inputType="textPassword"
+        android:textColor="#2E2D2D"
+        android:textSize="20sp"
+        android:theme="@style/CampoTexto"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.539" />
+
+    <EditText
+        android:id="@+id/textPaswdModif2"
+        android:layout_width="329dp"
+        android:layout_height="60dp"
+        android:ems="10"
+        android:fontFamily="sans-serif-smallcaps"
+        android:inputType="textPassword"
+        android:textColor="#2E2D2D"
+        android:textSize="20sp"
+        android:theme="@style/CampoTexto"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.721" />
+
+    <TextView
+        android:id="@+id/textpasswd1"
+        android:layout_width="180dp"
+        android:layout_height="29dp"
+        android:fontFamily="monospace"
+        android:text="@string/password"
+        android:textColor="#BC000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.177"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.458" />
+
+    <TextView
+        android:id="@+id/textpasswd2"
+        android:layout_width="305dp"
+        android:layout_height="32dp"
+        android:fontFamily="monospace"
+        android:text="@string/passwordConfirm"
+        android:textColor="#BC000000"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.386"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.632" />
+
+    <ImageView
+        android:id="@+id/imagenperfil"
+        android:layout_width="142dp"
+        android:layout_height="132dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.152"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.267"
+        app:srcCompat="@drawable/defaultuser" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
