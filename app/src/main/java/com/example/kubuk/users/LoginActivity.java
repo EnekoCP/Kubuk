@@ -21,6 +21,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.kubuk.Main.MenuMain;
 import com.example.kubuk.R;
+import com.example.kubuk.User;
 
 import java.util.Locale;
 import java.util.regex.Pattern;
@@ -164,6 +165,7 @@ public class LoginActivity extends AppCompatActivity implements Response.Listene
         String respuesta = response.trim();
         switch (respuesta){
             case "Login_ok":
+                User.setUsuario(textEmail.getText().toString());
                 Intent i= new Intent(LoginActivity.this, MenuMain.class);
                 i.putExtra("usuario",textEmail.getText().toString());
                 startActivity(i);

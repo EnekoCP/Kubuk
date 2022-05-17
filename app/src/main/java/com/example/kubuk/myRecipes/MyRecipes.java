@@ -18,6 +18,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.example.kubuk.AddEditRecetas.AddRecetaActivity;
 import com.example.kubuk.AddEditRecetas.EditRecetaActivity;
 import com.example.kubuk.ListaCompra.ListaCompra;
 import com.example.kubuk.Main.MenuMain;
@@ -122,12 +123,12 @@ public class MyRecipes extends AppCompatActivity {
     }
 
     public void onClick(View view) {
-        Intent miIntent = new Intent(MyRecipes.this, EditRecetaActivity.class);
+        Intent miIntent = new Intent(MyRecipes.this, AddRecetaActivity.class);
         startActivity(miIntent);
         finish();
 
 
-        Toast.makeText(this.getApplicationContext(), "Abrir pantalla editar vacía", Toast.LENGTH_LONG).show();
+        //Toast.makeText(this.getApplicationContext(), "Abrir pantalla editar vacía", Toast.LENGTH_LONG).show();
 
     }
 

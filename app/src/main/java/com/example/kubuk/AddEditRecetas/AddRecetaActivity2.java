@@ -38,6 +38,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.kubuk.R;
+import com.example.kubuk.User;
 import com.google.common.util.concurrent.ListenableFuture;
 
 import java.io.ByteArrayOutputStream;
@@ -58,11 +59,11 @@ public class AddRecetaActivity2 extends AppCompatActivity {
 
     ImageView imagen1, imagen2, imagen3;
     Button capturar,añadir;
-    EditText observaciones,nombre;
+    EditText observaciones;
 
     int cont;
 
-    String foto1,foto2,foto3;
+    String foto1 = "empty",foto2 = "empty",foto3 = "empty";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -72,9 +73,6 @@ public class AddRecetaActivity2 extends AppCompatActivity {
         imagen1 = findViewById(R.id.imageView1);
         imagen2 = findViewById(R.id.imageView2);
         imagen3 = findViewById(R.id.imageView3);
-
-        nombre = findViewById(R.id.nomReceta);
-
 
         capturar = findViewById(R.id.capturar);
         observaciones = findViewById(R.id.observaciones);
@@ -240,8 +238,9 @@ public class AddRecetaActivity2 extends AppCompatActivity {
                                 }
 
                             });
-
+                            image.close();
                         }
+
                     });
         });
 
@@ -256,7 +255,7 @@ public class AddRecetaActivity2 extends AppCompatActivity {
 
     private void realizarGuardado(final String foto1, final String foto2, final String foto3) {
         StringRequest stringRequest = new StringRequest(Request.Method.POST,
-                "http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/ecalvo023/WEB/add2.php",
+                "http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/everhorst001/WEB/Kubuk/add.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -276,8 +275,10 @@ public class AddRecetaActivity2 extends AppCompatActivity {
                 parametros.put("imagen2", foto2);
                 parametros.put("imagen3", foto3);
                 parametros.put("observaciones", observaciones.getText().toString());
-                parametros.put("name",nombre.getText().toString() );
-
+                parametros.put("name", getIntent().getStringExtra("name"));
+                parametros.put("descripcion", getIntent().getStringExtra("descripcion"));
+                parametros.put("ingredientes", getIntent().getStringExtra("ingredientes"));
+                parametros.put("user", User.getUsuario());
 
 
                 return parametros;

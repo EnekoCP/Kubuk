@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+    android:backgroundTint="@color/white"
     tools:context=".AddEditRecetas.AddRecetaActivity2">
 
 
@@ -14,8 +16,10 @@
         android:layout_marginStart="100dp"
         android:layout_marginEnd="101dp"
         android:layout_marginBottom="40dp"
+        android:backgroundTint="@color/black"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/añadirReceta"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.6"
@@ -28,7 +32,9 @@
         android:layout_marginStart="80dp"
         android:layout_marginEnd="234dp"
         android:layout_marginBottom="9dp"
+        android:foregroundTint="#000000"
         android:text="Observaciones "
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/observaciones"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

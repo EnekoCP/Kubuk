@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:backgroundTint="#FFFFFF"
+    android:background="@color/white"
+    android:backgroundTint="@color/white"
     tools:context=".AddEditRecetas.AddRecetaActivity">
 
     <TextView
@@ -15,6 +16,7 @@
         android:layout_marginTop="20dp"
         android:layout_marginEnd="234dp"
         android:text="Descripcion "
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ingredientes" />
@@ -26,8 +28,10 @@
         android:layout_marginStart="100dp"
         android:layout_marginTop="17dp"
         android:layout_marginEnd="106dp"
+        android:backgroundTint="@color/black"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
@@ -40,6 +44,7 @@
         android:layout_marginTop="72dp"
         android:layout_marginEnd="180dp"
         android:text="Nombre de la Receta"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
@@ -52,9 +57,11 @@
         android:layout_marginTop="21dp"
         android:layout_marginEnd="101dp"
         android:layout_marginBottom="30dp"
+        android:backgroundTint="@color/black"
         android:ems="10"
         android:inputType="textPersonName"
         android:minHeight="48dp"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/textView4"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -67,8 +74,10 @@
         android:layout_marginStart="100dp"
         android:layout_marginTop="12dp"
         android:layout_marginEnd="106dp"
+        android:backgroundTint="@color/black"
         android:ems="10"
         android:inputType="textPersonName"
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
@@ -81,6 +90,7 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="229dp"
         android:text="Ingredientes "
+        android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nomReceta" />
@@ -108,6 +118,7 @@
         android:text="NUEVA RECETA"
         android:textAllCaps="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
+        android:textColor="@color/black"
         android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
