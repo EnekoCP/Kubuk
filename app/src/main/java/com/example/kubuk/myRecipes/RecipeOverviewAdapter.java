@@ -51,10 +51,7 @@ public class RecipeOverviewAdapter extends RecyclerView.Adapter<RecipeOverviewAd
             @Override
             public void onClick(View view) {
                 Intent miIntent = new Intent(context, EditRecetaActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("nota", miReceta);
-                miIntent.putExtras(bundle);
-
+                miIntent.putExtra("titulo", miReceta.getTitulo());
                 context.startActivity(miIntent);
                 ((Activity) context).finish();
 

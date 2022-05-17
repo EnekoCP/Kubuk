@@ -50,6 +50,8 @@ public class EditRecetaActivity extends AppCompatActivity implements Response.Li
 
         queue = Volley.newRequestQueue(EditRecetaActivity.this);
 
+        getDatos();
+
         inicio();
 
     }
@@ -87,17 +89,26 @@ public class EditRecetaActivity extends AppCompatActivity implements Response.Li
 
     }
 
-    private void getImagenes() {
+    private void getDatos() {
         StringRequest stringRequest = new StringRequest(Request.Method.POST,
-                "http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/everhorst001/WEB/getDatos.php",
+                "http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/everhorst001/WEB/Kubuk/getDatos.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        System.out.println("AQUIIIIIIIIIIIIII");
+                        System.out.print(response);
+                        System.out.println("AQUIIIIIIIIIIIIII" + response);
 
                         JSONObject jsonObject = null;
                         try {
                             jsonObject = new JSONObject(response);
+
+                            String titulo = jsonObject.getString("titulo");
+                            nombre.setText(titulo);
+                            String descripcion2 = jsonObject.getString("preparacion");
+                            descripcion.setText(descripcion2);
+                            String ingredientes2 = jsonObject.getString("ingredientes");
+                            ingredientes.setText(ingredientes2);
+
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
@@ -108,14 +119,15 @@ public class EditRecetaActivity extends AppCompatActivity implements Response.Li
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
+
                 Toast.makeText(getApplicationContext(), "ERROR EN LA CONEXION", Toast.LENGTH_LONG).show();
             }
         }){
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> parametros = new Hashtable<String, String>();
-                //parametros.put("Name",  );
-                parametros.put("User", User.getUsuario());
+                parametros.put("name", getIntent().getStringExtra("titulo") );
+                parametros.put("user", User.getUsuario());
 
                 return parametros;
             }
