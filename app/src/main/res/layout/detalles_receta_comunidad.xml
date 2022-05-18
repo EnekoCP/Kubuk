@@ -41,8 +41,8 @@
 
     <TextView
         android:id="@+id/ingredientes"
-        android:layout_width="267dp"
-        android:layout_height="159dp"
+        android:layout_width="263dp"
+        android:layout_height="110dp"
         android:layout_marginStart="79dp"
         android:layout_marginTop="96dp"
         android:layout_marginEnd="80dp"
@@ -74,8 +74,8 @@
 
     <TextView
         android:id="@+id/preparacion"
-        android:layout_width="293dp"
-        android:layout_height="229dp"
+        android:layout_width="310dp"
+        android:layout_height="158dp"
         android:layout_marginStart="80dp"
         android:layout_marginTop="49dp"
         android:layout_marginEnd="83dp"
@@ -84,9 +84,48 @@
         android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.466"
+        app:layout_constraintHorizontal_bias="0.483"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ingredientes"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintVertical_bias="0.207" />
+
+    <ImageView
+        android:id="@+id/imageView1"
+        android:layout_width="114dp"
+        android:layout_height="135dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/preparacion"
+        app:srcCompat="@drawable/logo_pequeno" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="114dp"
+        android:layout_height="135dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="16dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/preparacion"
+        app:layout_constraintVertical_bias="1.0"
+        app:srcCompat="@drawable/logo_pequeno" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="114dp"
+        android:layout_height="135dp"
+        android:layout_marginStart="18dp"
+        android:layout_marginTop="7dp"
+        android:layout_marginEnd="19dp"
+        android:layout_marginBottom="5dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/imageView2"
+        app:layout_constraintStart_toEndOf="@+id/imageView1"
+        app:layout_constraintTop_toBottomOf="@+id/preparacion"
+        app:srcCompat="@drawable/logo_pequeno" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
