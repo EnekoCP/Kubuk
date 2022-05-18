@@ -43,9 +43,9 @@ public class MyRecipes extends AppCompatActivity {
         Cursor cursor = db.rawQuery("SELECT * FROM " + TABLA_RECETA, null);
 
         while (cursor.moveToNext()) {
-            recipe = new Recipe(cursor.getLong(0));
+            recipe = new Recipe();
             recipe.setTitulo(cursor.getString(1));
-            recipe.setTexto(cursor.getString(2));
+            recipe.setIngredientes(cursor.getString(2));
 
             listaRecetas.add(recipe);
         }
@@ -58,13 +58,13 @@ public class MyRecipes extends AppCompatActivity {
         listaRecetas = new ArrayList<Recipe>();
 
         //Boogey para pruebas
-        Recipe recipe1 = new Recipe(new Date().getTime());
+        Recipe recipe1 = new Recipe();
         recipe1.setTitulo("Receta Prueba 1");
-        recipe1.setTexto("qwertyuiopasdfghjklñzxcvbnm");
+        recipe1.setIngredientes("qwertyuiopasdfghjklñzxcvbnm");
         listaRecetas.add(recipe1);
-        Recipe recipe2 = new Recipe(new Date().getTime());
+        Recipe recipe2 = new Recipe();
         recipe2.setTitulo("Tortilla");
-        recipe2.setTexto("mnbvcxzñlkjhgfdsapoiuytrewqmnbvcxzñlkjhgfdsapoiuytrewq");
+        recipe2.setIngredientes("mnbvcxzñlkjhgfdsapoiuytrewqmnbvcxzñlkjhgfdsapoiuytrewq");
         listaRecetas.add(recipe2);
 
         conn = new ConexionSQLiteHelper(getApplicationContext(), "bd_recetas", null, 1);
@@ -88,7 +88,7 @@ public class MyRecipes extends AppCompatActivity {
         finish();
 
 
-        Toast.makeText(this.getApplicationContext(), "Abrir pantalla editar vacía", Toast.LENGTH_LONG).show();
+        //Toast.makeText(this.getApplicationContext(), "Abrir pantalla editar vacía", Toast.LENGTH_LONG).show();
 
     }
 

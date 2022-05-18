@@ -15,17 +15,29 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.JsonRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.kubuk.AddEditRecetas.EditRecetaActivity;
+import com.example.kubuk.Main.RecetasComunidad;
 import com.example.kubuk.R;
+import com.example.kubuk.User;
+
+import org.json.JSONObject;
 
 import java.util.List;
 
 public class RecipeOverviewAdapter extends RecyclerView.Adapter<RecipeOverviewAdapter.ViewHolder>
-    implements View.OnClickListener {
+    implements View.OnClickListener, Response.Listener<JSONObject> ,Response.ErrorListener{
 
     private List<Recipe> recipeList;
     private Context context;
     private View.OnClickListener listener;
+    private RequestQueue queue = Volley.newRequestQueue(context);
 
     public RecipeOverviewAdapter(List<Recipe> recipeList, Context context) {
         this.recipeList = recipeList;
@@ -51,9 +63,7 @@ public class RecipeOverviewAdapter extends RecyclerView.Adapter<RecipeOverviewAd
             @Override
             public void onClick(View view) {
                 Intent miIntent = new Intent(context, EditRecetaActivity.class);
-                Bundle bundle = new Bundle();
-                bundle.putSerializable("nota", miReceta);
-                miIntent.putExtras(bundle);
+                miIntent.putExtra("titulo", miReceta.getTitulo());
 
                 context.startActivity(miIntent);
                 ((Activity) context).finish();
@@ -92,6 +102,26 @@ public class RecipeOverviewAdapter extends RecyclerView.Adapter<RecipeOverviewAd
         if (listener != null) {
             listener.onClick(view);
         }
+    }
+
+    @Override
+    public void onErrorResponse(VolleyError error) {
+
+    }
+
+    @Override
+    public void onResponse(JSONObject response) {
+
+    }
+
+    private void publicar(Recipe receta){
+        // Instantiate the RequestQueue.
+        String url ="http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/ecalvo023/WEB/add1.php?name="+receta.getTitulo()+"&descripcion="+receta.getPreparacion()+
+                "&ingredientes="+receta.getIngredientes()+"&user="+ User.getUsuario();
+
+        JsonRequest jsonRequest = new JsonObjectRequest(Request.Method.GET, url, null,this,this);
+
+        queue.add(jsonRequest);
     }
 
 

@@ -4,36 +4,34 @@ import java.io.Serializable;
 
 public class Recipe implements Serializable {
 
-    private final long fechaCreacion;
     private String titulo;
-    private String texto;
+    private String ingredientes;
+    private String preparacion;
 
-    public Recipe(long pFechaCreacion){
-        this.fechaCreacion = pFechaCreacion;
+    public Recipe(){
         this.titulo = "";
-        this.texto = "";
-    }
-
-    public long getFechaCreacion() {
-        return fechaCreacion;
+        this.ingredientes = "";
+        this.preparacion = "";
     }
 
     public String getTitulo() {
         return titulo;
     }
 
-    public String getTexto() {
-        return texto;
+    public String getIngredientes() {
+        return ingredientes;
     }
+
+    public String getPreparacion() { return preparacion; }
 
     public String getResumen(){
         String res;
-        if (texto != null) {
-            if (texto.length() < 40) {
-                res = texto.substring(0, texto.length());
+        if (preparacion != null) {
+            if (preparacion.length() < 40) {
+                res = preparacion.substring(0, preparacion.length());
             }
             else {
-                res = texto.substring(0, 40) + "...";
+                res = preparacion.substring(0, 40) + "...";
             }
         }
         else {
@@ -46,8 +44,11 @@ public class Recipe implements Serializable {
         this.titulo = pTitulo;
     }
 
-    public void setTexto(String pTexto) {
-        this.texto = pTexto;
+    public void setIngredientes(String pIngredientes) {
+        this.ingredientes = pIngredientes;
     }
 
+    public void setPreparacion(String preparacion) {
+        this.preparacion = preparacion;
+    }
 }
