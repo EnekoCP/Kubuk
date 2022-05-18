@@ -101,9 +101,13 @@ public class RegisterActivity extends AppCompatActivity implements Response.List
             Toast.makeText(getApplicationContext(), getString(R.string.emailYaExiste), Toast.LENGTH_SHORT).show();
             Log.i("REGISTRO", "Email Existe");
         }
-        else {
+        else if (response.equals("Registro_notdone")){
             Toast.makeText(getApplicationContext(),  getString(R.string.errorRegistro), Toast.LENGTH_SHORT).show();
-            Log.i("REGISTRO", "Error registro");
+            Log.i("REGISTRO", "Error registro 1");
+        }
+        else if (response.equals("Error_consulta_1")){
+            Toast.makeText(getApplicationContext(),  getString(R.string.errorRegistro), Toast.LENGTH_SHORT).show();
+            Log.i("REGISTRO", "Error registro 2");
         }
     }
 
