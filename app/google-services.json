@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "907616891622",
+    "project_id": "kubukdas",
+    "storage_bucket": "kubukdas.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:907616891622:android:b71749810b9d8deaec4127",
+        "android_client_info": {
+          "package_name": "com.example.kubuk"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "907616891622-pntrrlq0rd8gahve8h94prnoo2ps5h1h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBs9srcfKxYVrB2OkFtTWSOQruFyK5v_NQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "907616891622-pntrrlq0rd8gahve8h94prnoo2ps5h1h.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

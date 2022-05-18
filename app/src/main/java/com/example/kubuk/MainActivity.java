@@ -7,8 +7,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 
-import com.example.kubuk.login.LoginActivity;
-import com.example.kubuk.login.RegisterActivity;
+import com.example.kubuk.users.LoginActivity;
 
 public class MainActivity extends AppCompatActivity {
 

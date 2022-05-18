@@ -3,7 +3,6 @@ package com.example.kubuk.Main;
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
-import android.os.Parcelable;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
@@ -11,7 +10,6 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -22,8 +20,11 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.kubuk.ListaCompra.ListaCompra;
 import com.example.kubuk.R;
+import com.example.kubuk.users.LoginActivity;
 import com.example.kubuk.myRecipes.MyRecipes;
+import com.example.kubuk.users.ModifUserActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -36,6 +37,7 @@ public class MenuMain extends AppCompatActivity implements Response.Listener<Str
    ListView listViewWithCheckbox;
    ArrayList rclista = new ArrayList();
    RequestQueue request;
+   String email;
 
    protected void onCreate(Bundle var1) {
       super.onCreate(var1);
@@ -44,6 +46,9 @@ public class MenuMain extends AppCompatActivity implements Response.Listener<Str
       Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
       setSupportActionBar(myToolbar);
       myToolbar.setSubtitleTextColor(0);
+
+      Bundle extra= getIntent().getExtras();
+      email=extra.getString("usuario");
 
       request = Volley.newRequestQueue(this.getApplicationContext());
       cargarWebService();
@@ -80,15 +85,29 @@ public class MenuMain extends AppCompatActivity implements Response.Listener<Str
    public boolean onOptionsItemSelected(MenuItem var1) {
       switch (var1.getItemId()) {
          case R.id.recetascomunidad:
-            Toast.makeText(this, "deberia entrar en la comunidad", Toast.LENGTH_LONG).show();
+            //Toast.makeText(this, "deberia entrar en la comunidad", Toast.LENGTH_LONG).show();
             return true;
          case R.id.misrecetas:
-            Toast.makeText(this, "debería entrar en la lista de mis recetas", Toast.LENGTH_LONG).show();
+            //Toast.makeText(this, "debería entrar en la lista de mis recetas", Toast.LENGTH_LONG).show();
             Intent i= new Intent(MenuMain.this, MyRecipes.class);
             startActivity(i);
             return true;
          case R.id.listacompra:
-            Toast.makeText(this, "deberia entrar en la lista de la compra", Toast.LENGTH_LONG).show();
+            //Toast.makeText(this, "deberia entrar en la lista de la compra", Toast.LENGTH_LONG).show();
+            Intent ilis = new Intent(MenuMain.this, ListaCompra.class);
+            ilis.putExtra("usuario",email);
+            startActivity(ilis);
+            return true;
+         case R.id.modifuser:
+            //Toast.makeText(this, "deberia entrar en modificar user", Toast.LENGTH_LONG).show();
+            Intent intent = new Intent(MenuMain.this, ModifUserActivity.class);
+            intent.putExtra("usuario",email);
+            startActivity(intent);
+            return true;
+         case R.id.logout:
+            //Toast.makeText(this, "deberia entrar en login", Toast.LENGTH_LONG).show();
+            Intent logout = new Intent(MenuMain.this, LoginActivity.class);
+            startActivity(logout);
             return true;
          default:
             return super.onOptionsItemSelected(var1);

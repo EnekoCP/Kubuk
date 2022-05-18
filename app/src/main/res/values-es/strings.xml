@@ -1,4 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <string name="dialog_registrarse_titulo">Registro Completado</string>
+    <string name="dialog_registrarse">¡Enhorabuena! Te has registrado correctamente.</string>
+    <string name="dialog_buttonaceptar">Aceptar</string>
+    <string name="usuarioNoexiste">No existe ningún usuario con esos datos.</string>
+    <string name="errorRegistro">No se pudo registrar el usuario en este momento. Pruebe de nuevo más tarde</string>
+
     <string name="app_name">Kubuk</string>
     <string name="emailVacio">El email no puede estar vacío.</string>
     <string name="emailNoValido">El email introducido no es correcto.</string>
@@ -10,27 +17,14 @@
     <string name="errorServidor">No se ha podido establecer la conexion con el servidor. Prueba de nuevo más tarde</string>
     <string name="nombreVacio">El nombre no puede estar vacío.</string>
     <string name="nombreLargo">El nombre no puede tener más de 10 caracteres.</string>
-    <string name="dialog_registrarse_titulo">"Registro Completado"</string>
-    <string name="dialog_registrarse">¡Enhorabuena! Te has registrado correctamente.</string>
-    <string name="dialog_buttonaceptar">Aceptar</string>
-    <string name="errorRegistro">No se pudo registrar el usuario en este momento. Pruebe de nuevo más tarde</string>
-    <string name="usuarioNoexiste">No existe ningún usuario con esos datos.</string>
-    <!-- Preference Titles -->
     <string name="messages_header">Messages</string>
     <string name="sync_header">Sync</string>
-
-    <!-- Messages Preferences -->
     <string name="signature_title">Your signature</string>
     <string name="reply_title">Default reply action</string>
-
-    <!-- Sync Preferences -->
-    <string name="sync_title">Sync email periodically</string>
-    <string name="attachment_title">Download incoming attachments</string>
-    <string name="attachment_summary_on">Automatically download attachments for incoming emails
-    </string>
     <string name="attachment_summary_off">Only download attachments when manually requested</string>
-
-
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails</string>
+    <string name="sync_title">Sync email periodically</string>
     <string name="email">Email</string>
     <string name="password">Contraseña</string>
     <string name="acceder">Acceder</string>
@@ -39,7 +33,6 @@
     <string name="name">Nombre</string>
     <string name="passwordConfirm">Confirme su password</string>
     <string name="photo">Elegir foto...</string>
-    <!-- TODO: Remove or change this placeholder text -->
     <string name="dialog_modificar_titulo">"Modificación Completada"</string>
     <string name="dialog_modificar">¡Datos modificados correctamente!.</string>
     <string name="dialog_modif_buttonaceptar">Aceptar</string>

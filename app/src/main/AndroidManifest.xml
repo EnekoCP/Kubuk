@@ -3,10 +3,10 @@
     package="com.example.kubuk">
 
     <uses-permission android:name="android.permission.CAMERA" />
-    <uses-permission android:name="android.permission.INTERNET"/>
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -14,13 +14,16 @@
         android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
-        android:usesCleartextTraffic="true"
-        android:theme="@style/Theme.AppCompat.NoActionBar">
+        android:theme="@style/Theme.AppCompat.NoActionBar"
+        android:usesCleartextTraffic="true">
         <activity
-            android:name=".login.RegisterActivity"
+            android:name=".users.RegisterActivity"
             android:exported="false" />
         <activity
-            android:name=".login.LoginActivity"
+            android:name=".users.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".users.ModifUserActivity"
             android:exported="false" />
         <activity
             android:name=".AddEditRecetas.AddRecetaActivity2"
@@ -36,6 +39,9 @@
             android:exported="false" />
         <activity
             android:name=".myRecipes.MyRecipes"
+            android:exported="false" />
+        <activity
+            android:name=".ListaCompra.ListaCompra"
             android:exported="false" />
         <activity
             android:name=".MainActivity"

@@ -1,4 +1,3 @@
-/*
 package com.example.kubuk.AddEditRecetas;
 
 import androidx.annotation.NonNull;
@@ -39,6 +38,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.kubuk.R;
+import com.example.kubuk.User;
 import com.google.common.util.concurrent.ListenableFuture;
 
 import java.io.ByteArrayOutputStream;
@@ -62,6 +62,8 @@ public class AddRecetaActivity2 extends AppCompatActivity {
     EditText observaciones;
 
     int cont;
+
+    String foto1 = "empty",foto2 = "empty",foto3 = "empty";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -219,28 +221,33 @@ public class AddRecetaActivity2 extends AppCompatActivity {
                             runOnUiThread(() -> {
                                 // TODO Auto-generated method stub
                                 if (cont==0){
+                                    foto1 = fotoen64;
                                     imagen1.setRotation(0); //EN PC SE VE GIRADO PERO EN MOVIL EN VERTICAL
                                     imagen1.setImageBitmap(finalRecortado); //SETEAMOS FOTO TOMADA
                                     cont = cont+1;
                                 }else if(cont==1){
+                                    foto2 = fotoen64;
                                     imagen2.setRotation(0); //EN PC SE VE GIRADO PERO EN MOVIL EN VERTICAL
                                     imagen2.setImageBitmap(finalRecortado); //SETEAMOS FOTO TOMADA
                                     cont = cont+1;
                                 }else{
+                                    foto3 = fotoen64;
                                     imagen3.setRotation(0); //EN PC SE VE GIRADO PERO EN MOVIL EN VERTICAL
                                     imagen3.setImageBitmap(finalRecortado); //SETEAMOS FOTO TOMADA
                                     cont = 0;
                                 }
 
                             });
-
+                            image.close();
                         }
+
                     });
         });
 
         añadir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 realizarGuardado(foto1, foto2, foto3);
             }
         });
@@ -248,7 +255,7 @@ public class AddRecetaActivity2 extends AppCompatActivity {
 
     private void realizarGuardado(final String foto1, final String foto2, final String foto3) {
         StringRequest stringRequest = new StringRequest(Request.Method.POST,
-                "http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/ecalvo023/WEB/add2.php",
+                "http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/everhorst001/WEB/Kubuk/add.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -264,12 +271,14 @@ public class AddRecetaActivity2 extends AppCompatActivity {
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> parametros = new Hashtable<String, String>();
-                parametros.put("imagen1", foto);
-                parametros.put("imagen2", foto);
-                parametros.put("imagen3", foto);
+                parametros.put("imagen1", foto1);
+                parametros.put("imagen2", foto2);
+                parametros.put("imagen3", foto3);
                 parametros.put("observaciones", observaciones.getText().toString());
-                parametros.put("name", foto);
-
+                parametros.put("name", getIntent().getStringExtra("name"));
+                parametros.put("descripcion", getIntent().getStringExtra("descripcion"));
+                parametros.put("ingredientes", getIntent().getStringExtra("ingredientes"));
+                parametros.put("user", User.getUsuario());
 
 
                 return parametros;
@@ -289,4 +298,4 @@ public class AddRecetaActivity2 extends AppCompatActivity {
         return BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
     }
 
-}*/
+}

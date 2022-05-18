@@ -1,12 +1,16 @@
-package com.example.kubuk.login;
+package com.example.kubuk.users;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -17,7 +21,9 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.kubuk.Main.MenuMain;
 import com.example.kubuk.R;
+import com.example.kubuk.User;
 
+import java.util.Locale;
 import java.util.regex.Pattern;
 
 public class LoginActivity extends AppCompatActivity implements Response.Listener<String>, Response.ErrorListener {
@@ -25,15 +31,25 @@ public class LoginActivity extends AppCompatActivity implements Response.Listene
     EditText textEmail, textPasswd;
     Button loginBoton, registerBoton;
     RequestQueue request;
+    String language;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
+
+        if (savedInstanceState!= null) {
+            language =savedInstanceState.getString("language");
+        }
+
         setContentView(R.layout.activity_login);
 
         textEmail = findViewById(R.id.textEmailReg);
         textPasswd = findViewById(R.id.textPasswordReg1);
+
+        TextView eu=(TextView) findViewById(R.id.euskera);
+        TextView en=(TextView) findViewById(R.id.ingles);
+        TextView es=(TextView) findViewById(R.id.español);
 
         request = Volley.newRequestQueue(getApplicationContext());
 
@@ -49,6 +65,44 @@ public class LoginActivity extends AppCompatActivity implements Response.Listene
 
         registerBoton.setOnClickListener(view -> {
             registrarse();
+        });
+
+        //euskera button (textView) clicked, change language
+        eu.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("info-paso","Euskera");
+                language="eu";
+                changeLanguage();
+                finish();
+                startActivity(getIntent());
+            }
+        });
+
+        // english button (textview) clicked change language
+        en.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("info-paso","Ingelesa");
+                language="en";
+                changeLanguage();
+                finish();
+                startActivity(getIntent());
+                //onStart();
+            }
+        });
+
+        //spanish button (textview) clicked change language
+        es.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Log.i("info-paso","Castellano");
+                language="es";
+                changeLanguage();
+                finish();
+                startActivity(getIntent());
+                // onStart();
+            }
         });
 
     }
@@ -94,7 +148,6 @@ public class LoginActivity extends AppCompatActivity implements Response.Listene
                 +textEmail.getText().toString() + "&passwd=" +textPasswd.getText().toString();
 
         url = url.replace(" ", "%20");
-
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url, this,this);
         request.add(stringRequest);
 
@@ -112,7 +165,9 @@ public class LoginActivity extends AppCompatActivity implements Response.Listene
         String respuesta = response.trim();
         switch (respuesta){
             case "Login_ok":
+                User.setUsuario(textEmail.getText().toString());
                 Intent i= new Intent(LoginActivity.this, MenuMain.class);
+                i.putExtra("usuario",textEmail.getText().toString());
                 startActivity(i);
                 finish();
                 Log.i("LOGIN", "Login Ok");
@@ -134,5 +189,28 @@ public class LoginActivity extends AppCompatActivity implements Response.Listene
         finish();
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
+    }
+
+    //metodo laguntzaile to change language
+    private void changeLanguage(){
+
+        Locale nuevaloc = new Locale(language);
+        Locale.setDefault(nuevaloc);
+        Configuration configuration = getBaseContext().getResources().getConfiguration();
+        configuration.setLocale(nuevaloc);
+        configuration.setLayoutDirection(nuevaloc);
+
+        Context context = getBaseContext().createConfigurationContext(configuration);
+        getBaseContext().getResources().updateConfiguration(configuration, context.getResources().getDisplayMetrics());
+
+    }
+
+    protected void onSaveInstanceState(Bundle savedInstanceState) {
+        super.onSaveInstanceState(savedInstanceState);
+        savedInstanceState.putString("language",language );
+    }
+    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+        super.onRestoreInstanceState(savedInstanceState);
+        language = savedInstanceState.getString("language");
     }
 }
