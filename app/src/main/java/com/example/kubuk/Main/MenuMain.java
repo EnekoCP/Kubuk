@@ -161,7 +161,7 @@ public class MenuMain extends AppCompatActivity implements Response.Listener<Str
                      String var7 = var14.getJSONObject(var2).getString("usuario");
                      StringBuilder var8 = new StringBuilder();
                      Log.i("receta", var8.append(var6).append(var5).append(response).append(var7).toString());
-                     RecetasComunidad var15 = new RecetasComunidad(var6, new String[]{var5}, prep, var7);
+                     RecetasComunidad var15 = new RecetasComunidad(var6, var5, prep, var7);
                      var15.setPuntuacion(Integer.parseInt(var4));
                      this.rclista.add(var15);
                   } catch (JSONException var9) {
@@ -189,7 +189,7 @@ public class MenuMain extends AppCompatActivity implements Response.Listener<Str
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                Intent intdet= new Intent(MenuMain.this,DetallesRecetaComunidad.class);
                RecetasComunidad re=itemList.get(i);
-               String[] receta= {re.getTitulo(), String.valueOf(re.getIngredientes()),re.getPreparacion(),re.getUsuario()};
+               String[] receta= {re.getTitulo(), re.getIngredientes(),re.getPreparacion(),re.getUsuario()};
                intdet.putExtra("receta", receta);
                startActivity(intdet);
             }

@@ -1,7 +1,7 @@
 package com.example.kubuk.Main;
 
 public class RecetasComunidad {
-   private String[] ingredientes;
+   private String ingredientes;
    private int itemRate = 0;
    private String itemText = "";
    private String preparacion;
@@ -34,14 +34,14 @@ public class RecetasComunidad {
       this.img3 = img3;
    }
 
-   public RecetasComunidad(String var1, String[] var2, String var3, String var4) {
+   public RecetasComunidad(String var1, String var2, String var3, String var4) {
       this.titulo = var1;
       this.ingredientes = var2;
       this.preparacion = var3;
       this.usuario = var4;
    }
 
-   public String[] getIngredientes() {
+   public String getIngredientes() {
       return this.ingredientes;
    }
 
@@ -69,7 +69,7 @@ public class RecetasComunidad {
       return this.usuario;
    }
 
-   public void setIngredientes(String[] var1) {
+   public void setIngredientes(String var1) {
       this.ingredientes = var1;
    }
 

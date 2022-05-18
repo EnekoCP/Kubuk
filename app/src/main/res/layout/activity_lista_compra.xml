@@ -23,6 +23,7 @@
         android:layout_height="wrap_content"
         android:textAlignment="center"
         android:text="Lista de la Compra"
+        android:fontFamily="sans-serif-smallcaps"
         android:textColor="@color/black"
         android:textSize="25dp"
         app:layout_constraintBottom_toBottomOf="parent"

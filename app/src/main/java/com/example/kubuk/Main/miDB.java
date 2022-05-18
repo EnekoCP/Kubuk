@@ -1,5 +1,6 @@
 package com.example.kubuk.Main;
 
+import android.annotation.SuppressLint;
 import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
@@ -22,6 +23,7 @@ public class miDB extends SQLiteOpenHelper {
       super(var1, "kubuk.sqlite", (SQLiteDatabase.CursorFactory)null, 1);
    }
 
+   @SuppressLint("Range")
    public ArrayList displayAll(String var1) {
       SQLiteDatabase var4 = this.getReadableDatabase();
       ArrayList var3 = new ArrayList();
@@ -40,11 +42,11 @@ public class miDB extends SQLiteOpenHelper {
 
          while(true) {
             try {
-               String var7 = var6.getString(var6.getColumnIndex("titulo"));
-               String var12 = var6.getString(var6.getColumnIndex("ingredientes"));
-               String var8 = var6.getString(var6.getColumnIndex("preparacion"));
+               @SuppressLint("Range") String var7 = var6.getString(var6.getColumnIndex("titulo"));
+               @SuppressLint("Range") String var12 = var6.getString(var6.getColumnIndex("ingredientes"));
+               @SuppressLint("Range") String var8 = var6.getString(var6.getColumnIndex("preparacion"));
                var6.getString(var6.getColumnIndex("puntuacion"));
-               RecetasComunidad var5 = new RecetasComunidad(var7, new String[]{var12}, var8, var1);
+               RecetasComunidad var5 = new RecetasComunidad(var7, var12, var8, var1);
                var3.add(var5);
             } catch (Exception var10) {
                var10001 = false;

@@ -28,7 +28,7 @@ import java.io.File;
 import java.util.ArrayList;
 
 public class DetallesRecetaComunidad extends AppCompatActivity implements Response.Listener<String>, Response.ErrorListener {
-    Bitmap imageBitmap;
+    Bitmap imageBitmap,imageBitmap2,imageBitmap3;
     String email;
     RequestQueue request;
     String i1,i2,i3;
@@ -43,30 +43,52 @@ public class DetallesRecetaComunidad extends AppCompatActivity implements Respon
         cargarWebService();
 
 
+        //SET EL TITULO
         TextView tituTxt= findViewById(R.id.titulo);
         tituTxt.setText(receta[0]);
 
+        //SET LOS INGREDIENTES
         TextView ingredTxt = findViewById(R.id.ingredientes);
-        String ingredBullet= "&#8226; "+receta[1]+"<br/> &#8226; dosing<br/> &#8226; tresing<br/>";
-        ingredTxt.setText(Html.fromHtml(ingredBullet));
+        if(receta[1].contains(",")){
+            String[] ingreds= receta[1].split(",");
+            int pos=0;
+            String ingredBullet = " ";
+            while(pos<ingreds.length){
+                //String ingredBullet= "&#8226; uning<br/> &#8226; dosing<br/> &#8226; tresing<br/>";
+                ingredBullet= ingredBullet+"&#8226; "+ingreds[pos]+"<br/>";
+                pos++;
+            }
+            ingredTxt.setText(Html.fromHtml(ingredBullet));
+        }
+        else{
+            ingredTxt.setText(receta[1]);
+        }
 
+
+        //SET LA PREPARACIÓN
         TextView prepTxt= findViewById(R.id.preparacion);
         prepTxt.setText(receta[2]);
 
 
-
-
-
-
-
     }
-    private void setImages(){
-        Log.i("la imagen1",i1);
-        byte[] bytes= Base64.decode(i1,Base64.URL_SAFE);
+    private void setImages(String im1,String im2,String im3){
+        //Log.i("la imagen1",im1);
+        byte[] bytes= Base64.decode(im1,Base64.URL_SAFE);
         imageBitmap= BitmapFactory.decodeByteArray(bytes,0,bytes.length);
+        //Log.i("el bitmap",imageBitmap.toString());
 
         ImageView img1= findViewById(R.id.imageView1);
         img1.setImageBitmap(imageBitmap);
+
+        bytes= Base64.decode(im1,Base64.URL_SAFE);
+        imageBitmap2= BitmapFactory.decodeByteArray(bytes,0,bytes.length);
+        ImageView img2= findViewById(R.id.imageView2);
+        img2.setImageBitmap(imageBitmap);
+
+        bytes= Base64.decode(im1,Base64.URL_SAFE);
+        imageBitmap3= BitmapFactory.decodeByteArray(bytes,0,bytes.length);
+        ImageView img3= findViewById(R.id.imageView3);
+        img3.setImageBitmap(imageBitmap);
     }
     private void cargarWebService() {
         String url="http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/everhorst001/WEB/Kubuk/conseguirImgRecetas.php?email="+email;
@@ -88,17 +110,18 @@ public class DetallesRecetaComunidad extends AppCompatActivity implements Respon
             JSONArray json = null;
             try {
                 json=new JSONArray(response);
-                int i=0;
+                int i=1;//SOLO PARA HACER PRUEBAS, PORQUE LA SEGUNDA RECETA NO TIENE IMAGENES, DESPUES CAMBIARLO A 0
                 while(i<json.length()){
                     i1 = json.getJSONObject(i).getString("imagen1");
                     i2 = json.getJSONObject(i).getString("imagen2");
                     i3 = json.getJSONObject(i).getString("imagen3");
-
+                    Log.i("i1",i1);
+                    i++;
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
-        setImages();
+        setImages(i1,i2,i3);
     }
 }

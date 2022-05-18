@@ -1,11 +1,15 @@
 package com.example.kubuk.ListaCompra;
 
 import android.content.Context;
+import android.os.Build;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.TextView;
+
+import androidx.annotation.RequiresApi;
+import androidx.preference.PreferenceManager;
 
 import com.example.kubuk.R;
 
@@ -45,6 +49,7 @@ public class AdapterListViewListCom extends BaseAdapter {
         return itemIndex;
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.M)
     @Override
     public View getView(int itemIndex, View convertView, ViewGroup viewGroup) {
 
@@ -56,6 +61,23 @@ public class AdapterListViewListCom extends BaseAdapter {
         }else
         {
             convertView = View.inflate(ctx, R.layout.lista_compra_item, null);
+            CheckBox checkBox1 = (CheckBox) convertView.findViewById(R.id.checkbox);
+            boolean checked = PreferenceManager.getDefaultSharedPreferences(ctx).getBoolean("checkbox", false);
+            checkBox1.setChecked(checked);
+            checkBox1.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    //cuando clickas en el checkbox
+                    /*Intent i= new Intent(ctx, ActualizarCheckBox.class);
+                    i.putExtra("usuario",listViewItemDtoList.get(itemIndex).getEmail());
+                    Log.i("el usuario en adapter",listViewItemDtoList.get(itemIndex).getEmail());
+                    i.putExtra("marcado",listViewItemDtoList.get(itemIndex).isChecked());
+                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+                    ctx.startActivity(i);*/
+                    ActualizarCheckBox acb= new ActualizarCheckBox(listViewItemDtoList.get(itemIndex).getEmail(),listViewItemDtoList.get(itemIndex).isChecked(),ctx,listViewItemDtoList.get(itemIndex).getItemText());
+                    acb.actualizarMarcado();
+                }
+            });
 
             CheckBox listItemCheckbox = (CheckBox) convertView.findViewById(R.id.checkbox);
 
@@ -70,17 +92,26 @@ public class AdapterListViewListCom extends BaseAdapter {
             convertView.setTag(viewHolder);
         }
 
-       Elemento listViewItemDto = listViewItemDtoList.get(itemIndex);
-        if(listViewItemDto.isChecked().equals("true")){
-            viewHolder.getItemCheckbox().setChecked(Boolean.parseBoolean("true"));
-        }
-        else{
-            viewHolder.getItemCheckbox().setChecked(Boolean.parseBoolean("false"));
-        }
+        Elemento listViewItemDto = listViewItemDtoList.get(itemIndex);
 
+
+        viewHolder.getItemCheckbox().setChecked(listViewItemDto.isChecked());
        viewHolder.getItemTextView().setText(listViewItemDto.getItemText());
 
 
         return convertView;
+    }
+
+    public void onCheckboxClicked(View view) {
+        // Is the view now checked?
+        boolean checked = ((CheckBox) view).isChecked();
+
+        // Check which checkbox was clicked
+        switch (view.getId()) {
+            case R.id.checkbox:
+                PreferenceManager.getDefaultSharedPreferences(ctx).edit()
+                        .putBoolean("checkBox1", checked).commit();
+                break;
+        }
     }
 }
