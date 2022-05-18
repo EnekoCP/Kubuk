@@ -74,7 +74,7 @@ public class RegisterActivity extends AppCompatActivity implements Response.List
     private void cargarWebService() {
 
         //TODO: Modificar el php con la BBDD remota a usar
-        String url = "http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/lgonzalez184/WEB/registrarUserKubuk.php?email="
+        String url = "http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/everhorst001/WEB/Kubuk/registrarUserKubuk.php?email="
                 +textEmailReg.getText().toString() + "&passwd=" +textPasswdReg1.getText().toString() + "&nombre=" +textNombre.getText().toString();
 
         url = url.replace(" ", "%20");

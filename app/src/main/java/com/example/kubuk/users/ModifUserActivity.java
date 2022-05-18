@@ -97,7 +97,7 @@ public class ModifUserActivity extends AppCompatActivity implements Response.Lis
     /** Método utilizado para modificar los datos en la BBDD remota */
     private void cargarWebService() {
 
-        String url = "http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/lgonzalez184/WEB/actualizarDatosUsuarioKubuk.php?email="
+        String url = "http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/everhorst001/WEB/Kubuk/actualizarDatosUsuarioKubuk.php?email="
                 + email + "&passwd=" + textPasswdmodif1.getText().toString();;
 
         url = url.replace(" ", "%20");

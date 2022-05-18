@@ -34,7 +34,7 @@
     <ListView
         android:id="@+id/listvcompra"
         android:layout_width="match_parent"
-        android:layout_height="538dp" />
+        android:layout_height="497dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -43,16 +43,30 @@
         android:layout_weight="1"
         android:gravity="center|bottom">
 
+        <EditText
+            android:id="@+id/id_edit_text"
+            android:layout_width="427dp"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:fontFamily="sans-serif-smallcaps"
+            android:textSize="14dp"
+            android:textAlignment="center"
+            android:hint="INSERTA AQUÍ EL ELEMENTO QUE QUIERAS AÑADIR"
+            android:inputType="textPersonName"
+            android:textColorHint="@color/black" />
+
         <Button
             android:id="@+id/anadir_ingr"
             android:layout_width="match_parent"
+            android:fontFamily="sans-serif-smallcaps"
             android:layout_height="wrap_content"
             android:layout_margin="15dp"
             android:layout_weight="0"
-            android:background="#359A11"
             android:gravity="center"
             android:onClick="onClick"
             android:text="Añadir Elemento a la lista"
+            android:background="#359A11"
             android:textColor="@color/white"></Button>
 
     </LinearLayout>

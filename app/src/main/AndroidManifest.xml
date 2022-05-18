@@ -41,7 +41,7 @@
             android:name=".myRecipes.MyRecipes"
             android:exported="false" />
         <activity
-            android:name=".ListaCompra.ListaCompra"
+            android:name=".ListaCompra.EnseñarListaCompra"
             android:exported="false" />
         <activity
             android:name=".MainActivity"
