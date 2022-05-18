@@ -12,10 +12,12 @@ import androidx.camera.core.UseCaseGroup;
 import androidx.camera.core.ViewPort;
 import androidx.camera.lifecycle.ProcessCameraProvider;
 import androidx.camera.view.PreviewView;
+import androidx.core.app.ActivityCompat;
 import androidx.core.content.ContextCompat;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 
 import android.graphics.BitmapFactory;
@@ -52,6 +54,12 @@ import java.util.concurrent.Executors;
 
 public class AddRecetaActivity2 extends AppCompatActivity {
 
+    private final String[] REQUIRED_PERMISSIONS = new String[]{"android.permission.CAMERA"};
+
+    private final int REQUEST_CODE_PERMISSIONS = 1001;
+
+
+
     private final Executor executor = Executors.newSingleThreadExecutor();
     Camera camera;
     PreviewView mPreviewView;
@@ -83,8 +91,27 @@ public class AddRecetaActivity2 extends AppCompatActivity {
 
         cont=0;
 
+        //PEDIR PERMISOS
+        while(!allPermissionsGranted()){
+
+            System.out.println("PIDIENDO PERMISOS ");
+            ActivityCompat.requestPermissions(this, REQUIRED_PERMISSIONS, REQUEST_CODE_PERMISSIONS);
+
+        }
+
+
         startCamera();
 
+    }
+
+    private boolean allPermissionsGranted(){
+
+        for(String permission : REQUIRED_PERMISSIONS){
+            if(ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED){
+                return false;
+            }
+        }
+        return true;
     }
 
     private void startCamera() {  //EMPIEZA LA EJECUCION DESPUES DE ARRANCAR LOS SERVICIOS NECESARIOS
