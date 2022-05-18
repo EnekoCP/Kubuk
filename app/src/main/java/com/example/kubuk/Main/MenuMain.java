@@ -9,6 +9,7 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
+import android.widget.ImageView;
 import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,23 +39,29 @@ public class MenuMain extends AppCompatActivity implements Response.Listener<Str
    ArrayList rclista = new ArrayList();
    RequestQueue request;
    String email;
+   ImageView img1,img2,img3;
 
    protected void onCreate(Bundle var1) {
       super.onCreate(var1);
       this.setContentView(R.layout.activity_recetas_comunidad);
-      Log.i("ha entrado","en la clase mainmenu");
+
       Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
       setSupportActionBar(myToolbar);
       myToolbar.setSubtitleTextColor(0);
 
       Bundle extra= getIntent().getExtras();
       email=extra.getString("usuario");
+      Log.i("ha entrado","en la clase mainmenu con usuario"+email);
 
       request = Volley.newRequestQueue(this.getApplicationContext());
       cargarWebService();
    }
    private void cargarWebService() {
-      StringRequest var1 = new StringRequest(Request.Method.GET, "http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/everhorst001/WEB/Kubuk/conseguirRecetas.php".replace(" ", "%20"), this, this);
+      String url="http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/everhorst001/WEB/Kubuk/conseguirRecetas.php?email="+email;
+      url.replace(" ", "%20");
+      Log.i("el url",url);
+      StringRequest var1 = new StringRequest(Request.Method.GET, url,this,this);
+
       request.add(var1);
    }
 
@@ -154,7 +161,7 @@ public class MenuMain extends AppCompatActivity implements Response.Listener<Str
                      String var7 = var14.getJSONObject(var2).getString("usuario");
                      StringBuilder var8 = new StringBuilder();
                      Log.i("receta", var8.append(var6).append(var5).append(response).append(var7).toString());
-                     RecetasComunidad var15 = new RecetasComunidad(var6, new String[]{var5}, prep, var7);
+                     RecetasComunidad var15 = new RecetasComunidad(var6, var5, prep, var7);
                      var15.setPuntuacion(Integer.parseInt(var4));
                      this.rclista.add(var15);
                   } catch (JSONException var9) {
@@ -182,7 +189,7 @@ public class MenuMain extends AppCompatActivity implements Response.Listener<Str
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                Intent intdet= new Intent(MenuMain.this,DetallesRecetaComunidad.class);
                RecetasComunidad re=itemList.get(i);
-               String[] receta= {re.getTitulo(), String.valueOf(re.getIngredientes()),re.getPreparacion()};
+               String[] receta= {re.getTitulo(), re.getIngredientes(),re.getPreparacion(),re.getUsuario()};
                intdet.putExtra("receta", receta);
                startActivity(intdet);
             }

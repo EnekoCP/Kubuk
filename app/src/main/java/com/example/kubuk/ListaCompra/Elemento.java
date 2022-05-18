@@ -1,19 +1,28 @@
 package com.example.kubuk.ListaCompra;
 
 public class Elemento {
-    private String checked = "";
+    private Boolean checked ;
     private String itemText = "";
+    private String email;
 
-    public Elemento(String check, String text){
+    public Elemento(Boolean check, String text){
         this.checked=check;
         this.itemText=text;
     }
 
-    public String isChecked() {
+    public Boolean isChecked() {
         return checked;
     }
 
-    public void setChecked(String checked) {
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public void setChecked(Boolean checked) {
         this.checked = checked;
     }
     public String getItemText() {

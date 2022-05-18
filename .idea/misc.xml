@@ -4,17 +4,6 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/layout-land/activity_login.xml" value="0.32760141093474426" />
-        <entry key="app/src/main/res/layout/activity_add_receta2.xml" value="0.36730072463768115" />
-        <entry key="app/src/main/res/layout/activity_list_item_receta.xml" value="0.36730072463768115" />
-        <entry key="app/src/main/res/layout/activity_lista_compra.xml" value="0.36730072463768115" />
-        <entry key="app/src/main/res/layout/activity_login.xml" value="0.22447916666666667" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.15760869565217392" />
-        <entry key="app/src/main/res/layout/activity_modif_user.xml" value="0.38697916666666665" />
-        <entry key="app/src/main/res/layout/activity_recetas_comunidad.xml" value="0.36730072463768115" />
-        <entry key="app/src/main/res/layout/activity_register.xml" value="0.25" />
-        <entry key="app/src/main/res/layout/fragment_modificar_dialog.xml" value="0.36730072463768115" />
-        <entry key="app/src/main/res/layout/mi_receta_card.xml" value="0.36730072463768115" />
-        <entry key="app/src/main/res/menu/menu.xml" value="0.38697916666666665" />
         <entry key="app/src/main/res/layout/activity_add_receta.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_add_receta2.xml" value="0.34193840579710144" />
         <entry key="app/src/main/res/layout/activity_edit_receta.xml" value="0.34193840579710144" />
@@ -23,9 +12,12 @@
         <entry key="app/src/main/res/layout/activity_login.xml" value="0.34193840579710144" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.34193840579710144" />
         <entry key="app/src/main/res/layout/activity_menu_main.xml" value="0.2671875" />
+        <entry key="app/src/main/res/layout/activity_modif_user.xml" value="0.38697916666666665" />
         <entry key="app/src/main/res/layout/activity_recetas_comunidad.xml" value="0.25" />
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.34193840579710144" />
         <entry key="app/src/main/res/layout/detalles_receta_comunidad.xml" value="0.5" />
+        <entry key="app/src/main/res/layout/fragment_modificar_dialog.xml" value="0.36730072463768115" />
+        <entry key="app/src/main/res/layout/lista_compra_item.xml" value="0.23143115942028986" />
         <entry key="app/src/main/res/layout/mi_receta_card.xml" value="0.35625" />
         <entry key="app/src/main/res/layout/my_recipes.xml" value="0.33" />
         <entry key="app/src/main/res/menu/menu.xml" value="0.35625" />
