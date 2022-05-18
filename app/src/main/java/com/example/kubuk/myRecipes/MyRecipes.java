@@ -20,9 +20,8 @@ import android.widget.Toast;
 
 import com.example.kubuk.AddEditRecetas.AddRecetaActivity;
 import com.example.kubuk.AddEditRecetas.EditRecetaActivity;
-import com.example.kubuk.ListaCompra.ListaCompra;
+import com.example.kubuk.ListaCompra.EnseñarListaCompra;
 import com.example.kubuk.Main.MenuMain;
-import com.example.kubuk.MainActivity;
 import com.example.kubuk.R;
 
 import java.util.ArrayList;
@@ -34,6 +33,7 @@ public class MyRecipes extends AppCompatActivity {
     RecipeOverviewAdapter recipeOverview;
     ArrayList<Recipe> listaRecetas;
     SQLiteOpenHelper conn;
+    String email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +43,9 @@ public class MyRecipes extends AppCompatActivity {
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(myToolbar);
         myToolbar.setSubtitleTextColor(0);
+
+        Bundle extras= getIntent().getExtras();
+        email= extras.getString("usuario");
 
         construirRecycler();
         recipeRecycler.setAdapter(recipeOverview);
@@ -60,16 +63,16 @@ public class MyRecipes extends AppCompatActivity {
             case R.id.recetascomunidad:
                 //Toast.makeText(this, "deberia entrar en la comunidad", Toast.LENGTH_LONG).show();
                 Intent i= new Intent(MyRecipes.this, MenuMain.class);
+                i.putExtra("usuario",email);
                 startActivity(i);
                 return true;
             case R.id.misrecetas:
-                //Toast.makeText(this, "debería entrar en la lista de mis recetas", Toast.LENGTH_LONG).show();
-                //Intent i= new Intent(MenuMain.this, MyRecipes.class);
-                //startActivity(i);
+                //nada porque es este
                 return true;
             case R.id.listacompra:
                 //Toast.makeText(this, "deberia entrar en la lista de la compra", Toast.LENGTH_LONG).show();
-                Intent ilis = new Intent(MyRecipes.this, ListaCompra.class);
+                Intent ilis = new Intent(MyRecipes.this, EnseñarListaCompra.class);
+                ilis.putExtra("usuario",email);
                 startActivity(ilis);
                 return true;
             default:

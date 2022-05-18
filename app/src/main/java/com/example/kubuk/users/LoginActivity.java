@@ -144,7 +144,7 @@ public class LoginActivity extends AppCompatActivity implements Response.Listene
     /** Método utilizado para validar el inicio de sesión con los datos que existen en la BBDD remota */
     private void cargarWebService() {
 
-        String url = "http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/lgonzalez184/WEB/inicioSesionKubuk.php?email="
+        String url = "http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/everhorst001/WEB/Kubuk/inicioSesionKubuk.php?email="
                 +textEmail.getText().toString() + "&passwd=" +textPasswd.getText().toString();
 
         url = url.replace(" ", "%20");

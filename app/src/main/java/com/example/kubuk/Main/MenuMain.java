@@ -20,7 +20,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.kubuk.ListaCompra.ListaCompra;
+import com.example.kubuk.ListaCompra.EnseñarListaCompra;
 import com.example.kubuk.R;
 import com.example.kubuk.users.LoginActivity;
 import com.example.kubuk.myRecipes.MyRecipes;
@@ -90,11 +90,12 @@ public class MenuMain extends AppCompatActivity implements Response.Listener<Str
          case R.id.misrecetas:
             //Toast.makeText(this, "debería entrar en la lista de mis recetas", Toast.LENGTH_LONG).show();
             Intent i= new Intent(MenuMain.this, MyRecipes.class);
+            i.putExtra("usuario",email);
             startActivity(i);
             return true;
          case R.id.listacompra:
             //Toast.makeText(this, "deberia entrar en la lista de la compra", Toast.LENGTH_LONG).show();
-            Intent ilis = new Intent(MenuMain.this, ListaCompra.class);
+            Intent ilis = new Intent(MenuMain.this, EnseñarListaCompra.class);
             ilis.putExtra("usuario",email);
             startActivity(ilis);
             return true;

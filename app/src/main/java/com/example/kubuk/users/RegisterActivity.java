@@ -74,7 +74,7 @@ public class RegisterActivity extends AppCompatActivity implements Response.List
     private void cargarWebService() {
 
         //TODO: Modificar el php con la BBDD remota a usar
-        String url = "http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/lgonzalez184/WEB/registrarUserKubuk.php?email="
+        String url = "http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/everhorst001/WEB/Kubuk/registrarUserKubuk.php?email="
                 +textEmailReg.getText().toString() + "&passwd=" +textPasswdReg1.getText().toString() + "&nombre=" +textNombre.getText().toString();
 
         url = url.replace(" ", "%20");
@@ -101,9 +101,13 @@ public class RegisterActivity extends AppCompatActivity implements Response.List
             Toast.makeText(getApplicationContext(), getString(R.string.emailYaExiste), Toast.LENGTH_SHORT).show();
             Log.i("REGISTRO", "Email Existe");
         }
-        else {
+        else if (response.equals("Registro_notdone")){
             Toast.makeText(getApplicationContext(),  getString(R.string.errorRegistro), Toast.LENGTH_SHORT).show();
-            Log.i("REGISTRO", "Error registro");
+            Log.i("REGISTRO", "Error registro 1");
+        }
+        else if (response.equals("Error_consulta_1")){
+            Toast.makeText(getApplicationContext(),  getString(R.string.errorRegistro), Toast.LENGTH_SHORT).show();
+            Log.i("REGISTRO", "Error registro 2");
         }
     }
 
