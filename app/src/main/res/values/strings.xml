@@ -43,4 +43,6 @@
     <string name="dialog_modificar_titulo">"Modificación Completada"</string>
     <string name="dialog_modificar">¡Datos modificados correctamente!.</string>
     <string name="dialog_modif_buttonaceptar">Aceptar</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>

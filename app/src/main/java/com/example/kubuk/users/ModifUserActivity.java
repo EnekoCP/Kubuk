@@ -90,8 +90,25 @@ public class ModifUserActivity extends AppCompatActivity implements Response.Lis
             }
         });
 
-        //TODO: Eliminar usuario button + php eliminar usuario + fragment confirmar eliminar usuario + fragment eliminar usuario
+        //TODO: Probar eliminar usuario
 
+        /*Button deleteButton = findViewById(R.id.buttonDelete);
+
+        deleteButton.setOnClickListener(new View.OnClickListener()    {
+            @Override
+            public void onClick(View view) {
+                eliminarUsuario();
+            }
+        });*/
+        
+    }
+
+    private void eliminarUsuario() {
+        Bundle bundle = new Bundle();
+        bundle.putString("usuario", email);
+        DialogFragment confirmarAlert = new ConfirmarEliminarFragment();
+        confirmarAlert.setArguments(bundle);
+        confirmarAlert.show(getSupportFragmentManager(),"eliminar_dialog");
     }
 
     /** Método utilizado para modificar los datos en la BBDD remota */
