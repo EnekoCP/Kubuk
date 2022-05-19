@@ -9,8 +9,11 @@ public class ListViewItemViewHolder extends RecyclerView.ViewHolder {
    private RatingBar itemRating;
    private TextView itemTextView;
 
+
+
    public ListViewItemViewHolder(View var1) {
       super(var1);
+
    }
 
    public RatingBar getItemRate() {
@@ -28,4 +31,7 @@ public class ListViewItemViewHolder extends RecyclerView.ViewHolder {
    public void setItemTextView(TextView var1) {
       this.itemTextView = var1;
    }
+
+
+
 }

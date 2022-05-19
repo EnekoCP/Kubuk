@@ -162,7 +162,7 @@ public class MenuMain extends AppCompatActivity implements Response.Listener<Str
                      StringBuilder var8 = new StringBuilder();
                      Log.i("receta", var8.append(var6).append(var5).append(response).append(var7).toString());
                      RecetasComunidad var15 = new RecetasComunidad(var6, var5, prep, var7);
-                     var15.setPuntuacion(Integer.parseInt(var4));
+                     var15.setPuntuacion(Float.parseFloat(var4));
                      this.rclista.add(var15);
                   } catch (JSONException var9) {
                      var10000 = var9;
@@ -196,4 +196,7 @@ public class MenuMain extends AppCompatActivity implements Response.Listener<Str
          });
       }
    }
+
+
+
 }

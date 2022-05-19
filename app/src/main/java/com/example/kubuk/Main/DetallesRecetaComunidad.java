@@ -8,6 +8,7 @@ import android.text.Html;
 import android.util.Base64;
 import android.util.Log;
 import android.widget.ImageView;
+import android.widget.RatingBar;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -19,6 +20,7 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.kubuk.R;
+import com.example.kubuk.User;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -32,6 +34,10 @@ public class DetallesRecetaComunidad extends AppCompatActivity implements Respon
     String email;
     RequestQueue request;
     String i1,i2,i3;
+
+    String titulo;
+    String accion;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detalles_receta_comunidad);
@@ -39,6 +45,7 @@ public class DetallesRecetaComunidad extends AppCompatActivity implements Respon
         String receta[]=extras.getStringArray("receta"); //el orden es: titulo(0), ingredientes(1), preparacion(2), email(3).
         Log.i("los extras, titulo", receta[0]);
         email=receta[3];
+        titulo=receta[0];
         request = Volley.newRequestQueue(this.getApplicationContext());
         cargarWebService();
 
@@ -70,6 +77,24 @@ public class DetallesRecetaComunidad extends AppCompatActivity implements Respon
         prepTxt.setText(receta[2]);
 
 
+        //SET RATING BAR
+        RatingBar valorar=findViewById(R.id.valorar);
+        getValoracion();
+
+        valorar.setOnRatingBarChangeListener(new RatingBar.OnRatingBarChangeListener() {
+            @Override
+            public void onRatingChanged(RatingBar ratingBar, float rating, boolean fromUser) {
+
+                    valorar.setRating(rating);
+                    ratingBar.setRating(rating);
+
+                    setValoracion(Math.round(rating));
+
+
+            }
+        });
+
+
     }
     private void setImages(String im1,String im2,String im3){
         //Log.i("la imagen1",im1);
@@ -91,6 +116,7 @@ public class DetallesRecetaComunidad extends AppCompatActivity implements Respon
         img3.setImageBitmap(imageBitmap);
     }
     private void cargarWebService() {
+        accion="receta";
         String url="http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/everhorst001/WEB/Kubuk/conseguirImgRecetas.php?email="+email;
         url.replace(" ", "%20");
         StringRequest var1 = new StringRequest(Request.Method.GET, url,this,this);
@@ -110,18 +136,61 @@ public class DetallesRecetaComunidad extends AppCompatActivity implements Respon
             JSONArray json = null;
             try {
                 json=new JSONArray(response);
-                int i=1;//SOLO PARA HACER PRUEBAS, PORQUE LA SEGUNDA RECETA NO TIENE IMAGENES, DESPUES CAMBIARLO A 0
+                int i=0;//SOLO PARA HACER PRUEBAS, PORQUE LA SEGUNDA RECETA NO TIENE IMAGENES, DESPUES CAMBIARLO A 0
                 while(i<json.length()){
-                    i1 = json.getJSONObject(i).getString("imagen1");
-                    i2 = json.getJSONObject(i).getString("imagen2");
-                    i3 = json.getJSONObject(i).getString("imagen3");
-                    Log.i("i1",i1);
+                    if(accion=="receta") {
+                        i1 = json.getJSONObject(i).getString("imagen1");
+                        i2 = json.getJSONObject(i).getString("imagen2");
+                        i3 = json.getJSONObject(i).getString("imagen3");
+                        Log.i("i1", i1);
+                    }else if(accion=="get"){
+                        String result=json.getJSONObject(i).getString("resultado");
+                        try{
+                            setPuntos(result);
+                        }catch (NumberFormatException e){
+
+                        }
+
+                    }
                     i++;
                 }
             } catch (JSONException e) {
                 e.printStackTrace();
             }
         }
-        setImages(i1,i2,i3);
+        if(accion=="receta") {
+            //setImages(i1, i2, i3);
+        }
+    }
+
+
+    private void getValoracion(){
+        accion="get";
+        if(User.getUsuario().equals(email)){
+            RatingBar ratingBar=findViewById(R.id.valorar);
+            ratingBar.setIsIndicator(true);
+        }
+        String url="http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/everhorst001/WEB/Kubuk/puntuacion.php?funcion=get&autor="+email+"&receta="+titulo+"&email="+User.getUsuario();
+        url.replace(" ", "%20");
+        StringRequest var1 = new StringRequest(Request.Method.GET, url,this,this);
+
+        request.add(var1);
+
+    }
+
+    private void setValoracion(int valoracion){
+        accion="set";
+        String url="http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/everhorst001/WEB/Kubuk/puntuacion.php?funcion=set&autor="+email+"&receta="+titulo+"&email="+User.getUsuario()+"&puntuacion="+valoracion;
+        url.replace(" ", "%20");
+        StringRequest var1 = new StringRequest(Request.Method.GET, url,this,this);
+
+        request.add(var1);
+
+    }
+
+    private void setPuntos(String puntos){
+        RatingBar ratingBar=findViewById(R.id.valorar);
+        ratingBar.setRating(Float.parseFloat(puntos));
+
     }
 }

@@ -2,10 +2,10 @@ package com.example.kubuk.Main;
 
 public class RecetasComunidad {
    private String ingredientes;
-   private int itemRate = 0;
+   private float itemRate = 0;
    private String itemText = "";
    private String preparacion;
-   private int puntuacion;
+   private float puntuacion;
    private String titulo;
    private String usuario;
    private String img1,img2,img3;
@@ -45,7 +45,7 @@ public class RecetasComunidad {
       return this.ingredientes;
    }
 
-   public int getItemRate() {
+   public float getItemRate() {
       return this.itemRate;
    }
 
@@ -57,7 +57,7 @@ public class RecetasComunidad {
       return this.preparacion;
    }
 
-   public int getPuntuacion() {
+   public float getPuntuacion() {
       return this.puntuacion;
    }
 
@@ -73,7 +73,7 @@ public class RecetasComunidad {
       this.ingredientes = var1;
    }
 
-   public void setItemRate(int var1) {
+   public void setItemRate(float var1) {
       this.itemRate = var1;
    }
 
@@ -85,7 +85,7 @@ public class RecetasComunidad {
       this.preparacion = var1;
    }
 
-   public void setPuntuacion(int var1) {
+   public void setPuntuacion(float var1) {
       this.puntuacion = var1;
    }
 

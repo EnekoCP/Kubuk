@@ -51,16 +51,19 @@ public class AdapterListView extends BaseAdapter {
       } else {
          var2 = View.inflate(this.ctx, R.layout.activity_list_item_receta, (ViewGroup)null);
          RatingBar var4 = (RatingBar)var2.findViewById(R.id.rating);
+         //var4.setRating(4);
          TextView var5 = (TextView)var2.findViewById(R.id.titulo);
          var6 = new ListViewItemViewHolder(var2);
          var6.setItemRate(var4);
+
          var6.setItemTextView(var5);
          var2.setTag(var6);
       }
 
       RecetasComunidad var7 = (RecetasComunidad)this.listViewItemDtoList.get(var1);
       var6.getItemTextView().setText(var7.getItemText());
-      var6.getItemRate().setNumStars(2);
+      //var6.getItemRate().setNumStars(2);
+      var6.getItemRate().setRating(var7.getItemRate());
       return var2;
    }
 }
