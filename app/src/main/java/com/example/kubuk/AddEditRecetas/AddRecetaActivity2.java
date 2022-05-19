@@ -17,6 +17,7 @@ import androidx.core.content.ContextCompat;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Bitmap;
 
@@ -39,8 +40,10 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.kubuk.Main.MenuMain;
 import com.example.kubuk.R;
 import com.example.kubuk.User;
+import com.example.kubuk.myRecipes.MyRecipes;
 import com.google.common.util.concurrent.ListenableFuture;
 
 import java.io.ByteArrayOutputStream;
@@ -276,6 +279,10 @@ public class AddRecetaActivity2 extends AppCompatActivity {
             public void onClick(View view) {
 
                 realizarGuardado(foto1, foto2, foto3);
+
+                Intent i = new Intent(AddRecetaActivity2.this, MenuMain.class);
+                i.putExtra("usuario",User.getUsuario());
+                startActivity(i);
             }
         });
     }

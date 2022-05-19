@@ -21,7 +21,9 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.kubuk.R;
 import com.example.kubuk.User;
+import com.example.kubuk.myRecipes.MyRecipes;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -57,10 +59,14 @@ public class EditRecetaActivity extends AppCompatActivity implements Response.Li
     }
 
     private void inicio(){
+
+        Intent i = new Intent(EditRecetaActivity.this,MyRecipes.class);
+        i.putExtra("usuario", User.getUsuario());
         guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 updateDatos();
+                startActivity(i);
             }
         });
 
@@ -68,6 +74,7 @@ public class EditRecetaActivity extends AppCompatActivity implements Response.Li
             @Override
             public void onClick(View view) {
                 deleteDatos();
+                startActivity(i);
             }
         });
     }
@@ -75,44 +82,43 @@ public class EditRecetaActivity extends AppCompatActivity implements Response.Li
     @Override
     public void onResponse(JSONObject response) {
 
-        Toast.makeText(this,"Actualizacion correcta", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"Receta Eliminada", Toast.LENGTH_SHORT).show();
 
-        //Intent inicioApp = new Intent(this,AddRecetaActivity.class);
-       // startActivity(inicioApp);
+        Intent inicioApp = new Intent(this, MyRecipes.class);
+       startActivity(inicioApp);
     }
 
     @Override
     public void onErrorResponse(VolleyError error) {
         System.out.println("ERRORRR" + error.toString());
         error.printStackTrace();
-        Toast.makeText(this,"Error en el update", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,"Error en el delete", Toast.LENGTH_SHORT).show();
 
     }
 
     private void getDatos() {
         StringRequest stringRequest = new StringRequest(Request.Method.POST,
-                "http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/everhorst001/WEB/Kubuk/getDatos.php",
+                "http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/everhorst001/WEB/Kubuk/getDatos2.php",
                 new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
-                        System.out.print(response);
+                        System.out.println(response);
                         System.out.println("AQUIIIIIIIIIIIIII" + response);
 
-                        JSONObject jsonObject = null;
+                        JSONArray jsonObject = null;
                         try {
-                            jsonObject = new JSONObject(response);
+                            jsonObject = new JSONArray(response);
 
-                            String titulo = jsonObject.getString("titulo");
+                            String titulo = jsonObject.getJSONObject(0).getString("titulo");
                             nombre.setText(titulo);
-                            String descripcion2 = jsonObject.getString("preparacion");
+                            String descripcion2 = jsonObject.getJSONObject(0).getString("preparacion");
                             descripcion.setText(descripcion2);
-                            String ingredientes2 = jsonObject.getString("ingredientes");
+                            String ingredientes2 = jsonObject.getJSONObject(0).getString("ingredientes");
                             ingredientes.setText(ingredientes2);
 
                         } catch (JSONException e) {
                             e.printStackTrace();
                         }
-                        System.out.println("OBJECT : "+jsonObject.toString());
 
                         Toast.makeText(getApplicationContext(), "Datos obtenidos", Toast.LENGTH_LONG).show();
                     }
@@ -126,7 +132,7 @@ public class EditRecetaActivity extends AppCompatActivity implements Response.Li
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> parametros = new Hashtable<String, String>();
-                parametros.put("name", getIntent().getStringExtra("titulo") );
+                parametros.put("name", "prueba" );
                 parametros.put("user", User.getUsuario());
 
                 return parametros;
@@ -137,19 +143,52 @@ public class EditRecetaActivity extends AppCompatActivity implements Response.Li
         requestQueue.add(stringRequest);
     }
 
-    private void updateDatos(){
-        // Instantiate the RequestQueue.
-        String url ="http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/everhorst001/WEB/update.php?name="+nombre.getText().toString()+"&descripcion="+descripcion.getText().toString()+
-                "&ingredientes="+ingredientes.getText().toString()+"&user="+User.getUsuario();
+    private void updateDatos() {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST,
+                "http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/everhorst001/WEB/Kubuk/update.php",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        System.out.println(response);
+                        System.out.println("AQUIIIIIIIIIIIIII" + response);
 
-        JsonRequest jsonRequest = new JsonObjectRequest(Request.Method.GET, url, null,this,this);
+                        Toast.makeText(getApplicationContext(), "Datos actualizados", Toast.LENGTH_LONG).show();
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
 
-        queue.add(jsonRequest);
+                System.out.println("AQUIIIIIIIIIIIIII" + error.toString());
+
+                System.out.println(nombre.getText().toString());
+                System.out.println(descripcion.getText().toString());
+                System.out.println(ingredientes.getText().toString());
+
+                Toast.makeText(getApplicationContext(), "ERROR", Toast.LENGTH_LONG).show();
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> parametros = new Hashtable<String, String>();
+                parametros.put("name", "prueba" );
+                parametros.put("user", User.getUsuario());
+                parametros.put("newName", nombre.getText().toString());
+                parametros.put("descripcion", descripcion.getText().toString());
+                parametros.put("ingredientes", ingredientes.getText().toString());
+
+
+                return parametros;
+            }
+        };
+
+        RequestQueue requestQueue = Volley.newRequestQueue(this);
+        requestQueue.add(stringRequest);
     }
+
 
     private void deleteDatos(){
         // Instantiate the RequestQueue.
-        String url ="http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/everhorst001/WEB/delete.php?name="+nombre.getText().toString()+"&user="+User.getUsuario();
+        String url ="http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/everhorst001/WEB/Kubuk/deleteReceta.php?name="+nombre.getText().toString()+"&user="+User.getUsuario();
 
         JsonRequest jsonRequest = new JsonObjectRequest(Request.Method.GET, url, null,this,this);
 
