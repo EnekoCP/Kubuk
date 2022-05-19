@@ -28,7 +28,7 @@
     <string name="nombreLargo">The name cannot be longer than 10 characters.</string>
     <string name="email">Email</string>
     <string name="password">Password</string>
-    <string name="acceder">Log in</string>
+    <string name="acceder">ENTER</string>
     <string name="register">Sign in</string>
     <string name="registerQ">Are you not registered yet?</string>
     <string name="name">Name</string>
