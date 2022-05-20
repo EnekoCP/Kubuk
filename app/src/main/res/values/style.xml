@@ -1,8 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!--Campos de texto-->
+
     <style name="CampoTexto" parent="Theme.AppCompat.Light">
         <item name="colorControlNormal">#BC000000</item>
         <item name="colorControlActivated">#BC000000</item>
         <item name="android:textColorHighlight">#BC000000</item>
     </style>
+
+    <!--Estrellas-->
+
+    <style name="RatingBar" parent="Theme.MaterialComponents.DayNight">
+        <item name="ratingBarStyle">@style/Controls.RatingBar</item>
+        <item name="colorControlActivated">#FFEB3B</item>
+        <item name="colorControlNormal">#AF4747</item>
+    </style>
+
+    <style name="Controls.RatingBar" parent="Widget.AppCompat.RatingBar.Small">
+        <item name="android:isIndicator">false</item>
+    </style>
+
 </resources>

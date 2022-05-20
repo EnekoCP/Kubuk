@@ -1,7 +1,11 @@
 package com.example.kubuk.Main;
 
 import android.annotation.SuppressLint;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.content.Context;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -14,6 +18,7 @@ import android.widget.ListView;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.core.app.NotificationCompat;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -26,6 +31,7 @@ import com.example.kubuk.R;
 import com.example.kubuk.users.LoginActivity;
 import com.example.kubuk.myRecipes.MyRecipes;
 import com.example.kubuk.users.ModifUserActivity;
+import com.example.kubuk.users.aboutUsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,6 +54,21 @@ public class MenuMain extends AppCompatActivity implements Response.Listener<Str
       Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
       setSupportActionBar(myToolbar);
       myToolbar.setSubtitleTextColor(0);
+
+      NotificationManager manager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+      NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "1")
+              .setSmallIcon(R.drawable.logo_pequeno)
+              .setContentTitle("¡Bienvenido!")
+              .setContentText("¿Qué te apetece cocinar hoy?")
+              .setVibrate(new long[]{0, 1000, 500, 1000})
+              .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+
+      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+         NotificationChannel canal = new NotificationChannel("3", "Bienvenida",
+                 NotificationManager.IMPORTANCE_DEFAULT);
+         manager.createNotificationChannel(canal);
+      }
+      manager.notify(1, builder.build());
 
       Bundle extra= getIntent().getExtras();
       email=extra.getString("usuario");
@@ -111,6 +132,12 @@ public class MenuMain extends AppCompatActivity implements Response.Listener<Str
             Intent intent = new Intent(MenuMain.this, ModifUserActivity.class);
             intent.putExtra("usuario",email);
             startActivity(intent);
+            return true;
+         case R.id.aboutus:
+            //Toast.makeText(this, "deberia entrar en about us", Toast.LENGTH_LONG).show();
+            Intent aboutus = new Intent(MenuMain.this, aboutUsActivity.class);
+            aboutus.putExtra("usuario",email);
+            startActivity(aboutus);
             return true;
          case R.id.logout:
             //Toast.makeText(this, "deberia entrar en login", Toast.LENGTH_LONG).show();

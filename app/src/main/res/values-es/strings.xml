@@ -36,6 +36,7 @@
     <string name="dialog_modificar_titulo">"Modificación Completada"</string>
     <string name="dialog_modificar">¡Datos modificados correctamente!.</string>
     <string name="dialog_modif_buttonaceptar">Aceptar</string>
+    <string name="google_maps_key">AIzaSyAwfSbQ6eePl6mPTc4jLV0bnmBT6IZgj2k</string>
     <string name="ingredientes">INGREDIENTES</string>
     <string name="preparacion">PREPARACION</string>
     <string name="listacompra">Lista De La Compra</string>

@@ -23,9 +23,13 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.kubuk.Main.MenuMain;
 import com.example.kubuk.Main.RecetasComunidad;
 import com.example.kubuk.R;
 import com.example.kubuk.myRecipes.MyRecipes;
+import com.example.kubuk.users.LoginActivity;
+import com.example.kubuk.users.ModifUserActivity;
+import com.example.kubuk.users.aboutUsActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -107,6 +111,23 @@ public class EnseñarListaCompra extends AppCompatActivity implements Response.L
                 return true;
             case R.id.listacompra:
                 //Toast.makeText(this, "deberia entrar en la lista de la compra", Toast.LENGTH_LONG).show();
+                return true;
+            case R.id.modifuser:
+                //Toast.makeText(this, "deberia entrar en modificar user", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(EnseñarListaCompra.this, ModifUserActivity.class);
+                intent.putExtra("usuario",email);
+                startActivity(intent);
+                return true;
+            case R.id.aboutus:
+                //Toast.makeText(this, "deberia entrar en about us", Toast.LENGTH_LONG).show();
+                Intent aboutus = new Intent(EnseñarListaCompra.this, aboutUsActivity.class);
+                aboutus.putExtra("usuario",email);
+                startActivity(aboutus);
+                return true;
+            case R.id.logout:
+                //Toast.makeText(this, "deberia entrar en login", Toast.LENGTH_LONG).show();
+                Intent logout = new Intent(EnseñarListaCompra.this, LoginActivity.class);
+                startActivity(logout);
                 return true;
             default:
                 return super.onOptionsItemSelected(var1);

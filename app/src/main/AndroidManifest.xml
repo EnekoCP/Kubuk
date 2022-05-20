@@ -11,7 +11,7 @@
     <application
         android:allowBackup="true"
         android:icon="@drawable/logo_pequeno"
-        android:label="@string/app_name"
+        android:label=""
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.NoActionBar"
@@ -24,6 +24,9 @@
             android:exported="false" />
         <activity
             android:name=".users.ModifUserActivity"
+            android:exported="false" />
+        <activity
+            android:name=".users.aboutUsActivity"
             android:exported="false" />
         <activity
             android:name=".AddEditRecetas.AddRecetaActivity2"
@@ -54,6 +57,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".Main.DetallesRecetaComunidad" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
 
         <service
             android:name=".Main.ServicioFirebase"

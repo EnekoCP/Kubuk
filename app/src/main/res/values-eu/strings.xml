@@ -36,6 +36,7 @@
     <string name="dialog_modificar_titulo">"Datu aldaketa amaituta"</string>
     <string name="dialog_modificar">Datuak ongi aldatu dira!.</string>
     <string name="dialog_modif_buttonaceptar">Onartu</string>
+    <string name="google_maps_key">AIzaSyAwfSbQ6eePl6mPTc4jLV0bnmBT6IZgj2k</string>
     <string name="ingredientes">OSAGAIAK</string>
     <string name="preparacion">PRESTAKUNTZA</string>
     <string name="listacompra">Erosketa Zerrenda</string>
