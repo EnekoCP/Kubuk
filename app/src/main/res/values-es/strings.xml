@@ -31,7 +31,7 @@
     <string name="register">Registrarse</string>
     <string name="registerQ">¿Aún no te has registrado?</string>
     <string name="name">Nombre</string>
-    <string name="passwordConfirm">Confirme su password</string>
+    <string name="passwordConfirm">Confirma tu contraseña</string>
     <string name="photo">Elegir foto...</string>
     <string name="dialog_modificar_titulo">"Modificación Completada"</string>
     <string name="dialog_modificar">¡Datos modificados correctamente!.</string>
