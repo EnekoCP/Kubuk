@@ -48,8 +48,6 @@ public class EditRecetaActivity extends AppCompatActivity implements Response.Li
         descripcion = findViewById(R.id.descripcionEdit);
         ingredientes = findViewById(R.id.ingredientesEdit);
 
-
-
         queue = Volley.newRequestQueue(EditRecetaActivity.this);
 
         getDatos();
