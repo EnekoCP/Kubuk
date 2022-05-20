@@ -232,5 +232,13 @@ public class DetallesRecetaComunidad extends AppCompatActivity implements Respon
         }
     }
 
+    @Override
+    public void onBackPressed() {
+        Intent intent= new Intent(this,MenuMain.class);
+        intent.putExtra("usuario",User.getUsuario());
+        finish();
+        startActivity(intent);
+    }
+
 
 }
