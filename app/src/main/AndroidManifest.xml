@@ -26,6 +26,9 @@
             android:name=".users.ModifUserActivity"
             android:exported="false" />
         <activity
+            android:name=".users.aboutUsActivity"
+            android:exported="false" />
+        <activity
             android:name=".AddEditRecetas.AddRecetaActivity2"
             android:exported="false" />
         <activity
@@ -56,6 +59,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".Main.DetallesRecetaComunidad" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/google_maps_key" />
+
     </application>
 
 </manifest>

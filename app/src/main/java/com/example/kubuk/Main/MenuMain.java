@@ -26,6 +26,7 @@ import com.example.kubuk.R;
 import com.example.kubuk.users.LoginActivity;
 import com.example.kubuk.myRecipes.MyRecipes;
 import com.example.kubuk.users.ModifUserActivity;
+import com.example.kubuk.users.aboutUsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -111,6 +112,12 @@ public class MenuMain extends AppCompatActivity implements Response.Listener<Str
             Intent intent = new Intent(MenuMain.this, ModifUserActivity.class);
             intent.putExtra("usuario",email);
             startActivity(intent);
+            return true;
+         case R.id.aboutus:
+            //Toast.makeText(this, "deberia entrar en modificar user", Toast.LENGTH_LONG).show();
+            Intent aboutus = new Intent(MenuMain.this, aboutUsActivity.class);
+            aboutus.putExtra("usuario",email);
+            startActivity(aboutus);
             return true;
          case R.id.logout:
             //Toast.makeText(this, "deberia entrar en login", Toast.LENGTH_LONG).show();
