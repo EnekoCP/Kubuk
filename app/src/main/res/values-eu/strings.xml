@@ -52,10 +52,10 @@
     <string name="modDatos">" ALDATU DATUAK "</string>
     <string name="capturar">HARRAPATU</string>
     <string name="observ">Oharrak</string>
-    <string name="editarReceta">EDITATU ERREZETA</string>
+    <string name="editarReceta">ERREZETA EDITATU</string>
     <string name="nameReceta">Errezetaren izena</string>
     <string name="ingredientesm">Osagaiak</string>
-    <string name="descr">Deskribapena</string>
+    <string name="descr">Errezetako deskribapena</string>
     <string name="newReceta">ERREZETA BERRIA</string>
     <string name="deleteReceta">ERREZETA EZABATU</string>
     <string name="save">Gorde</string>

@@ -11,18 +11,19 @@
 
     <EditText
         android:id="@+id/observaciones"
-        android:layout_width="205dp"
-        android:layout_height="48dp"
+        android:layout_width="288dp"
+        android:layout_height="57dp"
         android:layout_marginStart="100dp"
         android:layout_marginEnd="101dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginBottom="24dp"
         android:backgroundTint="@color/black"
         android:ems="10"
+        android:fontFamily="sans-serif-light"
         android:inputType="textPersonName"
         android:textColor="#000000"
         app:layout_constraintBottom_toTopOf="@+id/añadirReceta"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintHorizontal_bias="0.551"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
@@ -31,19 +32,21 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
         android:layout_marginEnd="234dp"
-        android:layout_marginBottom="9dp"
+        android:layout_marginBottom="8dp"
+        android:fontFamily="sans-serif-light"
         android:foregroundTint="#000000"
-        android:text="Observaciones "
+        android:text="@string/observ"
         android:textColor="@color/black"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/observaciones"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent" />
 
     <androidx.camera.view.PreviewView
         android:id="@+id/camera"
-        android:layout_width="295dp"
-        android:layout_height="196dp"
+        android:layout_width="279dp"
+        android:layout_height="214dp"
         android:layout_marginStart="58dp"
         android:layout_marginTop="31dp"
         android:layout_marginEnd="58dp"
@@ -51,7 +54,6 @@
         android:importantForAccessibility="no"
         app:layout_constraintBottom_toTopOf="@+id/imageView1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView">
 
@@ -61,7 +63,7 @@
         android:id="@+id/imageView1"
         android:layout_width="108dp"
         android:layout_height="66dp"
-        android:layout_marginStart="27dp"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="36dp"
         android:layout_marginEnd="20dp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -74,8 +76,8 @@
         android:layout_width="108dp"
         android:layout_height="66dp"
         android:layout_marginStart="16dp"
-        android:layout_marginTop="33dp"
-        android:layout_marginEnd="24dp"
+        android:layout_marginTop="36dp"
+        android:layout_marginEnd="16dp"
         app:layout_constraintEnd_toStartOf="@+id/imageView3"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/camera"
@@ -93,20 +95,24 @@
         app:layout_constraintEnd_toStartOf="@+id/imageView1"
         app:layout_constraintStart_toEndOf="@+id/imageView2"
         app:layout_constraintTop_toBottomOf="@+id/camera"
+        app:layout_constraintVertical_bias="0.571"
         app:srcCompat="@android:drawable/ic_menu_camera" />
 
     <Button
         android:id="@+id/capturar"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="99dp"
+        android:layout_height="46dp"
         android:layout_marginStart="148dp"
         android:layout_marginEnd="148dp"
-        android:layout_marginBottom="38dp"
+        android:layout_marginBottom="40dp"
         android:backgroundTint="#009688"
+        android:fontFamily="sans-serif-smallcaps"
         android:text="Capturar"
+        android:textSize="16sp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.437"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
@@ -124,12 +130,14 @@
 
     <Button
         android:id="@+id/añadirReceta"
-        android:layout_width="159dp"
+        android:layout_width="194dp"
         android:layout_height="45dp"
-        android:layout_marginStart="124dp"
-        android:layout_marginBottom="40dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginBottom="44dp"
         android:background="#359A11"
+        android:fontFamily="sans-serif-smallcaps"
         android:text="AÑADIR receta"
+        android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

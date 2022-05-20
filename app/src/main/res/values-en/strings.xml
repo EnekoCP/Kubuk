@@ -56,7 +56,7 @@
     <string name="editarReceta">EDIT RECIPE</string>
     <string name="nameReceta">Recipe Name</string>
     <string name="ingredientesm">Ingredients</string>
-    <string name="descr">Description</string>
+    <string name="descr">Description of the recype</string>
     <string name="deleteReceta">DELETE RECIPE</string>
     <string name="newReceta">NEW RECIPE</string>
     <string name="save">Save</string>

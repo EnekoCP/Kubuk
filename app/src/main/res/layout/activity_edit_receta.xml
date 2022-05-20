@@ -9,31 +9,33 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="219dp"
+        android:layout_height="29dp"
         android:layout_marginStart="80dp"
         android:layout_marginTop="20dp"
         android:layout_marginEnd="259dp"
+        android:fontFamily="sans-serif-light"
         android:text="@string/descr"
         android:textColor="@color/black"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.217"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ingredientesEdit" />
 
     <EditText
         android:id="@+id/descripcionEdit"
-        android:layout_width="205dp"
-        android:layout_height="48dp"
+        android:layout_width="307dp"
+        android:layout_height="43dp"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="17dp"
+        android:layout_marginTop="20dp"
         android:layout_marginEnd="101dp"
         android:backgroundTint="@color/black"
         android:ems="10"
         android:inputType="textPersonName"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.536"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
@@ -42,19 +44,21 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="80dp"
-        android:layout_marginTop="72dp"
+        android:layout_marginTop="48dp"
         android:layout_marginEnd="188dp"
+        android:fontFamily="sans-serif-light"
         android:text="@string/nameReceta"
         android:textColor="@color/black"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.333"
+        app:layout_constraintHorizontal_bias="0.829"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView" />
 
     <EditText
         android:id="@+id/nomRecetaEdit"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="310dp"
+        android:layout_height="45dp"
         android:layout_marginStart="100dp"
         android:layout_marginTop="21dp"
         android:layout_marginEnd="101dp"
@@ -72,17 +76,17 @@
 
     <EditText
         android:id="@+id/ingredientesEdit"
-        android:layout_width="205dp"
+        android:layout_width="309dp"
         android:layout_height="48dp"
         android:layout_marginStart="100dp"
-        android:layout_marginTop="12dp"
+        android:layout_marginTop="16dp"
         android:layout_marginEnd="101dp"
         android:backgroundTint="@color/black"
         android:ems="10"
         android:inputType="textPersonName"
         android:textColor="@color/black"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.526"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
 
@@ -94,9 +98,12 @@
         android:layout_marginTop="16dp"
         android:layout_marginEnd="255dp"
         android:background="@color/white"
+        android:fontFamily="sans-serif-light"
         android:text="@string/ingredientesm"
         android:textColor="@color/black"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/nomRecetaEdit" />
 
@@ -107,6 +114,7 @@
         android:layout_marginStart="84dp"
         android:layout_marginTop="17dp"
         android:layout_marginEnd="85dp"
+        android:fontFamily="sans-serif-light"
         android:text="@string/editarReceta"
         android:textAllCaps="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Display1"
@@ -130,13 +138,15 @@
 
     <Button
         android:id="@+id/delete"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="184dp"
+        android:layout_height="51dp"
         android:layout_marginStart="126dp"
         android:layout_marginEnd="127dp"
         android:layout_marginBottom="24dp"
         android:backgroundTint="#F44336"
+        android:fontFamily="sans-serif-smallcaps"
         android:text="@string/deleteReceta"
+        android:textSize="16sp"
         app:layout_constraintBottom_toTopOf="@+id/save"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.52"
@@ -144,12 +154,14 @@
 
     <Button
         android:id="@+id/save"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="160dp"
-        android:layout_marginBottom="56dp"
+        android:layout_width="116dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="144dp"
+        android:layout_marginBottom="64dp"
         android:backgroundTint="#359A11"
+        android:fontFamily="sans-serif-smallcaps"
         android:text="@string/save"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

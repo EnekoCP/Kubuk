@@ -38,7 +38,7 @@
     <string name="dialog_modif_buttonaceptar">Aceptar</string>
     <string name="google_maps_key">AIzaSyAwfSbQ6eePl6mPTc4jLV0bnmBT6IZgj2k</string>
     <string name="ingredientes">INGREDIENTES</string>
-    <string name="preparacion">PREPARACION</string>
+    <string name="preparacion">PREPARACIÓN</string>
     <string name="listacompra">Lista De La Compra</string>
     <string name="insertElemento">INSERTA AQUÍ EL ELEMENTO QUE QUIERAS AÑADIR</string>
     <string name="insertElementoButton">Añadir Elemento a la lista</string>
@@ -55,7 +55,7 @@
     <string name="editarReceta">EDITAR RECETA</string>
     <string name="nameReceta">Nombre de la Receta</string>
     <string name="ingredientesm">Ingredientes</string>
-    <string name="descr">Descripcion</string>
+    <string name="descr">Descripción de la receta</string>
     <string name="deleteReceta">BORRAR RECETA</string>
     <string name="newReceta">NUEVA RECETA</string>
     <string name="save">Guardar</string>
