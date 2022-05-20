@@ -32,15 +32,30 @@
 
     </androidx.appcompat.widget.Toolbar>
 
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="match_parent"
+        android:layout_height="47dp"
+        android:layout_marginTop="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.102"
+        app:srcCompat="@drawable/logo_pequeno" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="46dp"
+        android:layout_marginTop="5dp"
         android:fontFamily="sans-serif-smallcaps"
         android:gravity="center_horizontal"
         android:text="Lista de la Compra"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="25dp"
+        android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
@@ -49,7 +64,13 @@
     <ListView
         android:id="@+id/listvcompra"
         android:layout_width="match_parent"
-        android:layout_height="497dp" />
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="11dp"
+        android:layout_marginRight="11dp"
+        android:layout_height="497dp"
+        >
+
+    </ListView>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -58,18 +79,37 @@
         android:layout_weight="1"
         android:gravity="center|bottom">
 
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="46dp"
+            android:layout_marginTop="2dp"
+            android:fontFamily="sans-serif-smallcaps"
+            android:gravity="center_horizontal"
+            android:text="INSERTA AQUÍ EL ELEMENTO QUE QUIERAS AÑADIR"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
         <EditText
             android:id="@+id/id_edit_text"
-            android:layout_width="427dp"
-            android:textColor="@color/black"
-            android:layout_height="wrap_content"
+            android:layout_width="382dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="5dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:ems="10"
             android:fontFamily="sans-serif-smallcaps"
-            android:textSize="14dp"
-            android:textAlignment="center"
-            android:hint="INSERTA AQUÍ EL ELEMENTO QUE QUIERAS AÑADIR"
+            android:hint=""
             android:inputType="textPersonName"
-            android:textColorHint="@color/black" />
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textColorHint="@color/black"
+            android:textSize="14dp"
+            android:theme="@style/CampoTexto" />
 
         <Button
             android:id="@+id/anadir_ingr"
@@ -80,6 +120,7 @@
             android:layout_weight="0"
             android:gravity="center"
             android:onClick="onClick"
+            android:textSize="18dp"
             android:text="Añadir Elemento a la lista"
             android:background="#359A11"
             android:textColor="@color/white"></Button>
