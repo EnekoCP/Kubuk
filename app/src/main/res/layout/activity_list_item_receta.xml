@@ -4,40 +4,42 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
+    android:backgroundTint="#FFFFFF"
     app:cardCornerRadius="10dp"
-    app:cardElevation="10dp"
-    android:background="@color/white">
+    app:cardElevation="10dp">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="98dp"
-        android:background="#359A11">
+        android:layout_height="101dp"
+        android:background="#359A11"
+        android:backgroundTint="#359A11"
+        android:textAlignment="center">
 
         <TextView
             android:id="@+id/titulo"
             android:layout_width="310dp"
             android:layout_height="27dp"
             android:layout_marginTop="16dp"
-            android:layout_marginEnd="22dp"
             android:layout_marginBottom="44dp"
             android:fontFamily="sans-serif-smallcaps"
             android:textAlignment="center"
             android:textAllCaps="true"
             android:textColor="@color/white"
-            android:textSize="18sp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toTopOf="@+id/rating"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.405"
+            app:layout_constraintHorizontal_bias="0.267"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <RatingBar
             android:id="@+id/rating"
-            android:layout_width="239dp"
-            android:layout_height="44dp"
+            android:layout_width="235dp"
+            android:layout_height="42dp"
             android:layout_marginStart="50dp"
             android:layout_marginTop="4dp"
-            android:layout_marginEnd="100dp"
+            android:layout_marginEnd="50dp"
             android:isIndicator="true"
             android:numStars="5"
             android:scaleX=".7"
@@ -45,7 +47,7 @@
             android:stepSize="0.1"
             android:theme="@style/RatingBar"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintHorizontal_bias="0.276"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/titulo" />
     </androidx.constraintlayout.widget.ConstraintLayout>

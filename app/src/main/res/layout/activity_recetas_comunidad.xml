@@ -63,7 +63,8 @@
             android:layout_width="348dp"
             android:layout_height="598dp"
             android:layout_gravity="center"
-            android:background="@color/white" />
+            android:background="@color/white"
+            android:backgroundTint="#FFFFFF" />
     </androidx.cardview.widget.CardView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>
