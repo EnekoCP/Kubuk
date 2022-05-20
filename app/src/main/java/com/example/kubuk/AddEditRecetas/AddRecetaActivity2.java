@@ -216,7 +216,7 @@ public class AddRecetaActivity2 extends AppCompatActivity {
                 //En el caso de que no se encuentre ninguna camara se reiniciara la aplicacion
 
                 Toast.makeText(AddRecetaActivity2.this,
-                        "Camara no detectada ,reinicie aplicacion", Toast.LENGTH_LONG).show();
+                        getString(R.string.camNoDetectada), Toast.LENGTH_LONG).show();
 
                 //startActivity(reinicio);
             }
@@ -294,12 +294,12 @@ public class AddRecetaActivity2 extends AppCompatActivity {
                     @Override
                     public void onResponse(String response) {
                         System.out.print(response);
-                        Toast.makeText(getApplicationContext(), "Guardado exitoso", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), getString(R.string.guardado), Toast.LENGTH_LONG).show();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
-                Toast.makeText(getApplicationContext(), "ERROR EN EL GUARDADO", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), getString(R.string.errorGuardar), Toast.LENGTH_LONG).show();
             }
         }){
             @Override

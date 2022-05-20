@@ -22,7 +22,7 @@
         android:layout_height="51dp"
         android:fontFamily="sans-serif-smallcaps"
         android:gravity="center_horizontal"
-        android:text="Recetas de la Comunidad"
+        android:text="@string/recetasComunidad"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="25dp"

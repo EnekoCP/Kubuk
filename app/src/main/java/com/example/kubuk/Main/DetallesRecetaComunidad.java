@@ -190,10 +190,10 @@ public class DetallesRecetaComunidad extends AppCompatActivity implements Respon
 
     private void getValoracion(){
         accion="get";
-      /*  if(User.getUsuario().equals(email)){
+        if(User.getUsuario().equals(email)){
             RatingBar ratingBar=findViewById(R.id.valorar);
             ratingBar.setIsIndicator(true);
-        }*/
+        }
         String url="http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/everhorst001/WEB/Kubuk/puntuacion.php?funcion=get&autor="+email+"&receta="+titulo+"&email="+User.getUsuario();
         url.replace(" ", "%20");
         StringRequest var1 = new StringRequest(Request.Method.GET, url,this,this);

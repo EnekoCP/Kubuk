@@ -85,7 +85,7 @@ public class ModifUserActivity extends AppCompatActivity implements Response.Lis
                     modificarImagenFirebase();
                     siguiente();
                 }else{
-                    Toast.makeText(getApplicationContext(), "No se ha modificado ningún campo", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(getApplicationContext(), getString(R.string.noMod), Toast.LENGTH_SHORT).show();
                 }
             }
         });
@@ -139,7 +139,7 @@ public class ModifUserActivity extends AppCompatActivity implements Response.Lis
                 Log.i("MODIF", "Modif Ok");
                 break;
             case "Modificacion_notdone":
-                Toast.makeText(getApplicationContext(), "No se pudo modificar los datos en este momento. Pruebe de nuevo más tarde", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), getString(R.string.modNotDone), Toast.LENGTH_SHORT).show();
                 Log.i("MODIF", "Modif not done");
                 break;
         }
@@ -214,7 +214,7 @@ public class ModifUserActivity extends AppCompatActivity implements Response.Lis
         String passwd = textPasswdmodif1.getText().toString();
         String passwdConf = textPasswdmodif2.getText().toString();
         if (passwdConf.equals("") && passwd.equals("") && imgUri.equals("")) { //Si son distintas
-            Toast.makeText(getApplicationContext(), "No se han modificado datos. Realice algún cambio primero.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(getApplicationContext(), getString(R.string.noModHechas), Toast.LENGTH_SHORT).show();
             textPasswdmodif1.setText("");
             textPasswdmodif2.setText("");
             valido = false;

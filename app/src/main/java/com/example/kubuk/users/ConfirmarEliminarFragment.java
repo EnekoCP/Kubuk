@@ -41,10 +41,10 @@ public class ConfirmarEliminarFragment extends DialogFragment  implements Respon
         request = Volley.newRequestQueue(getContext());
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Eliminar usuario: confirmación");
-        builder.setMessage("¿Estás seguro de querer eliminar el usuario? Se eliminarán todos los datos.");
+        builder.setTitle(getString(R.string.eliminarUserConfT));
+        builder.setMessage(getString(R.string.eliminarUserMssg));
 
-        builder.setPositiveButton("Continuar", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton(getString(R.string.continuar), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dismiss();
@@ -52,7 +52,7 @@ public class ConfirmarEliminarFragment extends DialogFragment  implements Respon
             }
         });
 
-        builder.setNegativeButton("Volver", new DialogInterface.OnClickListener() {
+        builder.setNegativeButton(getString(R.string.volver), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dismiss();
@@ -91,7 +91,7 @@ public class ConfirmarEliminarFragment extends DialogFragment  implements Respon
                 Log.i("DELETE", "Delete Ok");
                 break;
             case "Eliminado_notdone":
-                Toast.makeText(getContext(), "No se pudo eliminar los datos del usuario en este momento. Pruebe de nuevo más tarde", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getContext(), getString(R.string.noeliminado), Toast.LENGTH_SHORT).show();
                 Log.i("DELETE", "Delete not done");
                 dismiss();
                 startActivity(modif);

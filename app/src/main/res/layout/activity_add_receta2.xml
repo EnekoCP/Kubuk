@@ -33,7 +33,7 @@
         android:layout_marginEnd="234dp"
         android:layout_marginBottom="9dp"
         android:foregroundTint="#000000"
-        android:text="Observaciones "
+        android:text="@string/observ"
         android:textColor="@color/black"
         app:layout_constraintBottom_toTopOf="@+id/observaciones"
         app:layout_constraintEnd_toEndOf="parent"
@@ -103,7 +103,7 @@
         android:layout_marginEnd="148dp"
         android:layout_marginBottom="38dp"
         android:backgroundTint="#009688"
-        android:text="Capturar"
+        android:text="@string/capturar"
         app:layout_constraintBottom_toTopOf="@+id/textView5"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -129,7 +129,7 @@
         android:layout_marginStart="124dp"
         android:layout_marginBottom="40dp"
         android:backgroundTint="#3AB63F"
-        android:text="AÑADIR receta"
+        android:text="@string/addreceta"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 

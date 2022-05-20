@@ -77,7 +77,7 @@ public class RecipeOverviewAdapter extends RecyclerView.Adapter<RecipeOverviewAd
 
 
 
-                Toast.makeText(context, "Abrir pantalla editar con datos de " + miReceta.getTitulo(), Toast.LENGTH_LONG).show();
+                Toast.makeText(context, context.getString(R.string.abrirPantalla) + miReceta.getTitulo(), Toast.LENGTH_LONG).show();
             }
         });
         holder.btnPublicar.setOnClickListener(new View.OnClickListener() {
@@ -91,7 +91,7 @@ public class RecipeOverviewAdapter extends RecyclerView.Adapter<RecipeOverviewAd
                 //context.startActivity(miIntent);
 
 
-                Toast.makeText(context, "Receta de " + miReceta.getTitulo() + " publicada", Toast.LENGTH_LONG).show();
+                Toast.makeText(context, context.getString(R.string.recetaDe) + miReceta.getTitulo() + context.getString(R.string.publicada), Toast.LENGTH_LONG).show();
             }
         });
     }

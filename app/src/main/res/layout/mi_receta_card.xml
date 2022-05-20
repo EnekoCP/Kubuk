@@ -58,18 +58,18 @@
                 android:id="@+id/btn_editar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Editar"
                 android:background="@color/white"
+                android:text="@string/editar"
                 android:textColor="#359A11"></Button>
 
             <Button
                 android:id="@+id/btn_publicar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Publicar"
-                android:textColor="#359A11"
+                android:layout_marginLeft="5dp"
                 android:background="@color/white"
-                android:layout_marginLeft="5dp"></Button>
+                android:text="@string/publicar"
+                android:textColor="#359A11"></Button>
 
         </LinearLayout>
     </LinearLayout>
