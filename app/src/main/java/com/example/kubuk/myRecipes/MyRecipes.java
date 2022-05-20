@@ -1,22 +1,17 @@
 package com.example.kubuk.myRecipes;
 
-import static com.example.kubuk.myRecipes.Utilidades.TABLA_RECETA;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import android.content.Intent;
-import android.database.Cursor;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
@@ -26,7 +21,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.kubuk.AddEditRecetas.AddRecetaActivity;
-import com.example.kubuk.AddEditRecetas.EditRecetaActivity;
 import com.example.kubuk.ListaCompra.EnseñarListaCompra;
 import com.example.kubuk.Main.MenuMain;
 import com.example.kubuk.R;
@@ -40,7 +34,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.Hashtable;
 import java.util.Map;
 
@@ -194,7 +187,7 @@ public class MyRecipes extends AppCompatActivity implements Response.Listener<JS
     public void onClick(View view) {
         Intent miIntent = new Intent(MyRecipes.this, AddRecetaActivity.class);
         startActivity(miIntent);
-        finish();
+        //finish();
     }
 
 
