@@ -31,6 +31,9 @@ import com.example.kubuk.ListaCompra.EnseñarListaCompra;
 import com.example.kubuk.Main.MenuMain;
 import com.example.kubuk.R;
 import com.example.kubuk.User;
+import com.example.kubuk.users.LoginActivity;
+import com.example.kubuk.users.ModifUserActivity;
+import com.example.kubuk.users.aboutUsActivity;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -90,6 +93,23 @@ public class MyRecipes extends AppCompatActivity implements Response.Listener<JS
                 Intent ilis = new Intent(MyRecipes.this, EnseñarListaCompra.class);
                 ilis.putExtra("usuario",email);
                 startActivity(ilis);
+                return true;
+            case R.id.modifuser:
+                //Toast.makeText(this, "deberia entrar en modificar user", Toast.LENGTH_LONG).show();
+                Intent intent = new Intent(MyRecipes.this, ModifUserActivity.class);
+                intent.putExtra("usuario",email);
+                startActivity(intent);
+                return true;
+            case R.id.aboutus:
+                //Toast.makeText(this, "deberia entrar en about us", Toast.LENGTH_LONG).show();
+                Intent aboutus = new Intent(MyRecipes.this, aboutUsActivity.class);
+                aboutus.putExtra("usuario",email);
+                startActivity(aboutus);
+                return true;
+            case R.id.logout:
+                //Toast.makeText(this, "deberia entrar en login", Toast.LENGTH_LONG).show();
+                Intent logout = new Intent(MyRecipes.this, LoginActivity.class);
+                startActivity(logout);
                 return true;
             default:
                 return super.onOptionsItemSelected(var1);

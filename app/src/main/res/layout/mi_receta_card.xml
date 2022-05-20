@@ -4,14 +4,17 @@
     android:layout_height="wrap_content"
     android:layout_marginLeft="5dp"
     android:layout_marginTop="5dp"
+    android:background="#FFFFFF"
+    android:backgroundTint="#FFFFFF"
     android:elevation="5dp">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:background="#359A11"
         android:orientation="vertical"
-        android:padding="5dp"
-        android:background="#359A11">
+        android:padding="5dp">
+
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -21,8 +24,7 @@
             <androidx.constraintlayout.utils.widget.ImageFilterView
                 android:id="@+id/img_foto"
                 android:layout_width="50dp"
-                android:layout_height="50dp"
-                ></androidx.constraintlayout.utils.widget.ImageFilterView>
+                android:layout_height="50dp"></androidx.constraintlayout.utils.widget.ImageFilterView>
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -34,6 +36,7 @@
                     android:id="@+id/txt_titulo"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
                     android:text="Título"
                     android:textColor="@color/white"
                     android:textSize="25dp"></TextView>
@@ -42,34 +45,38 @@
                     android:id="@+id/txt_resumen"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
+                    android:fontFamily="sans-serif-light"
                     android:text="Resumen"
                     android:textColor="@color/white"
                     android:textSize="12dp"></TextView>
             </LinearLayout>
         </LinearLayout>
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:layout_marginLeft="5dp"
-            android:orientation="horizontal"
-            android:layout_gravity="center">
+            android:orientation="horizontal">
 
             <Button
                 android:id="@+id/btn_editar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Editar"
                 android:background="@color/white"
+                android:fontFamily="sans-serif-smallcaps"
+                android:text="Editar"
                 android:textColor="#359A11"></Button>
 
             <Button
                 android:id="@+id/btn_publicar"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Publicar"
-                android:textColor="#359A11"
+                android:layout_marginLeft="5dp"
                 android:background="@color/white"
-                android:layout_marginLeft="5dp"></Button>
+                android:fontFamily="sans-serif-smallcaps"
+                android:text="Publicar"
+                android:textColor="#359A11"></Button>
 
         </LinearLayout>
     </LinearLayout>
