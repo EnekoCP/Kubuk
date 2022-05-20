@@ -18,21 +18,35 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.example.kubuk.AddEditRecetas.AddRecetaActivity;
 import com.example.kubuk.AddEditRecetas.EditRecetaActivity;
 import com.example.kubuk.ListaCompra.EnseñarListaCompra;
 import com.example.kubuk.Main.MenuMain;
 import com.example.kubuk.R;
+import com.example.kubuk.User;
+
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.Date;
+import java.util.Hashtable;
+import java.util.Map;
 
-public class MyRecipes extends AppCompatActivity {
+public class MyRecipes extends AppCompatActivity implements Response.Listener<JSONObject> ,Response.ErrorListener{
 
     RecyclerView recipeRecycler;
     RecipeOverviewAdapter recipeOverview;
     ArrayList<Recipe> listaRecetas;
-    SQLiteOpenHelper conn;
+    private RequestQueue queue;
     String email;
 
     @Override
@@ -46,6 +60,8 @@ public class MyRecipes extends AppCompatActivity {
 
         Bundle extras= getIntent().getExtras();
         email= extras.getString("usuario");
+
+        queue = Volley.newRequestQueue(getApplicationContext());
 
         construirRecycler();
         recipeRecycler.setAdapter(recipeOverview);
@@ -80,41 +96,18 @@ public class MyRecipes extends AppCompatActivity {
         }
     }
 
-    private void consultarListaRecetas() {
-        SQLiteDatabase db = conn.getReadableDatabase();
-        Recipe recipe = null;
-        Cursor cursor = db.rawQuery("SELECT * FROM " + TABLA_RECETA, null);
 
-        while (cursor.moveToNext()) {
-            recipe = new Recipe();
-            recipe.setTitulo(cursor.getString(1));
-            recipe.setIngredientes(cursor.getString(2));
-
-            listaRecetas.add(recipe);
-        }
-    }
 
     private void construirRecycler() {
+        listaRecetas = new ArrayList<Recipe>();
+        getDatos(this.listaRecetas);
+
         recipeRecycler = findViewById(R.id.recycler);
         recipeRecycler.setLayoutManager(new LinearLayoutManager(this));
-
-        listaRecetas = new ArrayList<Recipe>();
-
-        //Boogey para pruebas
-        Recipe recipe1 = new Recipe();
-        recipe1.setTitulo("Receta Prueba 1");
-        recipe1.setIngredientes("qwertyuiopasdfghjklñzxcvbnm");
-        listaRecetas.add(recipe1);
-        Recipe recipe2 = new Recipe();
-        recipe2.setTitulo("Tortilla");
-        recipe2.setIngredientes("mnbvcxzñlkjhgfdsapoiuytrewqmnbvcxzñlkjhgfdsapoiuytrewq");
-        listaRecetas.add(recipe2);
-
-        conn = new ConexionSQLiteHelper(getApplicationContext(), "bd_recetas", null, 1);
-        consultarListaRecetas();
+        System.out.println("Usuario: " + User.getUsuario());
 
 
-        recipeOverview = new RecipeOverviewAdapter(listaRecetas, this);
+        recipeOverview = new RecipeOverviewAdapter(listaRecetas, getApplicationContext());
         recipeOverview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -123,17 +116,75 @@ public class MyRecipes extends AppCompatActivity {
                         Toast.LENGTH_SHORT).show();
             }
         });
+
+
+    }
+
+    private void getDatos(ArrayList<Recipe> lRecetas) {
+        StringRequest stringRequest = new StringRequest(Request.Method.POST,
+                "http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/everhorst001/WEB/Kubuk/conseguirMisRecetas.php",
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+
+                        JSONArray recetas = null;
+                        Recipe recetaActual = null;
+                        try {
+                            recetas = new JSONArray(response);
+                            for (int i = 0; i < recetas.length(); i++) {
+                                JSONObject receta = recetas.getJSONObject(i);
+
+                                recetaActual = new Recipe();
+                                recetaActual.setTitulo(receta.getString("titulo"));
+                                recetaActual.setIngredientes(receta.getString("ingredientes"));
+                                recetaActual.setPreparacion(receta.getString("preparacion"));
+                                lRecetas.add(recetaActual);
+                            }
+
+                            recipeOverview.notifyDataSetChanged();
+
+
+
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+
+                Toast.makeText(getApplicationContext(), "ERROR EN LA CONEXION", Toast.LENGTH_LONG).show();
+            }
+        }){
+            @Override
+            protected Map<String, String> getParams() throws AuthFailureError {
+                Map<String, String> parametros = new Hashtable<String, String>();
+                parametros.put("user", User.getUsuario());
+                System.out.println("Usuario: " + User.getUsuario());
+
+                return parametros;
+            }
+        };
+
+        queue.add(stringRequest);
+
     }
 
     public void onClick(View view) {
         Intent miIntent = new Intent(MyRecipes.this, AddRecetaActivity.class);
         startActivity(miIntent);
         finish();
-
-
-        //Toast.makeText(this.getApplicationContext(), "Abrir pantalla editar vacía", Toast.LENGTH_LONG).show();
-
     }
 
 
+    @Override
+    public void onErrorResponse(VolleyError error) {
+
+    }
+
+    @Override
+    public void onResponse(JSONObject response) {
+
+    }
 }
