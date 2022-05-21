@@ -22,7 +22,7 @@ public class eliminarDialogFragment extends DialogFragment {
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         super.onCreateDialog(savedInstanceState);
 
-        Intent login = new Intent(getActivity(), MenuMain.class);
+        Intent login = new Intent(getActivity(), LoginActivity.class);
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(getString(R.string.eliminaruserT));
         builder.setMessage(getString(R.string.eliminarUsuarioMssg));

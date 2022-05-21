@@ -73,10 +73,9 @@
     <string name="modNotDone">" Une honetan ezin izan dira datuak aldatu. Probatu berriro geroago "</string>
     <string name="noMod">" Ez da eremurik aldatu "</string>
     <string name="aceptar">Onartu</string>
-    <string name="eliminaruserT">Erabiltzailea ezabatu</string>
     <string name="volver">Bueltatu</string>
     <string name="continuar">Segi</string>
-    <string name="eliminarUserConfT">Ezabatu erabiltzailea: berrespena</string>
+    <string name="eliminarUserConfT">Ezabatu erabiltzailea</string>
     <string name="eliminarUserMssg">" Ziur zaude erabiltzailea ezabatu nahi duzula? Datu guztiak ezabatuko dira. "</string>
     <string name="noeliminado">" Une horretan ezin izan dira erabiltzailearen datuak ezabatu. Probatu berriro geroago "</string>
     <string name="eliminarUsuarioMssg">" Erabiltzailea eta hari lotutako datu guztiak behar bezala ezabatu dira. "</string>
@@ -86,4 +85,5 @@
     <string name="administrar">Kudeatu kontua</string>
     <string name="donde">Non aurkituko gaituzu?</string>
     <string name="noelemSelected">Ez da elementurik hautatu</string>
+    <string name="eliminaruserT">Ezabatu erabiltzailea</string>
 </resources>

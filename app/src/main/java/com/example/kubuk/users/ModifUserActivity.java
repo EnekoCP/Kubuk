@@ -90,9 +90,9 @@ public class ModifUserActivity extends AppCompatActivity implements Response.Lis
             }
         });
 
-        //TODO: Probar eliminar usuario
+        /*TODO: MIRAR POR QUE FALLA AL DARLE A CONTINUAR --> Elimina, pero no pasa a login*/
 
-        /*Button deleteButton = findViewById(R.id.buttonDelete);
+       /* Button deleteButton = findViewById(R.id.buttonDelete);
 
         deleteButton.setOnClickListener(new View.OnClickListener()    {
             @Override
@@ -102,6 +102,7 @@ public class ModifUserActivity extends AppCompatActivity implements Response.Lis
         });*/
         
     }
+
 
     private void eliminarUsuario() {
         Bundle bundle = new Bundle();
