@@ -58,13 +58,10 @@ public class EditRecetaActivity extends AppCompatActivity implements Response.Li
 
     private void inicio(){
 
-        Intent i = new Intent(EditRecetaActivity.this,MyRecipes.class);
-        i.putExtra("usuario", User.getUsuario());
         guardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 updateDatos();
-                startActivity(i);
             }
         });
 
@@ -72,7 +69,7 @@ public class EditRecetaActivity extends AppCompatActivity implements Response.Li
             @Override
             public void onClick(View view) {
                 deleteDatos();
-                startActivity(i);
+                //startActivity(i);
             }
         });
     }
@@ -82,8 +79,7 @@ public class EditRecetaActivity extends AppCompatActivity implements Response.Li
 
         Toast.makeText(this,getString(R.string.deleteRecetaMssg), Toast.LENGTH_SHORT).show();
 
-        Intent inicioApp = new Intent(this, MyRecipes.class);
-       startActivity(inicioApp);
+        finish();
     }
 
     @Override
@@ -118,7 +114,7 @@ public class EditRecetaActivity extends AppCompatActivity implements Response.Li
                             e.printStackTrace();
                         }
 
-                        Toast.makeText(getApplicationContext(), getString(R.string.datosGet), Toast.LENGTH_LONG).show();
+                        //Toast.makeText(getApplicationContext(), getString(R.string.datosGet), Toast.LENGTH_LONG).show();
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -130,7 +126,7 @@ public class EditRecetaActivity extends AppCompatActivity implements Response.Li
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> parametros = new Hashtable<String, String>();
-                parametros.put("name", "prueba" );
+                parametros.put("name", getIntent().getStringExtra("titulo") );
                 parametros.put("user", User.getUsuario());
 
                 return parametros;
@@ -151,6 +147,7 @@ public class EditRecetaActivity extends AppCompatActivity implements Response.Li
                         System.out.println("AQUIIIIIIIIIIIIII" + response);
 
                         Toast.makeText(getApplicationContext(), getString(R.string.datosUpdated), Toast.LENGTH_LONG).show();
+                        finish();
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -168,7 +165,7 @@ public class EditRecetaActivity extends AppCompatActivity implements Response.Li
             @Override
             protected Map<String, String> getParams() throws AuthFailureError {
                 Map<String, String> parametros = new Hashtable<String, String>();
-                parametros.put("name", "prueba" );
+                parametros.put("name", getIntent().getStringExtra("titulo") );
                 parametros.put("user", User.getUsuario());
                 parametros.put("newName", nombre.getText().toString());
                 parametros.put("descripcion", descripcion.getText().toString());
@@ -191,6 +188,7 @@ public class EditRecetaActivity extends AppCompatActivity implements Response.Li
         JsonRequest jsonRequest = new JsonObjectRequest(Request.Method.GET, url, null,this,this);
 
         queue.add(jsonRequest);
+
     }
 
 }
