@@ -1,5 +1,7 @@
 package com.example.kubuk.ListaCompra;
 
+import static android.view.MenuItem.SHOW_AS_ACTION_IF_ROOM;
+
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -12,6 +14,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -47,6 +50,8 @@ public class EnseñarListaCompra extends AppCompatActivity implements Response.L
     ArrayList rclista = new ArrayList();
     RequestQueue request;
     EditText elem = null;
+    AdapterListViewListCom var13;
+    private static final int MNU_OPCDEL = 6;
 
 
     protected void onCreate(Bundle var1) {
@@ -76,7 +81,7 @@ public class EnseñarListaCompra extends AppCompatActivity implements Response.L
                 Elemento ne = new Elemento(false, elem.getText().toString());
                 rclista.add(ne);
                 itemList = enseñar(rclista);
-                AdapterListViewListCom var13 = new AdapterListViewListCom(getApplicationContext(), itemList);
+                var13 = new AdapterListViewListCom(getApplicationContext(), itemList);
                 listViewDataAdapter = var13;
                 var13.notifyDataSetChanged();
                 listViewWithCheckbox.setAdapter(listViewDataAdapter);
@@ -94,6 +99,8 @@ public class EnseñarListaCompra extends AppCompatActivity implements Response.L
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu, menu);
+        menu.add(Menu.NONE, MNU_OPCDEL, Menu.NONE, "Eliminar")
+                .setIcon(R.drawable.papelera2).setShowAsAction(SHOW_AS_ACTION_IF_ROOM);
         return true;
     }
 
@@ -126,6 +133,10 @@ public class EnseñarListaCompra extends AppCompatActivity implements Response.L
                 Intent aboutus = new Intent(EnseñarListaCompra.this, aboutUsActivity.class);
                 aboutus.putExtra("usuario",email);
                 startActivity(aboutus);
+                return true;
+            case MNU_OPCDEL:
+                //TODO: Eliminar los productos checked de la lista
+                Toast.makeText(this, "Eliminar boton funciona", Toast.LENGTH_LONG).show();
                 return true;
             case R.id.logout:
                 //Toast.makeText(this, "deberia entrar en login", Toast.LENGTH_LONG).show();

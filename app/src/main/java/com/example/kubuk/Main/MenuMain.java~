@@ -56,8 +56,7 @@ public class MenuMain extends AppCompatActivity implements Response.Listener<Str
       getSupportActionBar().setDisplayShowTitleEnabled(false);
       myToolbar.setSubtitleTextColor(0);
 
-      //TODO: Mirar por que no emite la notificacion al iniciar sesión
-      /*NotificationManager manager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+      NotificationManager manager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
       NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "1")
               .setSmallIcon(R.drawable.logo_pequeno)
               .setContentTitle("¡Bienvenido!")
@@ -70,7 +69,7 @@ public class MenuMain extends AppCompatActivity implements Response.Listener<Str
                  NotificationManager.IMPORTANCE_DEFAULT);
          manager.createNotificationChannel(canal);
       }
-      manager.notify(3, builder.build());*/
+      manager.notify(3, builder.build());
 
       Bundle extra= getIntent().getExtras();
       email=extra.getString("usuario");
