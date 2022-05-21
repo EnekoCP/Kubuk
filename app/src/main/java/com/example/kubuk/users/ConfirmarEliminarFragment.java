@@ -44,6 +44,7 @@ public class ConfirmarEliminarFragment extends DialogFragment  implements Respon
 
         modif = new Intent(getActivity(), ModifUserActivity.class);
         modif.putExtra("usuario", email);
+        modif.putExtra("login","false");
 
         request = Volley.newRequestQueue(getContext());
 

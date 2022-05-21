@@ -136,6 +136,7 @@ public class LoginActivity extends AppCompatActivity implements Response.Listene
 
                 Intent i= new Intent(LoginActivity.this, MenuMain.class);
                 i.putExtra("usuario",textEmail.getText().toString());
+                i.putExtra("login","true");
                 startActivity(i);
                 finish();
                 Log.i("LOGIN", "Login Ok");

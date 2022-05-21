@@ -27,6 +27,7 @@ public class ModificarDialogFragment extends DialogFragment {
 
         Intent menumain = new Intent(getActivity(), MenuMain.class);
         menumain.putExtra("usuario", email);
+        menumain.putExtra("login","false");
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
         builder.setTitle(R.string.dialog_modificar_titulo);
         builder.setMessage(R.string.dialog_modificar);

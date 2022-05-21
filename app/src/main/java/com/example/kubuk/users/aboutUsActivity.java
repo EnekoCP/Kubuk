@@ -52,6 +52,7 @@ public class aboutUsActivity extends AppCompatActivity implements OnMapReadyCall
         finish();
         Intent intent = new Intent(this, MenuMain.class);
         intent.putExtra("usuario", email);
+        intent.putExtra("login","false");
         startActivity(intent);
     }
 }

@@ -44,36 +44,40 @@ public class MenuMain extends AppCompatActivity implements Response.Listener<Str
    ListView listViewWithCheckbox;
    ArrayList rclista = new ArrayList();
    RequestQueue request;
-   String email;
+   String email, login;
    ImageView img1,img2,img3;
 
    protected void onCreate(Bundle var1) {
       super.onCreate(var1);
       this.setContentView(R.layout.activity_recetas_comunidad);
 
+      Bundle extra= getIntent().getExtras();
+      email=extra.getString("usuario");
+      login=extra.getString("login");
+
       Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
       setSupportActionBar(myToolbar);
       getSupportActionBar().setDisplayShowTitleEnabled(false);
       myToolbar.setSubtitleTextColor(0);
 
-      //TODO: Mirar por que no emite la notificacion al iniciar sesión
-      /*NotificationManager manager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
-      NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "1")
-              .setSmallIcon(R.drawable.logo_pequeno)
-              .setContentTitle("¡Bienvenido!")
-              .setContentText("¿Qué te apetece cocinar hoy?")
-              .setVibrate(new long[]{0, 1000, 500, 1000})
-              .setPriority(NotificationCompat.PRIORITY_DEFAULT);
+      //En caso de que abra el menu main tras iniciar sesión se manda una notificación local
+      if (login.equals("true")){
+         NotificationManager manager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
+         NotificationCompat.Builder builder = new NotificationCompat.Builder(this, "3")
+                 .setSmallIcon(R.drawable.logo_pequeno)
+                 .setContentTitle("¡Bienvenido!")
+                 .setContentText("¿Qué te apetece cocinar hoy?")
+                 .setVibrate(new long[]{0, 1000, 500, 1000})
+                 .setPriority(NotificationCompat.PRIORITY_DEFAULT);
 
-      if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-         NotificationChannel canal = new NotificationChannel("3", "Bienvenida",
-                 NotificationManager.IMPORTANCE_DEFAULT);
-         manager.createNotificationChannel(canal);
+         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
+            NotificationChannel canal = new NotificationChannel("3", "Bienvenida",
+                    NotificationManager.IMPORTANCE_DEFAULT);
+            manager.createNotificationChannel(canal);
+         }
+         manager.notify(3, builder.build());
       }
-      manager.notify(3, builder.build());*/
 
-      Bundle extra= getIntent().getExtras();
-      email=extra.getString("usuario");
       Log.i("ha entrado","en la clase mainmenu con usuario"+email);
 
       request = Volley.newRequestQueue(this.getApplicationContext());
