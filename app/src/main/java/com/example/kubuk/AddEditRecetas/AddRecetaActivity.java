@@ -52,6 +52,7 @@ public class AddRecetaActivity extends AppCompatActivity {
                 i.putExtra("descripcion" , descripcion.getText().toString());
 
                 startActivity(i);
+                finish();
             }
         });
     }

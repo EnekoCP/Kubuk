@@ -280,9 +280,6 @@ public class AddRecetaActivity2 extends AppCompatActivity {
 
                 realizarGuardado(foto1, foto2, foto3);
 
-                Intent i = new Intent(AddRecetaActivity2.this, MenuMain.class);
-                i.putExtra("usuario",User.getUsuario());
-                startActivity(i);
             }
         });
     }
@@ -295,6 +292,7 @@ public class AddRecetaActivity2 extends AppCompatActivity {
                     public void onResponse(String response) {
                         System.out.print(response);
                         Toast.makeText(getApplicationContext(), getString(R.string.guardado), Toast.LENGTH_LONG).show();
+                        finish();
                     }
                 }, new Response.ErrorListener() {
             @Override

@@ -64,6 +64,15 @@ public class MyRecipes extends AppCompatActivity implements Response.Listener<JS
         construirRecycler();
         recipeRecycler.setAdapter(recipeOverview);
     }
+
+    public void onResume(){
+        super.onResume();
+
+        queue = Volley.newRequestQueue(getApplicationContext());
+        construirRecycler();
+        recipeRecycler.setAdapter(recipeOverview);
+    }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         MenuInflater inflater = getMenuInflater();
@@ -189,7 +198,6 @@ public class MyRecipes extends AppCompatActivity implements Response.Listener<JS
     public void onClick(View view) {
         Intent miIntent = new Intent(MyRecipes.this, AddRecetaActivity.class);
         startActivity(miIntent);
-        //finish();
     }
 
 
