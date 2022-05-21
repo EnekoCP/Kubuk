@@ -85,4 +85,5 @@
     <string name="aboutus">Sobre Nosotros</string>
     <string name="cerrarSesion">Cerrar Sesion</string>
     <string name="direccion">Paseo Rafael Moreno \'Pitxitxi\' 2</string>
+    <string name="noelemSelected">No hay elementos seleccionados</string>
 </resources>

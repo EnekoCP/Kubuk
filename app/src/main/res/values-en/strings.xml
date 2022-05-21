@@ -86,5 +86,6 @@
     <string name="aboutus">About us</string>
     <string name="administrar">Manage Account</string>
     <string name="donde">Where can you find us?</string>
+    <string name="noelemSelected">No items selected.</string>
 
 </resources>

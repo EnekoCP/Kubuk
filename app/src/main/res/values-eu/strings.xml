@@ -85,4 +85,5 @@
     <string name="aboutus">Guri buruz</string>
     <string name="administrar">Kudeatu kontua</string>
     <string name="donde">Non aurkituko gaituzu?</string>
+    <string name="noelemSelected">Ez da elementurik hautatu</string>
 </resources>

@@ -94,4 +94,5 @@
     <string name="administrar">Administrar Cuenta</string>
     <string name="aboutus">Sobre Nosotros</string>
     <string name="cerrarSesion">Cerrar Sesion</string>
+    <string name="noelemSelected">No hay elementos seleccionados</string>
 </resources>
