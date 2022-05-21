@@ -106,6 +106,7 @@ public class ModifUserActivity extends AppCompatActivity implements Response.Lis
     private void eliminarUsuario() {
         Bundle bundle = new Bundle();
         bundle.putString("usuario", email);
+        bundle.putString("login","true");
         DialogFragment confirmarAlert = new ConfirmarEliminarFragment();
         confirmarAlert.setArguments(bundle);
         confirmarAlert.show(getSupportFragmentManager(),"eliminar_dialog");
