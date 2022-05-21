@@ -52,7 +52,9 @@ public class MyRecipes extends AppCompatActivity implements Response.Listener<JS
 
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(myToolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         myToolbar.setSubtitleTextColor(0);
+        myToolbar.setTitle("");
 
         Bundle extras= getIntent().getExtras();
         email= extras.getString("usuario");

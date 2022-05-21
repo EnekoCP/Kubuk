@@ -55,6 +55,7 @@ public class EnseñarListaCompra extends AppCompatActivity implements Response.L
         elem = findViewById(R.id.id_edit_text);
         Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar2);
         setSupportActionBar(myToolbar);
+        getSupportActionBar().setDisplayShowTitleEnabled(false);
         myToolbar.setSubtitleTextColor(0);
 
         Bundle extras = getIntent().getExtras();

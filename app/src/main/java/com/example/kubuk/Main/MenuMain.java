@@ -53,6 +53,7 @@ public class MenuMain extends AppCompatActivity implements Response.Listener<Str
 
       Toolbar myToolbar = (Toolbar) findViewById(R.id.toolbar);
       setSupportActionBar(myToolbar);
+      getSupportActionBar().setDisplayShowTitleEnabled(false);
       myToolbar.setSubtitleTextColor(0);
 
       NotificationManager manager = (NotificationManager)getSystemService(Context.NOTIFICATION_SERVICE);
