@@ -13,6 +13,7 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.AuthFailureError;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -20,10 +21,13 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.kubuk.Main.MenuMain;
+import com.example.kubuk.Main.ServicioFirebase;
 import com.example.kubuk.R;
 import com.example.kubuk.User;
 
+import java.util.Hashtable;
 import java.util.Locale;
+import java.util.Map;
 import java.util.regex.Pattern;
 
 public class LoginActivity extends AppCompatActivity implements Response.Listener<String>, Response.ErrorListener {
@@ -31,6 +35,7 @@ public class LoginActivity extends AppCompatActivity implements Response.Listene
     EditText textEmail, textPasswd;
     Button loginBoton, registerBoton;
     RequestQueue request;
+    ServicioFirebase firebase=new ServicioFirebase();
 
 
     @Override
@@ -125,6 +130,10 @@ public class LoginActivity extends AppCompatActivity implements Response.Listene
         switch (respuesta){
             case "Login_ok":
                 User.setUsuario(textEmail.getText().toString());
+
+                firebase.generarToken();
+                saveToken();
+
                 Intent i= new Intent(LoginActivity.this, MenuMain.class);
                 i.putExtra("usuario",textEmail.getText().toString());
                 startActivity(i);
@@ -149,6 +158,21 @@ public class LoginActivity extends AppCompatActivity implements Response.Listene
         Intent intent = new Intent(this, RegisterActivity.class);
         startActivity(intent);
     }
+
+    public void saveToken() {
+        String url = "http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/everhorst001/WEB/Kubuk/notificacionValoracion.php?user="
+                +User.getUsuario() + "&fromToken=" +firebase.getToken()+"&funcion=save";
+
+        url = url.replace(" ", "%20");
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url, this,this);
+
+        request.add(stringRequest);
+
+    }
+
+
+
+
 
 
 }

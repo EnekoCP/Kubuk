@@ -68,6 +68,7 @@ public class EnseñarListaCompra extends AppCompatActivity implements Response.L
         anadir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+
                 AñadirListaCompra alc = new AñadirListaCompra(email, elem.getText().toString(), request);
                 alc.anadirElement();
 
@@ -79,7 +80,8 @@ public class EnseñarListaCompra extends AppCompatActivity implements Response.L
                 listViewDataAdapter = var13;
                 var13.notifyDataSetChanged();
                 listViewWithCheckbox.setAdapter(listViewDataAdapter);
-                elem.setText("INSERTA AQUÍ EL ELEMENTO QUE QUIERAS AÑADIR");
+                //elem.setText("INSERTA AQUÍ EL ELEMENTO QUE QUIERAS AÑADIR");
+                elem.setText("");
             }
         });
 

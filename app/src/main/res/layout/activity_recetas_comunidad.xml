@@ -32,36 +32,58 @@
 
     <TextView
         android:id="@+id/textView9"
-        android:layout_width="413dp"
-        android:layout_height="51dp"
+        android:layout_width="411dp"
+        android:layout_height="40dp"
         android:fontFamily="sans-serif-smallcaps"
         android:gravity="center_horizontal"
-        android:text="Recetas de la Comunidad"
+        android:text="@string/recetasComunidad"
         android:textAlignment="center"
         android:textColor="@color/black"
-        android:textSize="25dp"
+        android:textSize="30dp"
+        android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.122" />
+        app:layout_constraintVertical_bias="0.183" />
 
     <androidx.cardview.widget.CardView
-        android:layout_width="411dp"
-        android:layout_height="621dp"
+        android:layout_width="391dp"
+        android:layout_height="552dp"
+        android:layout_gravity="center"
         android:layout_marginTop="3dp"
-        android:background="@color/white"
+        android:background="#359A11"
+        app:cardBackgroundColor="#FFFFFF"
+        app:cardCornerRadius="0dp"
+        app:cardElevation="0dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.478"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView9">
+        app:layout_constraintTop_toBottomOf="@+id/textView9"
+        app:layout_constraintVertical_bias="0.36">
 
         <ListView
             android:id="@+id/listview"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:background="@color/white" />
+            android:layout_width="347dp"
+            android:layout_height="512dp"
+            android:layout_gravity="center"
+            android:background="#FFFFFF"
+            android:backgroundTint="#FFFFFF" />
     </androidx.cardview.widget.CardView>
+
+    <ImageView
+        android:id="@+id/imageView5"
+        android:layout_width="89dp"
+        android:layout_height="47dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.102"
+        app:srcCompat="@drawable/logo_pequeno" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

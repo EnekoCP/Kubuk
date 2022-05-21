@@ -48,8 +48,6 @@ public class EditRecetaActivity extends AppCompatActivity implements Response.Li
         descripcion = findViewById(R.id.descripcionEdit);
         ingredientes = findViewById(R.id.ingredientesEdit);
 
-
-
         queue = Volley.newRequestQueue(EditRecetaActivity.this);
 
         getDatos();
@@ -82,7 +80,7 @@ public class EditRecetaActivity extends AppCompatActivity implements Response.Li
     @Override
     public void onResponse(JSONObject response) {
 
-        Toast.makeText(this,"Receta Eliminada", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,getString(R.string.deleteRecetaMssg), Toast.LENGTH_SHORT).show();
 
         Intent inicioApp = new Intent(this, MyRecipes.class);
        startActivity(inicioApp);
@@ -92,7 +90,7 @@ public class EditRecetaActivity extends AppCompatActivity implements Response.Li
     public void onErrorResponse(VolleyError error) {
         System.out.println("ERRORRR" + error.toString());
         error.printStackTrace();
-        Toast.makeText(this,"Error en el delete", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this,getString(R.string.errorRecetaBorrarMssg), Toast.LENGTH_SHORT).show();
 
     }
 
@@ -120,13 +118,13 @@ public class EditRecetaActivity extends AppCompatActivity implements Response.Li
                             e.printStackTrace();
                         }
 
-                        Toast.makeText(getApplicationContext(), "Datos obtenidos", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), getString(R.string.datosGet), Toast.LENGTH_LONG).show();
                     }
                 }, new Response.ErrorListener() {
             @Override
             public void onErrorResponse(VolleyError error) {
 
-                Toast.makeText(getApplicationContext(), "ERROR EN LA CONEXION", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), getString(R.string.errorServidor), Toast.LENGTH_LONG).show();
             }
         }){
             @Override
@@ -152,7 +150,7 @@ public class EditRecetaActivity extends AppCompatActivity implements Response.Li
                         System.out.println(response);
                         System.out.println("AQUIIIIIIIIIIIIII" + response);
 
-                        Toast.makeText(getApplicationContext(), "Datos actualizados", Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), getString(R.string.datosUpdated), Toast.LENGTH_LONG).show();
                     }
                 }, new Response.ErrorListener() {
             @Override
@@ -164,7 +162,7 @@ public class EditRecetaActivity extends AppCompatActivity implements Response.Li
                 System.out.println(descripcion.getText().toString());
                 System.out.println(ingredientes.getText().toString());
 
-                Toast.makeText(getApplicationContext(), "ERROR", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), getString(R.string.errorServidor), Toast.LENGTH_LONG).show();
             }
         }){
             @Override

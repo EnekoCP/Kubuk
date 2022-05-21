@@ -1,5 +1,6 @@
 package com.example.kubuk.Main;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -7,6 +8,8 @@ import android.os.Bundle;
 import android.text.Html;
 import android.util.Base64;
 import android.util.Log;
+import android.view.MotionEvent;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.RatingBar;
 import android.widget.TextView;
@@ -37,6 +40,7 @@ public class DetallesRecetaComunidad extends AppCompatActivity implements Respon
 
     String titulo;
     String accion;
+
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -89,8 +93,28 @@ public class DetallesRecetaComunidad extends AppCompatActivity implements Respon
                     ratingBar.setRating(rating);
 
                     setValoracion(Math.round(rating));
+                    sendMessage(Math.round(rating));
+
+            }
+        });
+        valorar.setOnTouchListener(new View.OnTouchListener() {
+            @Override
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction() == MotionEvent.ACTION_UP) {
 
 
+                    float touchPositionX = event.getX();
+                    float width = valorar.getWidth();
+                    float starsf = (touchPositionX / width) * 5.0f;
+                    int stars = (int)starsf + 1;
+                    valorar.setRating(stars);
+
+                    setValoracion(Math.round(stars));
+                    accion="sendmssg";
+                    sendMessage(Math.round(stars));
+
+                }
+                return true;
             }
         });
 
@@ -192,5 +216,29 @@ public class DetallesRecetaComunidad extends AppCompatActivity implements Respon
         RatingBar ratingBar=findViewById(R.id.valorar);
         ratingBar.setRating(Float.parseFloat(puntos));
 
+
     }
+
+    private void sendMessage(int puntos){
+        if(accion=="sendmssg"){
+            ServicioFirebase firebase=new ServicioFirebase();
+            String url = "http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/everhorst001/WEB/Kubuk/notificacionValoracion.php?user="
+                    +User.getUsuario() + "&fromToken=" +firebase.getToken()+"&funcion=send&autor="+email+"&receta="+titulo+"&puntuacion="+puntos;
+
+            url = url.replace(" ", "%20");
+            StringRequest stringRequest = new StringRequest(Request.Method.GET, url, this,this);
+
+            request.add(stringRequest);
+        }
+    }
+
+    @Override
+    public void onBackPressed() {
+        Intent intent= new Intent(this,MenuMain.class);
+        intent.putExtra("usuario",User.getUsuario());
+        finish();
+        startActivity(intent);
+    }
+
+
 }

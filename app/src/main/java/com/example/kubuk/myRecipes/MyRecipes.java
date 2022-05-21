@@ -169,7 +169,7 @@ public class MyRecipes extends AppCompatActivity implements Response.Listener<JS
             @Override
             public void onErrorResponse(VolleyError error) {
 
-                Toast.makeText(getApplicationContext(), "ERROR EN LA CONEXION", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), getString(R.string.errorServidor), Toast.LENGTH_LONG).show();
             }
         }){
             @Override

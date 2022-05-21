@@ -12,6 +12,7 @@ import androidx.fragment.app.DialogFragment;
 
 
 import com.example.kubuk.Main.MenuMain;
+import com.example.kubuk.R;
 
 public class eliminarDialogFragment extends DialogFragment {
 
@@ -23,9 +24,9 @@ public class eliminarDialogFragment extends DialogFragment {
 
         Intent login = new Intent(getActivity(), MenuMain.class);
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("Eliminar Usuario");
-        builder.setMessage("El usuario y todos sus datos asociados han sido eliminados correctamente.");
-        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
+        builder.setTitle(getString(R.string.eliminaruserT));
+        builder.setMessage(getString(R.string.eliminarUsuarioMssg));
+        builder.setPositiveButton(getString(R.string.aceptar), new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dismiss();

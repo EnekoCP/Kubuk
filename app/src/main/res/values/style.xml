@@ -1,10 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    <!--Campos de texto-->
+
     <style name="CampoTexto" parent="Theme.AppCompat.Light">
         <item name="colorControlNormal">#BC000000</item>
         <item name="colorControlActivated">#BC000000</item>
         <item name="android:textColorHighlight">#BC000000</item>
     </style>
+
+    <!--Estrellas-->
 
     <style name="RatingBar" parent="Theme.MaterialComponents.DayNight">
         <item name="ratingBarStyle">@style/Controls.RatingBar</item>
