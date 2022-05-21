@@ -61,7 +61,7 @@ public class RecipeOverviewAdapter extends RecyclerView.Adapter<RecipeOverviewAd
             public void onClick(View view) {
                 Intent miIntent = new Intent(context, EditRecetaActivity.class);
                 miIntent.putExtra("titulo", miReceta.getTitulo());
-
+                miIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(miIntent);
 
             }
@@ -77,14 +77,14 @@ public class RecipeOverviewAdapter extends RecyclerView.Adapter<RecipeOverviewAd
                             public void onResponse(String response) {
 
                                 System.out.println("Respuesta: " + response);
-                                Toast.makeText(context, "Receta de " + miReceta.getTitulo() + " publicada", Toast.LENGTH_LONG).show();
+                                Toast.makeText(context, context.getString(R.string.recetaDe) + miReceta.getTitulo() + context.getString(R.string.publicada), Toast.LENGTH_LONG).show();
 
                             }
                         }, new Response.ErrorListener() {
                     @Override
                     public void onErrorResponse(VolleyError error) {
 
-                        Toast.makeText(context, "ERROR EN LA CONEXION", Toast.LENGTH_LONG).show();
+                        Toast.makeText(context, context.getString(R.string.errorServidor), Toast.LENGTH_LONG).show();
                     }
                 }) {
                     @Override

@@ -52,7 +52,7 @@
         android:layout_marginTop="5dp"
         android:fontFamily="sans-serif-smallcaps"
         android:gravity="center_horizontal"
-        android:text="Lista de la Compra"
+        android:text="@string/listacompra"
         android:textAlignment="center"
         android:textColor="@color/black"
         android:textSize="34sp"
@@ -97,7 +97,7 @@
             android:layout_marginRight="10dp"
             android:ems="10"
             android:fontFamily="sans-serif-smallcaps"
-            android:hint="ingrediente"
+            android:hint="@string/insertElemento"
             android:inputType="textPersonName"
             android:textAlignment="center"
             android:textColor="@color/black"
@@ -115,7 +115,7 @@
             android:fontFamily="sans-serif-smallcaps"
             android:gravity="center"
             android:onClick="onClick"
-            android:text="Añadir Elemento a la lista"
+            android:text="@string/insertElementoButton"
             android:textColor="@color/white"
             android:textSize="18dp"></Button>
 

@@ -40,7 +40,7 @@
     <string name="ingredientes">INGREDIENTES</string>
     <string name="preparacion">PREPARACIÓN</string>
     <string name="listacompra">Lista De La Compra</string>
-    <string name="insertElemento">INSERTA AQUÍ EL ELEMENTO QUE QUIERAS AÑADIR</string>
+    <string name="insertElemento">Ingrediente</string>
     <string name="insertElementoButton">Añadir Elemento a la lista</string>
     <string name="recetasComunidad">Recetas de la Comunidad</string>
     <string name="editar">EDITAR</string>
@@ -80,4 +80,9 @@
     <string name="recetaDe">Receta de</string>
     <string name="publicada">publicada</string>
     <string name="abrirPantalla">Abrir pantalla editar con datos de</string>
+    <string name="donde">¿Dónde nos puedes encontrar?</string>
+    <string name="administrar">Administrar Cuenta</string>
+    <string name="aboutus">Sobre Nosotros</string>
+    <string name="cerrarSesion">Cerrar Sesion</string>
+    <string name="direccion">Paseo Rafael Moreno \'Pitxitxi\' 2</string>
 </resources>

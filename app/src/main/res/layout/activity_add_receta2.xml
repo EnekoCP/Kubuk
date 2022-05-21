@@ -107,7 +107,7 @@
         android:layout_marginBottom="40dp"
         android:backgroundTint="#009688"
         android:fontFamily="sans-serif-smallcaps"
-        android:text="Capturar"
+        android:text="@string/capturar"
         android:textSize="16sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toTopOf="@+id/textView5"
@@ -136,7 +136,7 @@
         android:layout_marginBottom="44dp"
         android:background="#359A11"
         android:fontFamily="sans-serif-smallcaps"
-        android:text="AÑADIR receta"
+        android:text="@string/addreceta"
         android:textSize="20sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />

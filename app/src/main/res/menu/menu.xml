@@ -2,17 +2,17 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item android:id="@+id/misrecetas"
-            android:title="Mis Recetas"/>
+            android:title="@string/misrecetas"/>
     <item android:id="@+id/recetascomunidad"
-            android:title="Recetas de la Comunidad" />
+            android:title= "@string/recetasComunidad"/>
     <item  android:id="@+id/listacompra"
-        android:title="Lista de la Compra" />
+        android:title="@string/listacompra" />
     <item  android:id="@+id/modifuser"
-        android:title="Administrar Cuenta" />
+        android:title="@string/administrar" />
     <item  android:id="@+id/aboutus"
-        android:title="About Us" />
+        android:title="@string/aboutus" />
     <item  android:id="@+id/logout"
-        android:title="Cerrar Sesión" />
+        android:title="@string/cerrarSesion" />
 
 
 </menu>

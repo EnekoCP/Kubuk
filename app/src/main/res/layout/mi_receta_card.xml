@@ -68,7 +68,7 @@
                 android:layout_height="wrap_content"
                 android:background="@color/white"
                 android:fontFamily="sans-serif-smallcaps"
-                android:text="Editar"
+                android:text="@string/editar"
                 android:textColor="#359A11"></Button>
 
             <Button
@@ -78,7 +78,7 @@
                 android:layout_marginLeft="5dp"
                 android:background="@color/white"
                 android:fontFamily="sans-serif-smallcaps"
-                android:text="Publicar"
+                android:text="@string/publicar"
                 android:textColor="#359A11"></Button>
 
         </LinearLayout>
