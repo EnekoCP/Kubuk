@@ -39,7 +39,7 @@ public class DetallesRecetaComunidad extends AppCompatActivity implements Respon
     String i1,i2,i3;
 
     String titulo;
-    String accion;
+    String accion="receta";
 
 
     protected void onCreate(Bundle savedInstanceState) {
@@ -162,19 +162,16 @@ public class DetallesRecetaComunidad extends AppCompatActivity implements Respon
                 json=new JSONArray(response);
                 int i=0;//SOLO PARA HACER PRUEBAS, PORQUE LA SEGUNDA RECETA NO TIENE IMAGENES, DESPUES CAMBIARLO A 0
                 while(i<json.length()){
-                    if(accion=="receta") {
+                    if(true) {
                         i1 = json.getJSONObject(i).getString("imagen1");
                         i2 = json.getJSONObject(i).getString("imagen2");
                         i3 = json.getJSONObject(i).getString("imagen3");
                         Log.i("i1", i1);
-                    }else if(accion=="get"){
                         String result=json.getJSONObject(i).getString("resultado");
                         try{
                             setPuntos(result);
                         }catch (NumberFormatException e){
-
                         }
-
                     }
                     i++;
                 }
@@ -182,9 +179,9 @@ public class DetallesRecetaComunidad extends AppCompatActivity implements Respon
                 e.printStackTrace();
             }
         }
-        if(accion=="receta") {
-            //setImages(i1, i2, i3);
-        }
+
+        setImages(i1, i2, i3);
+
     }
 
 
