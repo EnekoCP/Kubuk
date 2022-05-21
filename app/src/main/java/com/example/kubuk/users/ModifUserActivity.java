@@ -29,7 +29,7 @@ import android.widget.Toast;
 
 import java.io.IOException;
 
-public class ModifUserActivity extends AppCompatActivity implements Response.Listener<String>, Response.ErrorListener {
+public class ModifUserActivity extends AppCompatActivity implements Response.Listener<String>, Response.ErrorListener, ConfirmarEliminarFragment.ListenerdelDialogo {
 
     String imgUri = "";
     String email;
@@ -92,17 +92,16 @@ public class ModifUserActivity extends AppCompatActivity implements Response.Lis
 
         /*TODO: MIRAR POR QUE FALLA AL DARLE A CONTINUAR --> Elimina, pero no pasa a login*/
 
-       /* Button deleteButton = findViewById(R.id.buttonDelete);
+        Button deleteButton = findViewById(R.id.buttonDelete);
 
         deleteButton.setOnClickListener(new View.OnClickListener()    {
             @Override
             public void onClick(View view) {
                 eliminarUsuario();
             }
-        });*/
+        });
         
     }
-
 
     private void eliminarUsuario() {
         Bundle bundle = new Bundle();
@@ -238,4 +237,22 @@ public class ModifUserActivity extends AppCompatActivity implements Response.Lis
         return valido;
 
     }
+
+    @Override
+    public void alpulsarSI(String respuesta) {
+        switch (respuesta){
+            case "Error":
+                Toast.makeText(getApplicationContext(), getString(R.string.errorServidor), Toast.LENGTH_SHORT).show();
+                break;
+            case "Eliminado_done":
+                DialogFragment confirmarAlert = new eliminarDialogFragment();
+                confirmarAlert.show(getSupportFragmentManager(),"eliminar_dialog2");
+                break;
+            case "Eliminado_notdone":
+                Toast.makeText(getApplicationContext(), getString(R.string.noeliminado), Toast.LENGTH_SHORT).show();
+                break;
+        }
+
+    }
+
 }

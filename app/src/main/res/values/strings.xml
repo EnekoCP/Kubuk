@@ -69,7 +69,7 @@
     <string name="newReceta">NUEVA RECETA</string>
     <string name="save">Guardar</string>
     <string name="eliminarUserConfT">Eliminar usuario</string>
-    <string name="eliminarUserMssg">¿Estás seguro de querer eliminar el usuario? \\n Se eliminarán todos los datos.</string>
+    <string name="eliminarUserMssg">¿Estás seguro de querer eliminar el usuario?    Se eliminarán todos los datos.</string>
     <string name="continuar">Continuar</string>
     <string name="volver">Volver</string>
     <string name="noeliminado">No se pudo eliminar los datos del usuario en este momento. Pruebe de nuevo más tarde</string>
