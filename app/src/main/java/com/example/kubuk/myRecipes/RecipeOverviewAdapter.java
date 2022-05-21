@@ -61,7 +61,7 @@ public class RecipeOverviewAdapter extends RecyclerView.Adapter<RecipeOverviewAd
             public void onClick(View view) {
                 Intent miIntent = new Intent(context, EditRecetaActivity.class);
                 miIntent.putExtra("titulo", miReceta.getTitulo());
-
+                miIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
                 context.startActivity(miIntent);
 
             }

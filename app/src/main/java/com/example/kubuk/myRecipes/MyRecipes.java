@@ -122,6 +122,7 @@ public class MyRecipes extends AppCompatActivity implements Response.Listener<JS
         System.out.println("Usuario: " + User.getUsuario());
 
 
+
         recipeOverview = new RecipeOverviewAdapter(listaRecetas, getApplicationContext());
         recipeOverview.setOnClickListener(new View.OnClickListener() {
             @Override

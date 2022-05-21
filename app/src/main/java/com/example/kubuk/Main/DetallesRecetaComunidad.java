@@ -37,16 +37,17 @@ public class DetallesRecetaComunidad extends AppCompatActivity implements Respon
     String email;
     RequestQueue request;
     String i1,i2,i3;
-
+    String receta[];
     String titulo;
     String accion="receta";
+
 
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.detalles_receta_comunidad);
         Bundle extras = getIntent().getExtras();
-        String receta[]=extras.getStringArray("receta"); //el orden es: titulo(0), ingredientes(1), preparacion(2), email(3).
+        receta=extras.getStringArray("receta"); //el orden es: titulo(0), ingredientes(1), preparacion(2), email(3).
         Log.i("los extras, titulo", receta[0]);
         email=receta[3];
         titulo=receta[0];
@@ -111,6 +112,7 @@ public class DetallesRecetaComunidad extends AppCompatActivity implements Respon
 
                     setValoracion(Math.round(stars));
                     accion="sendmssg";
+
                     sendMessage(Math.round(stars));
 
                 }
@@ -121,27 +123,36 @@ public class DetallesRecetaComunidad extends AppCompatActivity implements Respon
 
     }
     private void setImages(String im1,String im2,String im3){
-        //Log.i("la imagen1",im1);
-        byte[] bytes= Base64.decode(im1,Base64.URL_SAFE);
-        imageBitmap= BitmapFactory.decodeByteArray(bytes,0,bytes.length);
-        //Log.i("el bitmap",imageBitmap.toString());
+        if(im1!=null ) {
+            Log.i("la imagen1", im1);
+            byte[] bytes = Base64.decode(im1, Base64.URL_SAFE);
+            imageBitmap = BitmapFactory.decodeByteArray(bytes, 0, bytes.length);
+            //Log.i("el bitmap",imageBitmap.toString());
 
-        ImageView img1= findViewById(R.id.imageView1);
-        img1.setImageBitmap(imageBitmap);
+            ImageView img1 = findViewById(R.id.imageView1);
+            img1.setImageBitmap(imageBitmap);
 
-        bytes= Base64.decode(im1,Base64.URL_SAFE);
-        imageBitmap2= BitmapFactory.decodeByteArray(bytes,0,bytes.length);
-        ImageView img2= findViewById(R.id.imageView2);
-        img2.setImageBitmap(imageBitmap);
+        }
+        if(im2!=null) {
+            Log.i("la imagen2", im2);
+            byte[] bytes2 = Base64.decode(im2, Base64.URL_SAFE);
+            imageBitmap2 = BitmapFactory.decodeByteArray(bytes2, 0, bytes2.length);
+            ImageView img2 = findViewById(R.id.imageView2);
+            img2.setImageBitmap(imageBitmap);
 
-        bytes= Base64.decode(im1,Base64.URL_SAFE);
-        imageBitmap3= BitmapFactory.decodeByteArray(bytes,0,bytes.length);
-        ImageView img3= findViewById(R.id.imageView3);
-        img3.setImageBitmap(imageBitmap);
+        }
+        if(im3!=null){
+            Log.i("la imagen3", im3);
+            byte[] bytes3= Base64.decode(im3,Base64.URL_SAFE);
+            imageBitmap3= BitmapFactory.decodeByteArray(bytes3,0,bytes3.length);
+            ImageView img3= findViewById(R.id.imageView3);
+            img3.setImageBitmap(imageBitmap);
+        }
+
     }
     private void cargarWebService() {
         accion="receta";
-        String url="http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/everhorst001/WEB/Kubuk/conseguirImgRecetas.php?email="+email;
+        String url="http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/everhorst001/WEB/Kubuk/conseguirImgRecetas.php?email="+email+"&titulo="+receta[0];
         url.replace(" ", "%20");
         StringRequest var1 = new StringRequest(Request.Method.GET, url,this,this);
 
@@ -183,6 +194,7 @@ public class DetallesRecetaComunidad extends AppCompatActivity implements Respon
         setImages(i1, i2, i3);
 
     }
+
 
 
     private void getValoracion(){
