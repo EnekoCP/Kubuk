@@ -60,8 +60,8 @@
     <string name="deleteReceta">ERREZETA EZABATU</string>
     <string name="save">Gorde</string>
     <string name="abrirPantalla">" Ireki editatzeko pantaila "</string>
-    <string name="publicada">argitaratuta</string>
-    <string name="recetaDe">Errezeta</string>
+    <string name="publicada">"  argitaratuta"</string>
+    <string name="recetaDe">"Errezeta  "</string>
     <string name="datosUpdated">Datuak eguneratutak</string>
     <string name="datosGet">Datuak lortuta</string>
     <string name="errorRecetaBorrarMssg">Errorea ezabatzean</string>

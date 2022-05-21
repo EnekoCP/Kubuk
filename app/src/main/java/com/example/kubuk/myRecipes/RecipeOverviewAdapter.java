@@ -77,7 +77,7 @@ public class RecipeOverviewAdapter extends RecyclerView.Adapter<RecipeOverviewAd
                             public void onResponse(String response) {
 
                                 System.out.println("Respuesta: " + response);
-                                Toast.makeText(context, context.getString(R.string.recetaDe) + miReceta.getTitulo() + context.getString(R.string.publicada), Toast.LENGTH_LONG).show();
+                                Toast.makeText(context, context.getString(R.string.recetaDe) + " " +miReceta.getTitulo() + " "+context.getString(R.string.publicada), Toast.LENGTH_LONG).show();
 
                             }
                         }, new Response.ErrorListener() {

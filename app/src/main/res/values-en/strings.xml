@@ -61,8 +61,8 @@
     <string name="newReceta">NEW RECIPE</string>
     <string name="save">Save</string>
     <string name="abrirPantalla">Open edit screen with data from</string>
-    <string name="publicada">published</string>
-    <string name="recetaDe">Recipe of</string>
+    <string name="publicada">"  published"</string>
+    <string name="recetaDe">"Recipe of  "</string>
     <string name="datosUpdated">Data updated</string>
     <string name="datosGet">Data obtained</string>
     <string name="errorRecetaBorrarMssg">Failed to delete</string>

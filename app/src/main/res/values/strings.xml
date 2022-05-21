@@ -86,8 +86,8 @@
     <string name="errorRecetaBorrarMssg">Error al borrar</string>
     <string name="datosGet">Datos obtenidos</string>
     <string name="datosUpdated">Datos actualizados</string>
-    <string name="recetaDe">Receta de</string>
-    <string name="publicada">publicada</string>
+    <string name="recetaDe">"Receta de  "</string>
+    <string name="publicada">"  publicada"</string>
     <string name="abrirPantalla">Abrir pantalla editar con datos de</string>
     <string name="donde">¿Dónde nos puedes encontrar?</string>
     <string name="direccion">Paseo Rafael Moreno \'Pitxitxi\' 2</string>
