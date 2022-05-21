@@ -61,8 +61,8 @@
     <string name="newReceta">NEW RECIPE</string>
     <string name="save">Save</string>
     <string name="abrirPantalla">Open edit screen with data from</string>
-    <string name="publicada">published</string>
-    <string name="recetaDe">Recipe of</string>
+    <string name="publicada">"  published"</string>
+    <string name="recetaDe">"Recipe of  "</string>
     <string name="datosUpdated">Data updated</string>
     <string name="datosGet">Data obtained</string>
     <string name="errorRecetaBorrarMssg">Failed to delete</string>
@@ -74,10 +74,9 @@
     <string name="modNotDone">The data could not be modified at this time. Try again later</string>
     <string name="noMod">No fields have been modified</string>
     <string name="aceptar">Accept</string>
-    <string name="eliminaruserT">Delete user</string>
     <string name="volver">Back</string>
     <string name="continuar">Continue</string>
-    <string name="eliminarUserConfT">Delete user: confirmation</string>
+    <string name="eliminarUserConfT">Delete user</string>
     <string name="eliminarUserMssg">Are you sure you want to delete the user? All data will be deleted.</string>
     <string name="noeliminado">Unable to delete user data at this time. Try again later</string>
     <string name="eliminarUsuarioMssg">The user and all associated data have been successfully deleted.</string>
@@ -86,5 +85,7 @@
     <string name="aboutus">About us</string>
     <string name="administrar">Manage Account</string>
     <string name="donde">Where can you find us?</string>
+    <string name="noelemSelected">No items selected.</string>
+    <string name="eliminaruserT">Delete user</string>
 
 </resources>

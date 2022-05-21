@@ -68,12 +68,11 @@
     <string name="deleteReceta">BORRAR RECETA</string>
     <string name="newReceta">NUEVA RECETA</string>
     <string name="save">Guardar</string>
-    <string name="eliminarUserConfT">Eliminar usuario: confirmación</string>
-    <string name="eliminarUserMssg">¿Estás seguro de querer eliminar el usuario? Se eliminarán todos los datos.</string>
+    <string name="eliminarUserConfT">Eliminar usuario</string>
+    <string name="eliminarUserMssg">¿Estás seguro de querer eliminar el usuario?    Se eliminarán todos los datos.</string>
     <string name="continuar">Continuar</string>
     <string name="volver">Volver</string>
     <string name="noeliminado">No se pudo eliminar los datos del usuario en este momento. Pruebe de nuevo más tarde</string>
-    <string name="eliminaruserT">Eliminar Usuario</string>
     <string name="eliminarUsuarioMssg">El usuario y todos sus datos asociados han sido eliminados correctamente.</string>
     <string name="aceptar">Aceptar</string>
     <string name="noMod">No se ha modificado ningún campo</string>
@@ -86,12 +85,14 @@
     <string name="errorRecetaBorrarMssg">Error al borrar</string>
     <string name="datosGet">Datos obtenidos</string>
     <string name="datosUpdated">Datos actualizados</string>
-    <string name="recetaDe">Receta de</string>
-    <string name="publicada">publicada</string>
+    <string name="recetaDe">"Receta de  "</string>
+    <string name="publicada">"  publicada"</string>
     <string name="abrirPantalla">Abrir pantalla editar con datos de</string>
     <string name="donde">¿Dónde nos puedes encontrar?</string>
     <string name="direccion">Paseo Rafael Moreno \'Pitxitxi\' 2</string>
     <string name="administrar">Administrar Cuenta</string>
     <string name="aboutus">Sobre Nosotros</string>
     <string name="cerrarSesion">Cerrar Sesion</string>
+    <string name="noelemSelected">No hay elementos seleccionados</string>
+    <string name="eliminaruserT">Eliminar Usuario</string>
 </resources>

@@ -73,17 +73,16 @@
         android:id="@+id/euskera"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="274dp"
-        android:layout_marginTop="12dp"
-        android:layout_marginEnd="12dp"
-        android:layout_marginBottom="228dp"
+        android:layout_marginStart="266dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginEnd="18dp"
+        android:layout_marginBottom="164dp"
         android:text="EUS"
         android:textColor="#BC000000"
         android:textSize="15sp"
         app:layout_constraintBottom_toTopOf="@+id/imageViewLogo"
         app:layout_constraintEnd_toStartOf="@+id/español"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

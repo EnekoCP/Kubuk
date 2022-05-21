@@ -19,7 +19,6 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.kubuk.R;
-import com.example.kubuk.Main.MenuMain;
 
 public class ConfirmarEliminarFragment extends DialogFragment  implements Response.Listener<String>, Response.ErrorListener {
 
@@ -27,10 +26,18 @@ public class ConfirmarEliminarFragment extends DialogFragment  implements Respon
     RequestQueue request;
     Intent modif;
 
+    ListenerdelDialogo miListener;
+
+    public interface ListenerdelDialogo {
+        void alpulsarSI(String respuesta);
+    }
+
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         super.onCreateDialog(savedInstanceState);
+
+        miListener = (ListenerdelDialogo) getActivity();
 
         Bundle data = getArguments();
         email = data.getString("usuario");
@@ -65,7 +72,6 @@ public class ConfirmarEliminarFragment extends DialogFragment  implements Respon
 
     /** Método utilizado para eliminar los datos en la BBDD remota */
     private void cargarWebService() {
-        //TODO: Modificar url
         String url = "http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/everhorst001/WEB/Kubuk/eliminarUsuarioKubuk.php?email=" + email;
 
         url = url.replace(" ", "%20");
@@ -76,7 +82,8 @@ public class ConfirmarEliminarFragment extends DialogFragment  implements Respon
 
     @Override
     public void onErrorResponse(VolleyError error) {
-        Toast.makeText(getContext(), getString(R.string.errorServidor), Toast.LENGTH_SHORT).show();
+        dismiss();
+        miListener.alpulsarSI("Error");
         Log.i("ERROR", error.toString());
     }
 
@@ -86,15 +93,14 @@ public class ConfirmarEliminarFragment extends DialogFragment  implements Respon
         String respuesta = response.trim();
         switch (respuesta){
             case "Eliminado_done":
-                DialogFragment confirmarAlert = new eliminarDialogFragment();
-                confirmarAlert.show(getFragmentManager(),"eliminar_dialog2");
+                dismiss();
+                miListener.alpulsarSI(respuesta);
                 Log.i("DELETE", "Delete Ok");
                 break;
             case "Eliminado_notdone":
-                Toast.makeText(getContext(), getString(R.string.noeliminado), Toast.LENGTH_SHORT).show();
-                Log.i("DELETE", "Delete not done");
                 dismiss();
-                startActivity(modif);
+                miListener.alpulsarSI(respuesta);
+                Log.i("DELETE", "Delete not done");
                 break;
         }
 
