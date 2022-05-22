@@ -34,6 +34,7 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.android.volley.AuthFailureError;
+import com.android.volley.DefaultRetryPolicy;
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
 import com.android.volley.Response;
@@ -151,7 +152,7 @@ public class AddRecetaActivity2 extends AppCompatActivity {
 
         ImageAnalysis imageAnalysis = new ImageAnalysis.Builder()
                 .setImageQueueDepth(1) //MAXIMO ANALIZAR UNA FOTO A LA VEZ
-                .setTargetResolution(new Size(1280, 720)) //ESPECIFICANDO RESOLUCION
+                .setTargetResolution(new Size(720, 480)) //ESPECIFICANDO RESOLUCION
                 .build();
 
         ImageCapture.Builder builder = new ImageCapture.Builder();
@@ -159,7 +160,7 @@ public class AddRecetaActivity2 extends AppCompatActivity {
         //SET DE CONFIGURACION DE CAPTURA
         final ImageCapture imageCapture = builder
                 .setCaptureMode(ImageCapture.CAPTURE_MODE_MINIMIZE_LATENCY)
-                .setTargetResolution(new Size(1280, 720))
+                .setTargetResolution(new Size(720, 480))
                 //.setTargetRotation(view.getDisplay().getRotation())
                 .setFlashMode(ImageCapture.FLASH_MODE_AUTO)
                 .build();
@@ -318,6 +319,10 @@ public class AddRecetaActivity2 extends AppCompatActivity {
         };
 
         RequestQueue requestQueue = Volley.newRequestQueue(this);
+        stringRequest.setRetryPolicy(new DefaultRetryPolicy(
+                DefaultRetryPolicy.DEFAULT_TIMEOUT_MS * 10,
+                DefaultRetryPolicy.DEFAULT_MAX_RETRIES,
+                DefaultRetryPolicy.DEFAULT_BACKOFF_MULT));
         requestQueue.add(stringRequest);
     }
 
