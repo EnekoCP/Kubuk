@@ -2,6 +2,8 @@ package com.example.kubuk.ListaCompra;
 
 import static android.view.MenuItem.SHOW_AS_ACTION_IF_ROOM;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -11,14 +13,12 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ListView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.preference.PreferenceManager;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -26,7 +26,6 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.example.kubuk.Main.MenuMain;
 import com.example.kubuk.Main.RecetasComunidad;
 import com.example.kubuk.R;
 import com.example.kubuk.myRecipes.MyRecipes;
@@ -37,8 +36,6 @@ import com.example.kubuk.users.aboutUsActivity;
 import org.json.JSONArray;
 import org.json.JSONException;
 
-import java.io.DataOutputStream;
-import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -51,6 +48,7 @@ public class EnseñarListaCompra extends AppCompatActivity implements Response.L
     RequestQueue request;
     EditText elem = null;
     AdapterListViewListCom var13;
+    AlertDialog dialog;
     private static final int MNU_OPCDEL = 6;
 
 
@@ -91,8 +89,7 @@ public class EnseñarListaCompra extends AppCompatActivity implements Response.L
         });
 
 
-
-    }
+}
 
 
     @Override
@@ -203,22 +200,23 @@ public class EnseñarListaCompra extends AppCompatActivity implements Response.L
             listViewDataAdapter = var13;
             var13.notifyDataSetChanged();
             listViewWithCheckbox.setAdapter(listViewDataAdapter);
+
             listViewWithCheckbox.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                   /* Elemento e= itemList.get(i);
-                    String boo=e.isChecked();
-                    if(boo.equals("true")){
-                        TextView prueba=(TextView) listViewWithCheckbox.getChildAt(i).findViewById(R.id.titulo);
-                        prueba.setPaintFlags(prueba.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-                        boo="false";
-                    }
-                    else{
-                        TextView prueba=(TextView) listViewWithCheckbox.getChildAt(i).findViewById(R.id.titulo);
-                        prueba.setPaintFlags(prueba.getPaintFlags() | Paint.STRIKE_THRU_TEXT_FLAG);
-                        boo="true";
-                    }
-*/
+                    Log.i("ha tocado","el elemento");
+                    dialog= new AlertDialog.Builder(EnseñarListaCompra.this).create();
+                    dialog.setTitle("Eliminar elemento?");
+                    dialog.setButton("ELIMINAR", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface dialog, int which) {
+                            //eliminar el elemento
+                            EliminarElementoListaC elim= new EliminarElementoListaC(email,itemList.get(i).getItemText(),request);
+                            elim.eliminarElem();
+                        }
+
+                    });
+
                 }
             });
         }
