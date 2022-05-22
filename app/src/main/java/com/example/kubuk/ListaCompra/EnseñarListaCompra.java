@@ -188,6 +188,13 @@ public class EnseñarListaCompra extends AppCompatActivity implements Response.L
                 JSONException var11 = var10000;
                 var11.printStackTrace();
             }
+            listViewWithCheckbox = (ListView) findViewById(R.id.listvcompra);
+            itemList = enseñar(rclista);
+            Log.i("ha hecho bienel display", itemList.toString());
+            AdapterListViewListCom var13 = new AdapterListViewListCom(getApplicationContext(), itemList);
+            listViewDataAdapter = var13;
+            var13.notifyDataSetChanged();
+            listViewWithCheckbox.setAdapter(listViewDataAdapter);
 
         }
 
