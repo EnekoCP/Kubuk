@@ -47,8 +47,8 @@
 
     <TextView
         android:id="@+id/ingredientes"
-        android:layout_width="305dp"
-        android:layout_height="139dp"
+        android:layout_width="344dp"
+        android:layout_height="154dp"
         android:layout_marginStart="79dp"
         android:layout_marginTop="112dp"
         android:layout_marginEnd="80dp"
@@ -56,7 +56,7 @@
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.49"
+        app:layout_constraintHorizontal_bias="0.442"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/titulo" />
 
@@ -65,7 +65,7 @@
         android:layout_width="140dp"
         android:layout_height="20dp"
         android:layout_marginStart="37dp"
-        android:layout_marginTop="22dp"
+        android:layout_marginTop="15dp"
         android:layout_marginEnd="288dp"
         android:layout_marginBottom="2dp"
         android:background="#FFFFFF"
@@ -83,21 +83,21 @@
 
     <TextView
         android:id="@+id/preparacion"
-        android:layout_width="310dp"
-        android:layout_height="158dp"
-        android:layout_marginStart="80dp"
+        android:layout_width="341dp"
+        android:layout_height="150dp"
+        android:layout_marginStart="50dp"
         android:layout_marginTop="49dp"
-        android:layout_marginEnd="83dp"
+        android:layout_marginEnd="63dp"
         android:layout_marginBottom="36dp"
         android:fontFamily="sans-serif-light"
         android:textColor="@color/black"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintHorizontal_bias="0.24"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ingredientes"
-        app:layout_constraintVertical_bias="0.109" />
+        app:layout_constraintVertical_bias="0.106" />
 
     <ImageView
         android:id="@+id/imageView1"

@@ -79,7 +79,21 @@ public class DetallesRecetaComunidad extends AppCompatActivity implements Respon
 
         //SET LA PREPARACIÓN
         TextView prepTxt= findViewById(R.id.preparacion);
-        prepTxt.setText(receta[2]);
+        if(receta[2].contains("/")){
+            String[] prep= receta[2].split("/");
+            int pos=0;
+            String prepBullet = " ";
+            while(pos<prep.length){
+                //String ingredBullet= "&#8226; uning<br/> &#8226; dosing<br/> &#8226; tresing<br/>";
+                prepBullet= prepBullet+"&#8226; "+prep[pos]+"<br/>";
+                pos++;
+            }
+            prepTxt.setText(Html.fromHtml(prepBullet));
+        }
+        else{
+            prepTxt.setText(receta[2]);
+        }
+        //prepTxt.setText(receta[2]);
 
 
         //SET RATING BAR
