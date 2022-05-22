@@ -158,7 +158,8 @@ public class AddRecetaActivity2 extends AppCompatActivity {
 
         //SET DE CONFIGURACION DE CAPTURA
         final ImageCapture imageCapture = builder
-                .setCaptureMode(ImageCapture.CAPTURE_MODE_MAXIMIZE_QUALITY)
+                .setCaptureMode(ImageCapture.CAPTURE_MODE_MINIMIZE_LATENCY)
+                .setTargetResolution(new Size(1280, 720))
                 //.setTargetRotation(view.getDisplay().getRotation())
                 .setFlashMode(ImageCapture.FLASH_MODE_AUTO)
                 .build();
@@ -218,7 +219,6 @@ public class AddRecetaActivity2 extends AppCompatActivity {
                 Toast.makeText(AddRecetaActivity2.this,
                         getString(R.string.camNoDetectada), Toast.LENGTH_LONG).show();
 
-                //startActivity(reinicio);
             }
         }
 
