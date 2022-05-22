@@ -27,6 +27,7 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.kubuk.ListaCompra.EliminarListaFragment;
 import com.example.kubuk.ListaCompra.EnseñarListaCompra;
 import com.example.kubuk.R;
 import com.example.kubuk.users.LoginActivity;
@@ -130,9 +131,11 @@ public class MenuMain extends AppCompatActivity implements Response.Listener<Str
             return true;
          case R.id.listacompra:
             //Toast.makeText(this, "deberia entrar en la lista de la compra", Toast.LENGTH_LONG).show();
-            Intent ilis = new Intent(MenuMain.this, EnseñarListaCompra.class);
-            ilis.putExtra("usuario",email);
-            startActivity(ilis);
+            EliminarListaFragment elimlistaAlert = new EliminarListaFragment();
+            Bundle bundle = new Bundle();
+            bundle.putString("usuario", email);
+            elimlistaAlert.setArguments(bundle);
+            elimlistaAlert.show(getSupportFragmentManager(),"eliminar_dialog");
             return true;
          case R.id.modifuser:
             //Toast.makeText(this, "deberia entrar en modificar user", Toast.LENGTH_LONG).show();
@@ -140,6 +143,7 @@ public class MenuMain extends AppCompatActivity implements Response.Listener<Str
             intent.putExtra("usuario",email);
             startActivity(intent);
             return true;
+
          case R.id.aboutus:
             //Toast.makeText(this, "deberia entrar en about us", Toast.LENGTH_LONG).show();
             Intent aboutus = new Intent(MenuMain.this, aboutUsActivity.class);

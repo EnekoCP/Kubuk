@@ -18,52 +18,37 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.kubuk.Main.MenuMain;
 import com.example.kubuk.R;
 import com.example.kubuk.users.ModifUserActivity;
 
 public class EliminarListaFragment extends DialogFragment {
 
-    int index;
 
-    com.example.kubuk.ListaCompra.EliminarListaFragment.ListenerdelDialogoElim miListener;
-
-    public interface ListenerdelDialogoElim {
-        void alpulsarSiElim();
-        void alpulsarNoElim();
-    }
-
+    String email = "";
     @NonNull
     @Override
     public Dialog onCreateDialog(@Nullable Bundle savedInstanceState) {
         super.onCreateDialog(savedInstanceState);
 
-        miListener = (com.example.kubuk.ListaCompra.EliminarListaFragment.ListenerdelDialogoElim) getActivity();
 
         Bundle data = getArguments();
-        index = data.getInt("index");
+        email = data.getString("email");
 
 
         AlertDialog.Builder builder = new AlertDialog.Builder(getActivity());
-        builder.setTitle("¿Eliminar producto?");
-        builder.setMessage("¿De verdad quieres quitar el producto de la lista?");
+        builder.setTitle("Aviso importante");
+        builder.setMessage("Al seleccionar un producto de la lista de la compra, éste se elimina de la lista. Por su salud mental, tenga cuidado.");
 
-        builder.setPositiveButton("Eliminar", new DialogInterface.OnClickListener() {
+        builder.setPositiveButton("Aceptar", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialogInterface, int i) {
                 dismiss();
-                miListener.alpulsarSiElim();
-
+                Intent ilis = new Intent(getActivity(), EnseñarListaCompra.class);
+                ilis.putExtra("usuario",email);
+                startActivity(ilis);
             }
         });
-
-        builder.setNegativeButton("Volver", new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialogInterface, int i) {
-                dismiss();
-                miListener.alpulsarNoElim();
-            }
-        });
-
 
         return builder.create();
     }

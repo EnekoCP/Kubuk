@@ -24,6 +24,7 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.kubuk.AddEditRecetas.AddRecetaActivity;
 import com.example.kubuk.AddEditRecetas.infoDescrFragment;
+import com.example.kubuk.ListaCompra.EliminarListaFragment;
 import com.example.kubuk.ListaCompra.EnseñarListaCompra;
 import com.example.kubuk.Main.MenuMain;
 import com.example.kubuk.R;
@@ -99,9 +100,11 @@ public class MyRecipes extends AppCompatActivity implements Response.Listener<JS
                 return true;
             case R.id.listacompra:
                 //Toast.makeText(this, "deberia entrar en la lista de la compra", Toast.LENGTH_LONG).show();
-                Intent ilis = new Intent(MyRecipes.this, EnseñarListaCompra.class);
-                ilis.putExtra("usuario",email);
-                startActivity(ilis);
+                EliminarListaFragment elimlistaAlert = new EliminarListaFragment();
+                Bundle bundle = new Bundle();
+                bundle.putString("usuario", email);
+                elimlistaAlert.setArguments(bundle);
+                elimlistaAlert.show(getSupportFragmentManager(),"eliminar_dialog");
                 return true;
             case R.id.modifuser:
                 //Toast.makeText(this, "deberia entrar en modificar user", Toast.LENGTH_LONG).show();

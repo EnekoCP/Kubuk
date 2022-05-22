@@ -39,7 +39,7 @@ import org.json.JSONException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EnseñarListaCompra extends AppCompatActivity implements Response.Listener<String>, Response.ErrorListener, EliminarListaFragment.ListenerdelDialogoElim {
+public class EnseñarListaCompra extends AppCompatActivity implements Response.Listener<String>, Response.ErrorListener {
     List<Elemento> itemList;
     AdapterListViewListCom listViewDataAdapter;
     ListView listViewWithCheckbox;
@@ -189,22 +189,6 @@ public class EnseñarListaCompra extends AppCompatActivity implements Response.L
                 var11.printStackTrace();
             }
 
-            listViewWithCheckbox = (ListView) findViewById(R.id.listvcompra);
-            itemList = enseñar(rclista);
-            Log.i("ha hecho bienel display", itemList.toString());
-            AdapterListViewListCom var13 = new AdapterListViewListCom(getApplicationContext(), itemList);
-            listViewDataAdapter = var13;
-            var13.notifyDataSetChanged();
-            listViewWithCheckbox.setAdapter(listViewDataAdapter);
-
-            listViewWithCheckbox.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                @Override
-                public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                    Log.i("ha tocado","el elemento");
-                    EliminarListaFragment elimlistaAlert = new EliminarListaFragment();
-                    elimlistaAlert.show(getSupportFragmentManager(),"eliminar_dialog");
-                }
-            });
         }
 
     }
@@ -244,15 +228,4 @@ public class EnseñarListaCompra extends AppCompatActivity implements Response.L
         request.add(var1);
     }
 
-
-    @Override
-    public void alpulsarSiElim() {
-        var13.notifyDataSetChanged();
-    }
-
-    @Override
-    public void alpulsarNoElim() {
-
-
-    }
 }
