@@ -1,7 +1,10 @@
 package com.example.kubuk.ListaCompra;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Build;
+import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
@@ -17,7 +20,7 @@ import java.util.List;
 
 public class AdapterListViewListCom extends BaseAdapter {
     private List<Elemento> listViewItemDtoList = null;
-
+    private AlertDialog dialog;
     private Context ctx = null;
 
     public AdapterListViewListCom(Context ctx, List<Elemento> listViewItemDtoList) {
@@ -68,12 +71,10 @@ public class AdapterListViewListCom extends BaseAdapter {
                 @Override
                 public void onClick(View view) {
                     //cuando clickas en el checkbox
-                    /*Intent i= new Intent(ctx, ActualizarCheckBox.class);
-                    i.putExtra("usuario",listViewItemDtoList.get(itemIndex).getEmail());
-                    Log.i("el usuario en adapter",listViewItemDtoList.get(itemIndex).getEmail());
-                    i.putExtra("marcado",listViewItemDtoList.get(itemIndex).isChecked());
-                    i.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                    ctx.startActivity(i);*/
+                    Log.i("ha tocado","el elemento");
+
+                    EliminarElementoListaC elim= new EliminarElementoListaC(listViewItemDtoList.get(itemIndex).getEmail(),listViewItemDtoList.get(itemIndex).getItemText(),ctx);
+                    elim.eliminarElem();
                     ActualizarCheckBox acb= new ActualizarCheckBox(listViewItemDtoList.get(itemIndex).getEmail(),listViewItemDtoList.get(itemIndex).isChecked(),ctx,listViewItemDtoList.get(itemIndex).getItemText());
                     acb.actualizarMarcado();
                 }
@@ -102,16 +103,4 @@ public class AdapterListViewListCom extends BaseAdapter {
         return convertView;
     }
 
-    public void onCheckboxClicked(View view) {
-        // Is the view now checked?
-        boolean checked = ((CheckBox) view).isChecked();
-
-        // Check which checkbox was clicked
-        switch (view.getId()) {
-            case R.id.checkbox:
-                PreferenceManager.getDefaultSharedPreferences(ctx).edit()
-                        .putBoolean("checkBox1", checked).commit();
-                break;
-        }
-    }
 }

@@ -48,7 +48,7 @@ public class EnseñarListaCompra extends AppCompatActivity implements Response.L
     RequestQueue request;
     EditText elem = null;
     AdapterListViewListCom var13;
-    AlertDialog dialog;
+
     private static final int MNU_OPCDEL = 6;
 
 
@@ -131,10 +131,6 @@ public class EnseñarListaCompra extends AppCompatActivity implements Response.L
                 aboutus.putExtra("usuario",email);
                 startActivity(aboutus);
                 return true;
-            case MNU_OPCDEL:
-                //TODO: Eliminar los productos checked de la lista
-                Toast.makeText(this, "Eliminar boton funciona", Toast.LENGTH_LONG).show();
-                return true;
             case R.id.logout:
                 //Toast.makeText(this, "deberia entrar en login", Toast.LENGTH_LONG).show();
                 Intent logout = new Intent(EnseñarListaCompra.this, LoginActivity.class);
@@ -201,7 +197,7 @@ public class EnseñarListaCompra extends AppCompatActivity implements Response.L
             var13.notifyDataSetChanged();
             listViewWithCheckbox.setAdapter(listViewDataAdapter);
 
-            listViewWithCheckbox.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            /*listViewWithCheckbox.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                     Log.i("ha tocado","el elemento");
@@ -218,7 +214,7 @@ public class EnseñarListaCompra extends AppCompatActivity implements Response.L
                     });
 
                 }
-            });
+            });*/
         }
 
     }

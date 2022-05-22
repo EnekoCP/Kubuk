@@ -1,6 +1,8 @@
 package com.example.kubuk.ListaCompra;
 
+import android.app.AlertDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
@@ -20,6 +22,7 @@ public class ActualizarCheckBox extends AppCompatActivity implements Response.Li
     String email,elemento;
     boolean marcado;
     Context context;
+    AlertDialog dialog;
 
     public ActualizarCheckBox(String e, boolean m, Context c,String el){
         this.email=e;

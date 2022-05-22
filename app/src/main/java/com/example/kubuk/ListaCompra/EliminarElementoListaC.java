@@ -1,5 +1,6 @@
 package com.example.kubuk.ListaCompra;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 
@@ -13,13 +14,14 @@ import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 
 public class EliminarElementoListaC extends AppCompatActivity implements Response.Listener<String>, Response.ErrorListener{
+    private final Context context;
     private String email;
     private String elemento;
     RequestQueue request;
-    public EliminarElementoListaC(String e, String elem, RequestQueue req){
+    public EliminarElementoListaC(String e, String elem, Context ctx){
         this.email=e;
         this.elemento=elem;
-        request= req;
+        this.context=ctx;
     }
 
 
@@ -35,6 +37,7 @@ public class EliminarElementoListaC extends AppCompatActivity implements Respons
 
 
     public void eliminarElem(){
+        request = Volley.newRequestQueue(context.getApplicationContext());
         String url = "http://ec2-52-56-170-196.eu-west-2.compute.amazonaws.com/everhorst001/WEB/Kubuk/eliminarelemListaC.php?email="
                 +email + "&elemento=" +elemento;
 
