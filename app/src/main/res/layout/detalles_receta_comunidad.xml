@@ -47,6 +47,7 @@
 
     <TextView
         android:id="@+id/ingredientes"
+        android:scrollbars = "vertical"
         android:layout_width="344dp"
         android:layout_height="154dp"
         android:layout_marginStart="79dp"
@@ -83,6 +84,7 @@
 
     <TextView
         android:id="@+id/preparacion"
+        android:scrollbars = "vertical"
         android:layout_width="341dp"
         android:layout_height="150dp"
         android:layout_marginStart="50dp"

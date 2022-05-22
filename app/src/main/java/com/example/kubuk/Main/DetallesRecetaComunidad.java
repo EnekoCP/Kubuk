@@ -6,6 +6,7 @@ import android.graphics.BitmapFactory;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.Html;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Base64;
 import android.util.Log;
 import android.view.MotionEvent;
@@ -71,6 +72,7 @@ public class DetallesRecetaComunidad extends AppCompatActivity implements Respon
                 pos++;
             }
             ingredTxt.setText(Html.fromHtml(ingredBullet));
+            ingredTxt.setMovementMethod(new ScrollingMovementMethod());
         }
         else{
             ingredTxt.setText(receta[1]);
@@ -89,6 +91,7 @@ public class DetallesRecetaComunidad extends AppCompatActivity implements Respon
                 pos++;
             }
             prepTxt.setText(Html.fromHtml(prepBullet));
+            prepTxt.setMovementMethod(new ScrollingMovementMethod());
         }
         else{
             prepTxt.setText(receta[2]);
