@@ -86,4 +86,5 @@
     <string name="donde">Non aurkituko gaituzu?</string>
     <string name="noelemSelected">Ez da elementurik hautatu</string>
     <string name="eliminaruserT">Ezabatu erabiltzailea</string>
+    <string name="receta1camposvacios">No puede quedar ningún campo vacío. Pruebe de nuevo.</string>
 </resources>

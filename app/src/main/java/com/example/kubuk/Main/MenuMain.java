@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.ListView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
@@ -157,6 +158,8 @@ public class MenuMain extends AppCompatActivity implements Response.Listener<Str
 
    public void onErrorResponse(VolleyError var1) {
       var1.printStackTrace();
+      Toast.makeText(getApplicationContext(), getString(R.string.errorServidor), Toast.LENGTH_SHORT).show();
+      Log.i("ERROR", var1.toString());
    }
 
    @SuppressLint("ResourceType")

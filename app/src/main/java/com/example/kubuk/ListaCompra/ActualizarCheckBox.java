@@ -3,6 +3,7 @@ package com.example.kubuk.ListaCompra;
 import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -12,12 +13,14 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
+import com.example.kubuk.R;
 
 public class ActualizarCheckBox extends AppCompatActivity implements Response.Listener<String>, Response.ErrorListener{
     RequestQueue request;
     String email,elemento;
     boolean marcado;
     Context context;
+
     public ActualizarCheckBox(String e, boolean m, Context c,String el){
         this.email=e;
         this.marcado=m;
@@ -37,7 +40,8 @@ public class ActualizarCheckBox extends AppCompatActivity implements Response.Li
     }
     @Override
     public void onErrorResponse(VolleyError error) {
-
+        Toast.makeText(getApplicationContext(), getString(R.string.errorServidor), Toast.LENGTH_SHORT).show();
+        Log.i("ERROR", error.toString());
     }
 
     @Override

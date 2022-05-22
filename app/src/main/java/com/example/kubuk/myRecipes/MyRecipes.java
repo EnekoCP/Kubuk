@@ -2,6 +2,7 @@ package com.example.kubuk.myRecipes;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -87,6 +88,7 @@ public class MyRecipes extends AppCompatActivity implements Response.Listener<JS
                 //Toast.makeText(this, "deberia entrar en la comunidad", Toast.LENGTH_LONG).show();
                 Intent i= new Intent(MyRecipes.this, MenuMain.class);
                 i.putExtra("usuario",email);
+                i.putExtra("login","false");
                 startActivity(i);
                 return true;
             case R.id.misrecetas:
@@ -204,7 +206,8 @@ public class MyRecipes extends AppCompatActivity implements Response.Listener<JS
 
     @Override
     public void onErrorResponse(VolleyError error) {
-
+        Toast.makeText(getApplicationContext(), getString(R.string.errorServidor), Toast.LENGTH_SHORT).show();
+        Log.i("ERROR", error.toString());
     }
 
     @Override

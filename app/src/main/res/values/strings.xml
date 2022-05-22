@@ -95,4 +95,5 @@
     <string name="cerrarSesion">Cerrar Sesion</string>
     <string name="noelemSelected">No hay elementos seleccionados</string>
     <string name="eliminaruserT">Eliminar Usuario</string>
+    <string name="receta1camposvacios">No puede quedar ningún campo vacío. Pruebe de nuevo.</string>
 </resources>

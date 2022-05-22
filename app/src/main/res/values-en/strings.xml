@@ -87,5 +87,6 @@
     <string name="donde">Where can you find us?</string>
     <string name="noelemSelected">No items selected.</string>
     <string name="eliminaruserT">Delete user</string>
+    <string name="receta1camposvacios">No puede quedar ningún campo vacío. Pruebe de nuevo.</string>
 
 </resources>
