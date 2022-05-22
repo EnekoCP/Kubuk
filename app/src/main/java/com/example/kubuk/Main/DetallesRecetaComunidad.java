@@ -101,20 +101,22 @@ public class DetallesRecetaComunidad extends AppCompatActivity implements Respon
         valorar.setOnTouchListener(new View.OnTouchListener() {
             @Override
             public boolean onTouch(View v, MotionEvent event) {
-                if (event.getAction() == MotionEvent.ACTION_UP) {
+                if(!User.getUsuario().equals(email)){
+                    if (event.getAction() == MotionEvent.ACTION_UP) {
 
 
-                    float touchPositionX = event.getX();
-                    float width = valorar.getWidth();
-                    float starsf = (touchPositionX / width) * 5.0f;
-                    int stars = (int)starsf + 1;
-                    valorar.setRating(stars);
+                        float touchPositionX = event.getX();
+                        float width = valorar.getWidth();
+                        float starsf = (touchPositionX / width) * 5.0f;
+                        int stars = (int)starsf + 1;
+                        valorar.setRating(stars);
 
-                    setValoracion(Math.round(stars));
-                    accion="sendmssg";
+                        setValoracion(Math.round(stars));
+                        accion="sendmssg";
 
-                    sendMessage(Math.round(stars));
+                        sendMessage(Math.round(stars));
 
+                    }
                 }
                 return true;
             }
@@ -193,6 +195,25 @@ public class DetallesRecetaComunidad extends AppCompatActivity implements Respon
 
         setImages(i1, i2, i3);
 
+
+        if(!response.equals("false")){
+            JSONArray json = null;
+            try {
+                json=new JSONArray(response);
+                int i=0;//SOLO PARA HACER PRUEBAS, PORQUE LA SEGUNDA RECETA NO TIENE IMAGENES, DESPUES CAMBIARLO A 0
+                while(i<json.length()){
+                        String result=json.getJSONObject(i).getString("resultado");
+                        try{
+                            setPuntos(result);
+                        }catch (NumberFormatException e){
+                        }
+                    i++;
+                }
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 
 
@@ -245,6 +266,7 @@ public class DetallesRecetaComunidad extends AppCompatActivity implements Respon
     public void onBackPressed() {
         Intent intent= new Intent(this,MenuMain.class);
         intent.putExtra("usuario",User.getUsuario());
+        intent.putExtra("login","true");
         finish();
         startActivity(intent);
     }
