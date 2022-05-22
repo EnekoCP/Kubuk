@@ -39,7 +39,7 @@ import org.json.JSONException;
 import java.util.ArrayList;
 import java.util.List;
 
-public class EnseñarListaCompra extends AppCompatActivity implements Response.Listener<String>, Response.ErrorListener {
+public class EnseñarListaCompra extends AppCompatActivity implements Response.Listener<String>, Response.ErrorListener, EliminarListaFragment.ListenerdelDialogoElim {
     List<Elemento> itemList;
     AdapterListViewListCom listViewDataAdapter;
     ListView listViewWithCheckbox;
@@ -197,24 +197,14 @@ public class EnseñarListaCompra extends AppCompatActivity implements Response.L
             var13.notifyDataSetChanged();
             listViewWithCheckbox.setAdapter(listViewDataAdapter);
 
-            /*listViewWithCheckbox.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            listViewWithCheckbox.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                     Log.i("ha tocado","el elemento");
-                    dialog= new AlertDialog.Builder(EnseñarListaCompra.this).create();
-                    dialog.setTitle("Eliminar elemento?");
-                    dialog.setButton("ELIMINAR", new DialogInterface.OnClickListener() {
-                        @Override
-                        public void onClick(DialogInterface dialog, int which) {
-                            //eliminar el elemento
-                            EliminarElementoListaC elim= new EliminarElementoListaC(email,itemList.get(i).getItemText(),request);
-                            elim.eliminarElem();
-                        }
-
-                    });
-
+                    EliminarListaFragment elimlistaAlert = new EliminarListaFragment();
+                    elimlistaAlert.show(getSupportFragmentManager(),"eliminar_dialog");
                 }
-            });*/
+            });
         }
 
     }
@@ -255,5 +245,14 @@ public class EnseñarListaCompra extends AppCompatActivity implements Response.L
     }
 
 
+    @Override
+    public void alpulsarSiElim() {
+        var13.notifyDataSetChanged();
+    }
 
+    @Override
+    public void alpulsarNoElim() {
+
+
+    }
 }

@@ -4,23 +4,28 @@ import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.os.Build;
+import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.CheckBox;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.DialogFragment;
 import androidx.preference.PreferenceManager;
 
 import com.example.kubuk.R;
+import com.example.kubuk.users.ConfirmarEliminarFragment;
+import com.example.kubuk.users.eliminarDialogFragment;
 
 import java.util.List;
 
-public class AdapterListViewListCom extends BaseAdapter {
+public class AdapterListViewListCom extends BaseAdapter  {
     private List<Elemento> listViewItemDtoList = null;
-    private AlertDialog dialog;
     private Context ctx = null;
 
     public AdapterListViewListCom(Context ctx, List<Elemento> listViewItemDtoList) {
@@ -72,7 +77,6 @@ public class AdapterListViewListCom extends BaseAdapter {
                 public void onClick(View view) {
                     //cuando clickas en el checkbox
                     Log.i("ha tocado","el elemento");
-
                     EliminarElementoListaC elim= new EliminarElementoListaC(listViewItemDtoList.get(itemIndex).getEmail(),listViewItemDtoList.get(itemIndex).getItemText(),ctx);
                     elim.eliminarElem();
                     ActualizarCheckBox acb= new ActualizarCheckBox(listViewItemDtoList.get(itemIndex).getEmail(),listViewItemDtoList.get(itemIndex).isChecked(),ctx,listViewItemDtoList.get(itemIndex).getItemText());
@@ -97,10 +101,10 @@ public class AdapterListViewListCom extends BaseAdapter {
 
 
         viewHolder.getItemCheckbox().setChecked(listViewItemDto.isChecked());
-       viewHolder.getItemTextView().setText(listViewItemDto.getItemText());
-
+        viewHolder.getItemTextView().setText(listViewItemDto.getItemText());
 
         return convertView;
     }
+
 
 }
