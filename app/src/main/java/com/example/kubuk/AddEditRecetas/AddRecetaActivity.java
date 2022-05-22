@@ -39,7 +39,7 @@ public class AddRecetaActivity extends AppCompatActivity {
         descripcion = findViewById(R.id.descripcion);
         ingredientes = findViewById(R.id.ingredientes);
 
-         inicio();
+        inicio();
 
     }
 

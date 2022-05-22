@@ -87,4 +87,6 @@
     <string name="noelemSelected">No hay elementos seleccionados</string>
     <string name="eliminaruserT">Eliminar Usuario</string>
     <string name="receta1camposvacios">No puede quedar ningún campo vacío. Pruebe de nuevo.</string>
+    <string name="descrtit">Aviso: Descripciones</string>
+    <string name="descrmsg">Por favor, separar los pasos de la receta mediante el símbolo /</string>
 </resources>

@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.DialogFragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,12 +23,14 @@ import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
 import com.example.kubuk.AddEditRecetas.AddRecetaActivity;
+import com.example.kubuk.AddEditRecetas.infoDescrFragment;
 import com.example.kubuk.ListaCompra.EnseñarListaCompra;
 import com.example.kubuk.Main.MenuMain;
 import com.example.kubuk.R;
 import com.example.kubuk.User;
 import com.example.kubuk.users.LoginActivity;
 import com.example.kubuk.users.ModifUserActivity;
+import com.example.kubuk.users.RegistrarseDialogFragment;
 import com.example.kubuk.users.aboutUsActivity;
 
 import org.json.JSONArray;
@@ -122,8 +125,6 @@ public class MyRecipes extends AppCompatActivity implements Response.Listener<JS
         }
     }
 
-
-
     private void construirRecycler() {
         listaRecetas = new ArrayList<Recipe>();
         getDatos(this.listaRecetas);
@@ -199,8 +200,10 @@ public class MyRecipes extends AppCompatActivity implements Response.Listener<JS
     }
 
     public void onClick(View view) {
-        Intent miIntent = new Intent(MyRecipes.this, AddRecetaActivity.class);
-        startActivity(miIntent);
+        DialogFragment infoDescrFragment = new infoDescrFragment();
+        infoDescrFragment.show(getSupportFragmentManager(),"info_dialog");
+        /*Intent miIntent = new Intent(MyRecipes.this, AddRecetaActivity.class);
+        startActivity(miIntent);*/
     }
 
 

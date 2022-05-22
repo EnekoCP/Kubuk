@@ -87,6 +87,8 @@
     <string name="donde">Where can you find us?</string>
     <string name="noelemSelected">No items selected.</string>
     <string name="eliminaruserT">Delete user</string>
-    <string name="receta1camposvacios">No puede quedar ningún campo vacío. Pruebe de nuevo.</string>
+    <string name="descrtit">Warning: descriptions</string>
+    <string name="receta1camposvacios">No field can be left empty. Try again.</string>
+    <string name="descrmsg">Please, separate the steps of the recipe using the symbol /</string>
 
 </resources>
